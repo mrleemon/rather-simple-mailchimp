@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Mailchimp\n"
+"POT-Creation-Date: 2015-10-29 11:35+0100\n"
+"PO-Revision-Date: 2015-10-29 11:35+0100\n"
+"Last-Translator: OCC <oscarciutat@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: simple-mailchimp.php:59
+msgid "email:"
+msgstr "email:"
+
+#: simple-mailchimp.php:67
+msgid "subscribe"
+msgstr "enviar"
+
+#~ msgid "We have sent you a confirmation email."
+#~ msgstr "Hemos enviado un correo de confirmación."
+
+#~ msgid "Submitting..."
+#~ msgstr "Enviando..."
+
+#~ msgid "Email"
+#~ msgstr "Correo electrónico"
+
+#~ msgid "Submit"
+#~ msgstr "Enviar"
