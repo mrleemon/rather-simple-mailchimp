@@ -141,8 +141,6 @@
 
 // MC
 (function($) {
-
-	// TODO: Do we actually allow custom error styles or is this legacy code?
 	var err_style = '';
 	try {
 	    err_style = mc_custom_error_style;
@@ -161,17 +159,10 @@
 
 	// Expose extra mc form methods in global var
 	window.mc = {
-
-		/**
-	  	 *	Open the evil popup		
-		 */
 		openPopup: function() {
 			$('#mc_embed_signup a.mc_embed_close').show();
 		    setTimeout( function(){ $('#mc_embed_signup').fadeIn(); } , mc.delayPopup);
 		},
-		/**
-		 *	Close the evil popup
-		 */
 		closePopup: function() {
             $('#mc_embed_signup').hide();
             var now = new Date();
@@ -179,7 +170,7 @@
             document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
         },
         /**
-		 *	Figure out if we should show the evil popup (if they've closed it before, don't show it.)
+		 *	Figure out if we should show the popup (if they've closed it before, don't show it.)
          */
         evalPopup: function() {
         	$('#mc_embed_signup').hide();
@@ -213,7 +204,7 @@
 		getGroups: function (){ 
 			var groups = {};
 			$(".mc-field-group").each(function(index) {
-				var inputs = $(this).find("input:text:not(:hidden)");	// TODO: What about non-text inputs like number?
+				var inputs = $(this).find("input:text:not(:hidden)");
 				if (inputs.length > 1) {
 					var mergeName = inputs.first().attr("name");
 					var fieldNames = $.map(inputs, function(f) { return f.name; });
@@ -223,7 +214,7 @@
 			return groups;
 		},
 		/**
-		 *	Chick if a field is part of a multipart field
+		 *	Check if a field is part of a multipart field
 		 * 	(e.g., A date merge field is composed of individual inputs for month, day and year)
 		 *	Used in jQuery validation onkeyup method to ensure that we don't evaluate a field
 		 *  if a user hasn't reached the last input in a multipart field yet.
