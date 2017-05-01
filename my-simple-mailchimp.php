@@ -140,4 +140,4 @@ class My_Simple_Mailchimp {
 	
 }
 
-add_action( 'plugins_loaded', array ( My_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );
+add_action( 'plugins_loaded', array( My_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );
