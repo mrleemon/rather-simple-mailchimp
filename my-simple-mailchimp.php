@@ -90,9 +90,12 @@ class My_Simple_Mailchimp {
 	 * enqueue_scripts
 	 */
 	function enqueue_scripts() {
-		wp_enqueue_script( 'mc-validate', plugins_url( '/js/mc-validate.js', __FILE__ ), array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'mc-messages', plugins_url( '/js/mc-messages.js', __FILE__ ), array( 'mc-validate' ), '1.0', true );
-		wp_enqueue_style( 'my-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
+		global $post;
+		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) ) {
+			wp_enqueue_style( 'my-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
+			wp_enqueue_script( 'mc-validate', plugins_url( '/js/mc-validate.js', __FILE__ ), array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'mc-messages', plugins_url( '/js/mc-messages.js', __FILE__ ), array( 'mc-validate' ), '1.0', true );
+		}
 	}
 
 
