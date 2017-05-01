@@ -8,7 +8,7 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 	function __construct() {
 		$widget_ops = array( 'classname' => 'my_simple_mailchimp_widget', 'description' => __( 'A simple Mailchimp widget', 'my-simple-mailchimp' ) );
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		parent::__construct( 'msmw', __( 'My Simple Mailchimp widget', 'my-simple-mailchimp' ), $widget_ops, $control_ops );
+		parent::__construct( 'my_simple_mailchimp_widget', __( 'My Simple Mailchimp widget', 'my-simple-mailchimp' ), $widget_ops, $control_ops );
 	}
 
 	/**

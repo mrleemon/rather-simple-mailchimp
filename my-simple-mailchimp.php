@@ -47,7 +47,7 @@ class My_Simple_Mailchimp {
   		$this->includes();
 
         add_action( 'init', array( $this, 'load_language' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		
 		add_shortcode( 'mailchimp', array( $this, 'shortcode_mailchimp' ) );
 
@@ -87,11 +87,11 @@ class My_Simple_Mailchimp {
 
 	
 	/**
-	 * enqueue_scripts
+	 * wp_enqueue_scripts
 	 */
-	function enqueue_scripts() {
+	function wp_enqueue_scripts() {
 		global $post;
-		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) ) {
+		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'my_simple_mailchimp_widget' ) ) {
 			wp_enqueue_style( 'my-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
 			wp_enqueue_script( 'mc-validate', plugins_url( '/js/mc-validate.js', __FILE__ ), array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'mc-messages', plugins_url( '/js/mc-messages.js', __FILE__ ), array( 'mc-validate' ), '1.0', true );
