@@ -82,7 +82,7 @@ class My_Simple_Mailchimp {
 	 *
 	 */
 	function load_language() {
-		load_plugin_textdomain( 'my-simple-mailchimp', '', dirname(plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'my-simple-mailchimp', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	

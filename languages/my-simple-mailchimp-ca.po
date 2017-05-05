@@ -1,35 +1,69 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Mailchimp\n"
-"POT-Creation-Date: 2015-10-29 11:35+0100\n"
-"PO-Revision-Date: 2015-10-29 11:35+0100\n"
-"Last-Translator: OCC <oscarciutat@gmail.com>\n"
+"Project-Id-Version: My Simple Mailchimp\n"
+"POT-Creation-Date: 2017-05-05 16:40+0200\n"
+"PO-Revision-Date: 2017-05-05 16:40+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
-"X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: my-simple-mailchimp.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: simple-mailchimp.php:59
+#: include/my-simple-mailchimp-widget.php:9
+msgid "A simple Mailchimp widget"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:11
+msgid "My Simple Mailchimp widget"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:41 my-simple-mailchimp.php:126
 msgid "email:"
-msgstr "email:"
+msgstr "correu electrònic:"
 
-#: simple-mailchimp.php:67
+#: include/my-simple-mailchimp-widget.php:45 my-simple-mailchimp.php:130
 msgid "subscribe"
-msgstr "enviar"
+msgstr "subscriure's"
 
-#~ msgid "We have sent you a confirmation email."
-#~ msgstr "Hem enviat un correu de confirmació."
+#: include/my-simple-mailchimp-widget.php:93
+msgid "Title:"
+msgstr ""
 
-#~ msgid "Submitting..."
-#~ msgstr "Enviant..."
+#: include/my-simple-mailchimp-widget.php:97
+msgid "URL:"
+msgstr ""
 
-#~ msgid "Email"
-#~ msgstr "Correu electrónic"
+#: include/my-simple-mailchimp-widget.php:101
+msgid "U:"
+msgstr ""
 
-#~ msgid "Submit"
-#~ msgstr "Enviar"
+#: include/my-simple-mailchimp-widget.php:105
+msgid "ID:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "My Simple Mailchimp"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A simple Mailchimp plugin with a shortcode and a widget"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oscar Ciutat"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://oscarciutat.com/code/"
+msgstr ""

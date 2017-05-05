@@ -1,33 +1,13 @@
-#mc_embed_signup {
-	width: 50%;
-	margin: 30px auto;
-}
-
 #mc_embed_signup .mc-field-group {
 	position: relative;
 	margin: 0 0 1em;
-}
-
-#mc_embed_signup .mc-field-group label {
-	position: absolute;
-	margin: 5px 10px;
-	font-style: italic;
 }
 
 #mc_embed_signup .mc-field-group input {
 	width: 100%;
 }
 
-#mc_embed_signup .mc-field-group input.required {
-	/*color: #000;*/
-}
-
-#mc_embed_signup .mc-field-group #mce-EMAIL {
-	padding-left: 55px;
-}
-
 #mc_embed_signup .button {
-	float: right;
 	margin: 0;
 }
 
@@ -36,6 +16,8 @@
 }
 
 #mc_embed_signup #mce-responses {
+	margin-top: 10px;
+	font-size: 85%;
 	text-align: center;
 }
 
