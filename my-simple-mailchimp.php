@@ -18,7 +18,6 @@ class My_Simple_Mailchimp {
 	 */
 	protected static $instance = null;
 
-
 	/**
 	 * Access this plugin’s working instance
 	 *
