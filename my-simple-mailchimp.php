@@ -71,7 +71,7 @@ class My_Simple_Mailchimp {
 	 *
 	 */
 	protected function includes() {
-		require_once( 'include/my-simple-mailchimp-widget.php' );
+		require_once 'include/my-simple-mailchimp-widget.php';
 	}
 
 	

@@ -22,6 +22,7 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance );
+		$textarea = apply_filters( 'widget_textarea', empty( $instance['textarea'] ) ? '' : $instance['textarea'], $instance );
 		$url = untrailingslashit( empty( $instance['url'] ) ? '' : $instance['url'] );
 		$u = empty( $instance['u'] ) ? '' : $instance['u'];
 		$id = empty( $instance['id'] ) ? '' : $instance['id'];
@@ -31,6 +32,10 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 		if ( !empty( $title ) ) { 
 			echo $before_title . $title . $after_title;
 		};
+
+		if ( !empty( $textarea ) ) {
+			echo wpautop( $textarea );
+		}
 
 		$html = '<!-- Begin MailChimp Signup Form -->
 			<div id="mc_embed_signup">
@@ -69,6 +74,11 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
+		if ( current_user_can( 'unfiltered_html' ) ) {
+			$instance['textarea'] = $new_instance['textarea'];
+		} else {
+			$instance['textarea'] = stripslashes( wp_filter_post_kses( addslashes( $new_instance['textarea'] ) ) );
+		}
 		$instance['url'] = strip_tags( $new_instance['url'] );
 		$instance['u'] = strip_tags( $new_instance['u'] );
 		$instance['id'] = strip_tags( $new_instance['id'] );
@@ -82,8 +92,9 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 	 * @param array $instance
 	 */
 	 function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'url' => '', 'u' => '', 'id' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'textarea' => '', 'url' => '', 'u' => '', 'id' => '' ) );
 		$title = strip_tags( $instance['title'] );
+		$textarea = $instance['textarea'];
 		$url = strip_tags( $instance['url'] );
 		$u = strip_tags( $instance['u'] );
 		$id = strip_tags( $instance['id'] );
@@ -92,6 +103,10 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 			<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'my-simple-mailchimp' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			</p>
+			<p>
+			<label for="<?php echo $this->get_field_id( 'textarea' ); ?>"><?php _e( 'Textarea:', 'my-simple-mailchimp' ); ?></label>
+			<textarea class="widefat" id="<?php echo $this->get_field_id( 'textarea' ); ?>" name="<?php echo $this->get_field_name( 'textarea' ); ?>"><?php echo esc_textarea( $textarea ); ?></textarea>
 			</p>
 			<p>
 			<label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'URL:', 'my-simple-mailchimp' ); ?></label>
