@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: My Simple Mailchimp\n"
-"POT-Creation-Date: 2017-05-05 16:39+0200\n"
-"PO-Revision-Date: 2017-05-05 16:40+0200\n"
+"POT-Creation-Date: 2017-11-28 15:43+0100\n"
+"PO-Revision-Date: 2017-11-28 15:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -28,27 +28,31 @@ msgstr ""
 msgid "My Simple Mailchimp widget"
 msgstr ""
 
-#: include/my-simple-mailchimp-widget.php:41 my-simple-mailchimp.php:126
+#: include/my-simple-mailchimp-widget.php:46 my-simple-mailchimp.php:126
 msgid "email:"
 msgstr "correo electrónico:"
 
-#: include/my-simple-mailchimp-widget.php:45 my-simple-mailchimp.php:130
+#: include/my-simple-mailchimp-widget.php:50 my-simple-mailchimp.php:130
 msgid "subscribe"
 msgstr "suscribirse"
 
-#: include/my-simple-mailchimp-widget.php:93
+#: include/my-simple-mailchimp-widget.php:104
 msgid "Title:"
 msgstr ""
 
-#: include/my-simple-mailchimp-widget.php:97
+#: include/my-simple-mailchimp-widget.php:108
+msgid "Content:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:112
 msgid "URL:"
 msgstr ""
 
-#: include/my-simple-mailchimp-widget.php:101
+#: include/my-simple-mailchimp-widget.php:116
 msgid "U:"
 msgstr ""
 
-#: include/my-simple-mailchimp-widget.php:105
+#: include/my-simple-mailchimp-widget.php:120
 msgid "ID:"
 msgstr ""
 

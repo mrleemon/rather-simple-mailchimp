@@ -101,11 +101,11 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 		
 		?>
 			<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'my-simple-mailchimp' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<p>
-			<label for="<?php echo $this->get_field_id( 'textarea' ); ?>"><?php _e( 'Textarea:', 'my-simple-mailchimp' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'textarea' ); ?>"><?php _e( 'Content:' ); ?></label>
 			<textarea class="widefat" id="<?php echo $this->get_field_id( 'textarea' ); ?>" name="<?php echo $this->get_field_name( 'textarea' ); ?>"><?php echo esc_textarea( $textarea ); ?></textarea>
 			</p>
 			<p>
