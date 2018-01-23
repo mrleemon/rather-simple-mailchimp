@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: My Simple Mailchimp\n"
-"POT-Creation-Date: 2018-01-23 17:27+0100\n"
-"PO-Revision-Date: 2018-01-23 17:27+0100\n"
+"POT-Creation-Date: 2018-01-23 20:50+0100\n"
+"PO-Revision-Date: 2018-01-23 20:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -28,41 +28,49 @@ msgstr ""
 msgid "My Simple Mailchimp widget"
 msgstr ""
 
-#: include/my-simple-mailchimp-widget.php:45 my-simple-mailchimp.php:133
+#: include/my-simple-mailchimp-widget.php:47 my-simple-mailchimp.php:133
 msgid "email:"
 msgstr "correu electrònic:"
 
-#: include/my-simple-mailchimp-widget.php:49 my-simple-mailchimp.php:152
-msgid "subscribe"
-msgstr "subscriure's"
-
-#: include/my-simple-mailchimp-widget.php:103
-msgid "Title:"
-msgstr ""
-
-#: include/my-simple-mailchimp-widget.php:107
-msgid "Content:"
-msgstr ""
-
-#: include/my-simple-mailchimp-widget.php:111
-msgid "URL:"
-msgstr ""
-
-#: include/my-simple-mailchimp-widget.php:115
-msgid "U:"
-msgstr ""
-
-#: include/my-simple-mailchimp-widget.php:119
-msgid "ID:"
-msgstr ""
-
-#: my-simple-mailchimp.php:139
+#: include/my-simple-mailchimp-widget.php:53 my-simple-mailchimp.php:139
 msgid "first name:"
 msgstr "nom:"
 
-#: my-simple-mailchimp.php:146
+#: include/my-simple-mailchimp-widget.php:60 my-simple-mailchimp.php:146
 msgid "last name:"
 msgstr "cognoms:"
+
+#: include/my-simple-mailchimp-widget.php:66 my-simple-mailchimp.php:152
+msgid "subscribe"
+msgstr "subscriure's"
+
+#: include/my-simple-mailchimp-widget.php:124
+msgid "Title:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:128
+msgid "Content:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:132
+msgid "URL:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:136
+msgid "U:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:140
+msgid "ID:"
+msgstr ""
+
+#: include/my-simple-mailchimp-widget.php:145
+msgid "Show First Name Field?"
+msgstr "Mostrar el camp Nom?"
+
+#: include/my-simple-mailchimp-widget.php:149
+msgid "Show Last Name Field?"
+msgstr "Mostrar el camp Cognoms?"
 
 #. Plugin Name of the plugin/theme
 msgid "My Simple Mailchimp"

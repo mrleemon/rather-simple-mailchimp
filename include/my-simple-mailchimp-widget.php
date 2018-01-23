@@ -142,11 +142,11 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 			</p>
 			<p>
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'first_name' ); ?>" name="<?php echo $this->get_field_name( 'first_name' ); ?>" <?php echo checked( $first_name, true, false ); ?> />
-			<label for="<?php echo $this->get_field_id( 'first_name' ); ?>"><?php _e( 'First Name?', 'my-simple-mailchimp' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'first_name' ); ?>"><?php _e( 'Show First Name Field?', 'my-simple-mailchimp' ); ?></label>
 			</p>
 			<p>
 			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'last_name' ); ?>" name="<?php echo $this->get_field_name( 'last_name' ); ?>" <?php echo checked( $last_name, true, false ); ?> />
-			<label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Last Name?', 'my-simple-mailchimp' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Show Last Name Field?', 'my-simple-mailchimp' ); ?></label>
 			</p>
 		<?php
 	}
