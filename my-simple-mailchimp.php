@@ -103,8 +103,8 @@ class My_Simple_Mailchimp {
 	/**
 	 * shortcode_mailchimp
 	 */
-	function shortcode_mailchimp( $atts ) {
-		$html = $this->shortcode_atts( $atts );
+	function shortcode_mailchimp( $attr ) {
+		$html = $this->shortcode_atts( $attr );
 		return $html;
 	}
 
@@ -112,22 +112,43 @@ class My_Simple_Mailchimp {
 	/**
 	 * shortcode_atts
 	 */
-	function shortcode_atts( $atts ) {
-		extract( shortcode_atts( array(
+	function shortcode_atts( $attr ) {
+		$atts = shortcode_atts( array(
 			'url' => '',
 			'u' => '',
-			'id' => ''
-		), $atts ) );
+			'id' => '',
+            'first_name' => 'false',
+            'last_name' => 'false',
+		), $attr, 'mailchimp' );
+
+        $atts['first_name'] = filter_var( $atts['first_name'], FILTER_VALIDATE_BOOLEAN );
+        $atts['last_name'] = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
+
 		$html = '<!-- Begin MailChimp Signup Form -->
-		<div id="mc_embed_signup">
+		  <div id="mc_embed_signup">
 			<form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 			<div id="mc_embed_signup_scroll">
 				<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>
 				<div class="mc-field-group">
 					<label for="mce-EMAIL">' . __( 'email:', 'my-simple-mailchimp' ) . '<span class="required">*</span></label>
 					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-				</div>
-				<div class="mc-submit-button">
+				</div>';
+
+        if ( $atts['first_name'] ) {
+            $html .= '<div class="mc-field-group">
+                    <label for="mce-FNAME">' . __( 'first name:', 'my-simple-mailchimp' ) . '</label>
+                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+                </div>';
+        }
+
+        if ( $atts['last_name'] ) {
+            $html .= '<div class="mc-field-group">
+                    <label for="mce-LNAME">' . __( 'last name:', 'my-simple-mailchimp' ) . '</label>
+                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+                </div>';
+        }
+
+		$html .= '<div class="mc-submit-button">
 					<input type="submit" value="' . __( 'subscribe', 'my-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
 				</div>
 				<div id="mce-responses" class="clear">
