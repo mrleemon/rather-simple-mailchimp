@@ -25,6 +25,8 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 		$url = untrailingslashit( empty( $instance['url'] ) ? '' : $instance['url'] );
 		$u = empty( $instance['u'] ) ? '' : $instance['u'];
 		$id = empty( $instance['id'] ) ? '' : $instance['id'];
+		$first_name = !empty( $instance['first_name'] );
+		$last_name = !empty( $instance['last_name'] );
 		
 		echo $before_widget;
 		
@@ -44,8 +46,23 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 				<div class="mc-field-group">
 					<label for="mce-EMAIL">' . __( 'email:', 'my-simple-mailchimp' ) . '<span class="required">*</span></label>
 					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-				</div>
-				<div class="mc-submit-button">
+				</div>';
+
+		if ( $first_name ) {
+			$html .= '<div class="mc-field-group">
+					<label for="mce-FNAME">' . __( 'first name:', 'my-simple-mailchimp' ) . '</label>
+					<input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+					</div>';
+		}
+
+		if ( $last_name ) {
+			$html .= '<div class="mc-field-group">
+					<label for="mce-LNAME">' . __( 'last name:', 'my-simple-mailchimp' ) . '</label>
+					<input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+					</div>';
+		}
+
+		$html .= '<div class="mc-submit-button">
 					<input type="submit" value="' . __( 'subscribe', 'my-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
 				</div>
 				<div id="mce-responses" class="clear">
@@ -81,6 +98,8 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 		$instance['url'] = strip_tags( $new_instance['url'] );
 		$instance['u'] = strip_tags( $new_instance['u'] );
 		$instance['id'] = strip_tags( $new_instance['id'] );
+		$instance['first_name'] = !empty( $new_instance['first_name'] );
+		$instance['last_name'] = !empty( $new_instance['last_name'] );
 		return $instance;
 	}
 
@@ -97,6 +116,8 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 		$url = strip_tags( $instance['url'] );
 		$u = strip_tags( $instance['u'] );
 		$id = strip_tags( $instance['id'] );
+		$first_name = !empty( $instance['first_name'] );
+		$last_name = !empty( $instance['last_name'] );
 		
 		?>
 			<p>
@@ -118,6 +139,14 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 			<p>
 			<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'ID:', 'my-simple-mailchimp' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" type="text" value="<?php echo esc_attr( $id ); ?>" />
+			</p>
+			<p>
+			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'first_name' ); ?>" name="<?php echo $this->get_field_name( 'first_name' ); ?>" <?php echo checked( $first_name, true, false ); ?> />
+			<label for="<?php echo $this->get_field_id( 'first_name' ); ?>"><?php _e( 'First Name?', 'my-simple-mailchimp' ); ?></label>
+			</p>
+			<p>
+			<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'last_name' ); ?>" name="<?php echo $this->get_field_name( 'last_name' ); ?>" <?php echo checked( $last_name, true, false ); ?> />
+			<label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Last Name?', 'my-simple-mailchimp' ); ?></label>
 			</p>
 		<?php
 	}
