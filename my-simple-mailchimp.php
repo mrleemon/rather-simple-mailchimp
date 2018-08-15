@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: My Simple Mailchimp
+Plugin Name: My Simple MailChimp
 Version: v1.0
 Plugin URI:
 Author: Oscar Ciutat
 Author URI: http://oscarciutat.com/code/
-Description: A simple Mailchimp plugin with a shortcode and a widget
+Description: A simple MailChimp plugin with a shortcode and a widget
 */
 
 class My_Simple_Mailchimp {
