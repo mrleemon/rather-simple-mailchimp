@@ -109,7 +109,7 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 	 * @see   WP_Widget->form
 	 * @param array $instance
 	 */
-	 function form( $instance ) {
+	function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'textarea' => '', 'url' => '', 'u' => '', 'id' => '' ) );
 		$title = strip_tags( $instance['title'] );
 		$textarea = $instance['textarea'];
@@ -149,7 +149,8 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Show Last Name Field?', 'my-simple-mailchimp' ); ?></label>
 			</p>
 		<?php
-	}
+    }
+    
 }
 
-add_action( 'widgets_init', create_function( '', 'return register_widget( "My_Simple_Mailchimp_Widget" );' ) );
+add_action( 'widgets_init', function() { return register_widget( 'My_Simple_Mailchimp_Widget' ); } );
