@@ -1,13 +1,13 @@
 <?php
 
-class My_Simple_Mailchimp_Widget extends WP_Widget {
+class Rather_Simple_Mailchimp_Widget extends WP_Widget {
     
     /**
      * Constructor.
      */
     function __construct() {
-        $widget_ops = array( 'classname' => 'my_simple_mailchimp_widget', 'description' => __( 'A simple Mailchimp widget', 'my-simple-mailchimp' ) );
-        parent::__construct( 'my_simple_mailchimp_widget', __( 'My Simple Mailchimp widget', 'my-simple-mailchimp' ), $widget_ops );
+        $widget_ops = array( 'classname' => 'rather_simple_mailchimp_widget', 'description' => __( 'A simple Mailchimp widget', 'rather-simple-mailchimp' ) );
+        parent::__construct( 'rather_simple_mailchimp_widget', __( 'Rather Simple Mailchimp widget', 'rather-simple-mailchimp' ), $widget_ops );
     }
 
     /**
@@ -44,26 +44,26 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
             <div id="mc_embed_signup_scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $u ) . '_' . esc_attr( $id ) . '" tabindex="-1" value=""></div>
                 <div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'email:', 'my-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-EMAIL">' . __( 'email:', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>';
 
         if ( $first_name ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-FNAME">' . __( 'first name:', 'my-simple-mailchimp' ) . '</label>
+                    <label for="mce-FNAME">' . __( 'first name:', 'rather-simple-mailchimp' ) . '</label>
                     <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
                     </div>';
         }
 
         if ( $last_name ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-LNAME">' . __( 'last name:', 'my-simple-mailchimp' ) . '</label>
+                    <label for="mce-LNAME">' . __( 'last name:', 'rather-simple-mailchimp' ) . '</label>
                     <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
                     </div>';
         }
 
         $html .= '<div class="mc-submit-button">
-                    <input type="submit" value="' . __( 'subscribe', 'my-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <input type="submit" value="' . __( 'subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </div>
                 <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
@@ -129,28 +129,28 @@ class My_Simple_Mailchimp_Widget extends WP_Widget {
             <textarea class="widefat" id="<?php echo $this->get_field_id( 'textarea' ); ?>" name="<?php echo $this->get_field_name( 'textarea' ); ?>"><?php echo esc_textarea( $textarea ); ?></textarea>
             </p>
             <p>
-            <label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'URL:', 'my-simple-mailchimp' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'URL:', 'rather-simple-mailchimp' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'url' ); ?>" name="<?php echo $this->get_field_name( 'url' ); ?>" type="text" value="<?php echo esc_url( $url ); ?>" />
             </p>
             <p>
-            <label for="<?php echo $this->get_field_id( 'u' ); ?>"><?php _e( 'U:', 'my-simple-mailchimp' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'u' ); ?>"><?php _e( 'U:', 'rather-simple-mailchimp' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'u' ); ?>" name="<?php echo $this->get_field_name( 'u' ); ?>" type="text" value="<?php echo esc_attr( $u ); ?>" />
             </p>
             <p>
-            <label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'ID:', 'my-simple-mailchimp' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'ID:', 'rather-simple-mailchimp' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" type="text" value="<?php echo esc_attr( $id ); ?>" />
             </p>
             <p>
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'first_name' ); ?>" name="<?php echo $this->get_field_name( 'first_name' ); ?>" <?php echo checked( $first_name, true, false ); ?> />
-            <label for="<?php echo $this->get_field_id( 'first_name' ); ?>"><?php _e( 'Show First Name Field?', 'my-simple-mailchimp' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'first_name' ); ?>"><?php _e( 'Show First Name Field?', 'rather-simple-mailchimp' ); ?></label>
             </p>
             <p>
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'last_name' ); ?>" name="<?php echo $this->get_field_name( 'last_name' ); ?>" <?php echo checked( $last_name, true, false ); ?> />
-            <label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Show Last Name Field?', 'my-simple-mailchimp' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Show Last Name Field?', 'rather-simple-mailchimp' ); ?></label>
             </p>
         <?php
     }
     
 }
 
-add_action( 'widgets_init', function() { return register_widget( 'My_Simple_Mailchimp_Widget' ); } );
+add_action( 'widgets_init', function() { return register_widget( 'Rather_Simple_Mailchimp_Widget' ); } );

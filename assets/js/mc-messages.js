@@ -1,8 +1,5 @@
 ﻿(function($) {
 
-	//ajaxchimp_vars.string1
-	//ajaxchimp_vars.string2
-	
 	window.fnames = new Array();
 	window.ftypes = new Array();
 	fnames[0]='EMAIL';

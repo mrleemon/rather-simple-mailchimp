@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: My Simple MailChimp
+Plugin Name: Rather Simple MailChimp
 Version: v1.0
 Plugin URI:
 Author: Oscar Ciutat
@@ -8,7 +8,7 @@ Author URI: http://oscarciutat.com/code/
 Description: A simple MailChimp plugin with a shortcode and a widget
 */
 
-class My_Simple_Mailchimp {
+class Rather_Simple_Mailchimp {
 
     /**
      * Plugin instance.
@@ -71,7 +71,7 @@ class My_Simple_Mailchimp {
      *
      */
     protected function includes() {
-        require_once 'include/my-simple-mailchimp-widget.php';
+        require_once 'include/rather-simple-mailchimp-widget.php';
     }
 
     
@@ -82,7 +82,7 @@ class My_Simple_Mailchimp {
      *
      */
     function load_language() {
-        load_plugin_textdomain( 'my-simple-mailchimp', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'rather-simple-mailchimp', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     
@@ -92,7 +92,7 @@ class My_Simple_Mailchimp {
     function wp_enqueue_scripts() {
         global $post;
         if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'my_simple_mailchimp_widget' ) ) {
-            wp_enqueue_style( 'my-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
+            wp_enqueue_style( 'rather-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
             wp_enqueue_script( 'mc-validate', plugins_url( '/assets/js/mc-validate.js', __FILE__ ), array( 'jquery' ), false, true );
             wp_enqueue_script( 'mc-messages', plugins_url( '/assets/js/mc-messages.js', __FILE__ ), array( 'mc-validate' ), false, true );
             wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-messages' ), false, true );
@@ -130,26 +130,26 @@ class My_Simple_Mailchimp {
             <div id="mc_embed_signup_scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>
                 <div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'email:', 'my-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-EMAIL">' . __( 'email:', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>';
 
         if ( $atts['first_name'] ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-FNAME">' . __( 'first name:', 'my-simple-mailchimp' ) . '</label>
+                    <label for="mce-FNAME">' . __( 'first name:', 'rather-simple-mailchimp' ) . '</label>
                     <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
                 </div>';
         }
 
         if ( $atts['last_name'] ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-LNAME">' . __( 'last name:', 'my-simple-mailchimp' ) . '</label>
+                    <label for="mce-LNAME">' . __( 'last name:', 'rather-simple-mailchimp' ) . '</label>
                     <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
                 </div>';
         }
 
         $html .= '<div class="mc-submit-button">
-                    <input type="submit" value="' . __( 'subscribe', 'my-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <input type="submit" value="' . __( 'subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </div>
                 <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
@@ -165,4 +165,4 @@ class My_Simple_Mailchimp {
     
 }
 
-add_action( 'plugins_loaded', array( My_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );
+add_action( 'plugins_loaded', array( Rather_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );

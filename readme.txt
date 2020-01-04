@@ -1,4 +1,4 @@
-=== My Simple MailChimp ===
+=== Rather Simple MailChimp ===
 Contributors: leemon
 Tags: mailchimp, newsletter, shortcode, widget
 Requires at least: 4.0
