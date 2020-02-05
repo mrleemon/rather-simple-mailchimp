@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2020-01-04 10:14+0100\n"
-"PO-Revision-Date: 2020-01-04 10:17+0100\n"
+"POT-Creation-Date: 2020-02-05 18:23+0100\n"
+"PO-Revision-Date: 2020-02-05 18:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: rather-simple-mailchimp.php\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -30,23 +30,23 @@ msgstr "Widget Rather Simple Mailchimp"
 
 #: include/rather-simple-mailchimp-widget.php:47
 #: rather-simple-mailchimp.php:133
-msgid "email:"
-msgstr "correo electrónico:"
+msgid "Email"
+msgstr "Correo electrónico"
 
 #: include/rather-simple-mailchimp-widget.php:53
 #: rather-simple-mailchimp.php:139
-msgid "first name:"
-msgstr "nombre:"
+msgid "First Name"
+msgstr "Nombre"
 
 #: include/rather-simple-mailchimp-widget.php:60
 #: rather-simple-mailchimp.php:146
-msgid "last name:"
-msgstr "apellidos:"
+msgid "Last Name"
+msgstr "Apellidos"
 
 #: include/rather-simple-mailchimp-widget.php:66
 #: rather-simple-mailchimp.php:152
-msgid "subscribe"
-msgstr "suscribirse"
+msgid "Subscribe"
+msgstr "Suscribirse"
 
 #: include/rather-simple-mailchimp-widget.php:124
 msgid "Title:"
