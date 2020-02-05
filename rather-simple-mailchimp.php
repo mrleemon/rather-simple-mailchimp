@@ -130,7 +130,7 @@ class Rather_Simple_Mailchimp {
             <div id="mc_embed_signup_scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>
                 <div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>';
 
