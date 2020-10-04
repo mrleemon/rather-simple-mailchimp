@@ -115,22 +115,22 @@ export const settings = {
                                 </div>
                                 { attributes.firstName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                        <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" />
+                                        <label htmlFor="mce-FNAME">{ __( 'First Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                        <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" disabled />
                                     </div>
                                 )}
                                 { attributes.lastName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                        <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" />
+                                        <label htmlFor="mce-LNAME">{ __( 'Last Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                        <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" disabled />
                                     </div>
                                 )}
                                 <div className="mc-field-group">
-                                    <label htmlFor="mce-EMAIL">{ __( 'email:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                    <input value="" name="EMAIL" className="required email" id="mce-EMAIL" type="email" />
+                                    <label htmlFor="mce-EMAIL">{ __( 'Email', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                    <input value="" name="EMAIL" className="required email" id="mce-EMAIL" type="email" disabled />
                                 </div>
                                 <div className="mc-submit-button">
-                                    <input value={ __( 'subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" />
+                                    <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" disabled />
                                 </div>
                                 <div id="mce-responses" className="clear">
                                     <div className="response" id="mce-error-response" style={{display: 'none'}} />
@@ -162,22 +162,22 @@ export const settings = {
                                 </div>
                                 { attributes.firstName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                        <label htmlFor="mce-FNAME">{ __( 'First Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" />
                                     </div>
                                 )}
                                 { attributes.lastName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                        <label htmlFor="mce-LNAME">{ __( 'Last Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" />
                                     </div>
                                 )}
                                 <div className="mc-field-group">
-                                    <label htmlFor="mce-EMAIL">{ __( 'email:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                    <label htmlFor="mce-EMAIL">{ __( 'Email', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                     <input value="" name="EMAIL" className="required email" id="mce-EMAIL" type="email" />
                                 </div>
                                 <div className="mc-submit-button">
-                                    <input value={ __( 'subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" />
+                                    <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" />
                                 </div>
                                 <div id="mce-responses" className="clear">
                                     <div className="response" id="mce-error-response" style={{display: 'none'}} />

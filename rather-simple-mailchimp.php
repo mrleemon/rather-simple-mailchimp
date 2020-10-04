@@ -5,7 +5,7 @@ Version: v1.0
 Plugin URI:
 Author: Oscar Ciutat
 Author URI: http://oscarciutat.com/code/
-Description: A simple MailChimp plugin with a shortcode and a widget
+Description: A simple MailChimp plugin with a block, a shortcode and a widget
 */
 
 class Rather_Simple_Mailchimp {

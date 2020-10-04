@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2020-02-05 18:23+0100\n"
-"PO-Revision-Date: 2020-02-05 18:24+0100\n"
+"POT-Creation-Date: 2020-10-04 19:07+0200\n"
+"PO-Revision-Date: 2020-10-04 19:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: rather-simple-mailchimp.php\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,70 +18,90 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
 "_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 #: include/rather-simple-mailchimp-widget.php:9
 msgid "A simple Mailchimp widget"
-msgstr ""
+msgstr "Un senzill widget de Mailchimp"
 
 #: include/rather-simple-mailchimp-widget.php:10
 msgid "Rather Simple Mailchimp widget"
 msgstr "Giny Rather Simple Mailchimp"
 
-#: include/rather-simple-mailchimp-widget.php:47
-#: rather-simple-mailchimp.php:133
-msgid "Email"
-msgstr "Correu electrònic"
-
-#: include/rather-simple-mailchimp-widget.php:53
-#: rather-simple-mailchimp.php:139
+#: include/rather-simple-mailchimp-widget.php:49
+#: rather-simple-mailchimp.php:185 src/index.js:118 src/index.js:165
 msgid "First Name"
 msgstr "Nom"
 
-#: include/rather-simple-mailchimp-widget.php:60
-#: rather-simple-mailchimp.php:146
+#: include/rather-simple-mailchimp-widget.php:56
+#: rather-simple-mailchimp.php:192 src/index.js:124 src/index.js:171
 msgid "Last Name"
 msgstr "Cognoms"
 
-#: include/rather-simple-mailchimp-widget.php:66
-#: rather-simple-mailchimp.php:152
+#: include/rather-simple-mailchimp-widget.php:62
+#: rather-simple-mailchimp.php:198 src/index.js:129 src/index.js:176
+msgid "Email"
+msgstr "Correu electrònic"
+
+#: include/rather-simple-mailchimp-widget.php:67
+#: rather-simple-mailchimp.php:203 src/index.js:133 src/index.js:180
 msgid "Subscribe"
 msgstr "Subscriure's"
 
-#: include/rather-simple-mailchimp-widget.php:124
+#: include/rather-simple-mailchimp-widget.php:125
 msgid "Title:"
 msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:128
-msgid "Content:"
+#: include/rather-simple-mailchimp-widget.php:129
+msgid "Content"
+msgstr "Contingut"
+
+#: include/rather-simple-mailchimp-widget.php:133 src/index.js:75
+msgid "URL"
 msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:132
-msgid "URL:"
+#: include/rather-simple-mailchimp-widget.php:137 src/index.js:81
+msgid "U"
 msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:136
-msgid "U:"
+#: include/rather-simple-mailchimp-widget.php:141 src/index.js:87
+msgid "ID"
 msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:140
-msgid "ID:"
+#: include/rather-simple-mailchimp-widget.php:146 src/index.js:94
+msgid "Show First Name"
+msgstr "Mostra el camp Nom"
+
+#: include/rather-simple-mailchimp-widget.php:150 src/index.js:101
+msgid "Show Last Name"
+msgstr "Mostra el camp Cognoms"
+
+#: src/index.js:40
+msgid "Mailchimp"
 msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:145
-msgid "Show First Name Field?"
-msgstr "Mostrar el camp Nom?"
+#: src/index.js:41
+msgid "A Mailchimp form."
+msgstr ""
 
-#: include/rather-simple-mailchimp-widget.php:149
-msgid "Show Last Name Field?"
-msgstr "Mostrar el camp Cognoms?"
+#: src/index.js:44
+msgid "email"
+msgstr "correu electrònic"
+
+#: src/index.js:44
+msgid "newsletter"
+msgstr "butlleti"
+
+#: src/index.js:73
+msgid "Mailchimp Settings"
+msgstr "Opcions de Mailchimp"
 
 #. Plugin Name of the plugin/theme
 msgid "Rather Simple MailChimp"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A simple MailChimp plugin with a shortcode and a widget"
+msgid "A simple MailChimp plugin with a block, a shortcode and a widget"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -91,3 +111,14 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://oscarciutat.com/code/"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Subscribe"
+#~ msgid "subscribe"
+#~ msgstr "Subscriure's"
+
+#~ msgid "Show First Name Field?"
+#~ msgstr "Mostrar el camp Nom?"
+
+#~ msgid "Show Last Name Field?"
+#~ msgstr "Mostrar el camp Cognoms?"
