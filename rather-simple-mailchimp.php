@@ -128,25 +128,26 @@ class Rather_Simple_Mailchimp {
           <div id="mc_embed_signup">
             <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
-                <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>
-                <div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-                </div>';
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
 
         if ( $atts['first_name'] ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . '</label>
-                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME">
                 </div>';
         }
 
         if ( $atts['last_name'] ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . '</label>
-                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME">
                 </div>';
         }
+        
+        $html .= '<div class="mc-field-group">
+                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>';
 
         $html .= '<div class="mc-submit-button">
                     <input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
