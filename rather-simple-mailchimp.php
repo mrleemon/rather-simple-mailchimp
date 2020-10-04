@@ -88,8 +88,7 @@ class Rather_Simple_Mailchimp {
         if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'my_simple_mailchimp_widget' ) ) {
             wp_enqueue_style( 'rather-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
             wp_enqueue_script( 'mc-validate', plugins_url( '/assets/js/mc-validate.js', __FILE__ ), array( 'jquery' ), false, true );
-            wp_enqueue_script( 'mc-messages', plugins_url( '/assets/js/mc-messages.js', __FILE__ ), array( 'mc-validate' ), false, true );
-            wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-messages' ), false, true );
+            wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-validate' ), false, true );
         }
     }
 
@@ -106,12 +105,6 @@ class Rather_Simple_Mailchimp {
             return;
         }
 
-        /*wp_register_style(
-            'rather-simple-mailchimp',
-            plugins_url( 'build/editor.css', __FILE__ ),
-            array( 'wp-edit-blocks' ),
-            filemtime( plugin_dir_path( __FILE__ ) . 'build/editor.css' )
-        );*/
         wp_register_style(
             'rather-simple-mailchimp-frontend',
             plugins_url( 'build/style-index.css', __FILE__ ),
@@ -133,7 +126,7 @@ class Rather_Simple_Mailchimp {
             true
         );
         wp_register_script(
-            'rather-simple-mailchimp',
+            'rather-simple-mailchimp-block',
             plugins_url( 'build/index.js', __FILE__ ),
             array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n' ),
             filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
@@ -141,13 +134,12 @@ class Rather_Simple_Mailchimp {
         );
 
         register_block_type( 'occ/mailchimp', array(
-            /*'editor_style'  => 'rather-simple-mailchimp',*/
-            'editor_script' => 'rather-simple-mailchimp',
+            'editor_script' => 'rather-simple-mailchimp-block',
             'style' => 'rather-simple-mailchimp-frontend',
             'script' => 'rather-simple-mailchimp-frontend',
         ) );
 
-        wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
+        $cehck= wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 
     }
 

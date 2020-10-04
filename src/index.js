@@ -40,7 +40,7 @@ export const settings = {
 	title: __( 'Mailchimp', 'rather-simple-mailchimp' ),
 	description: __( 'A Mailchimp form.', 'rather-simple-mailchimp' ),
 	icon: 'email',
-	category: 'common',
+	category: 'embed',
 	keywords: [ __( 'email' ), __( 'newsletter' ) ],
 	attributes: blockAttributes,
 
