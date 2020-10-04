@@ -5,8 +5,11 @@
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
 const { PanelBody, TextControl, ToggleControl } = wp.components;
-const { InspectorControls } = wp.editor;
+const { InspectorControls } = wp.blockEditor;
 const {	registerBlockType } = wp.blocks;
+
+import './editor.scss';
+import './style.scss';
 
 const blockAttributes = {
 	url: {
@@ -112,13 +115,13 @@ export const settings = {
                                 </div>
                                 { attributes.firstName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }</label>
+                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" />
                                     </div>
                                 )}
                                 { attributes.lastName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }</label>
+                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" />
                                     </div>
                                 )}
@@ -159,13 +162,13 @@ export const settings = {
                                 </div>
                                 { attributes.firstName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }</label>
+                                        <label htmlFor="mce-FNAME">{ __( 'first name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" />
                                     </div>
                                 )}
                                 { attributes.lastName && (
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }</label>
+                                        <label htmlFor="mce-LNAME">{ __( 'last name:', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
                                         <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" />
                                     </div>
                                 )}
