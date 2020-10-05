@@ -1,17 +1,17 @@
 === Rather Simple MailChimp ===
 Contributors: leemon
 Tags: mailchimp, newsletter, shortcode, widget
-Requires at least: 4.0
+Requires at least: 5.0
 Tested up to: 4.5
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A really simple MailChimp plugin that includes a widget and a shortcode.
+A really simple MailChimp plugin that includes a block, a shortcode and a widget.
 
 == Description ==
 
-A really simple MailChimp plugin that includes a widget and a shortcode.
+A really simple MailChimp plugin that includes a block, a shortcode and a widget.
 
 This plugin is experimental and is provided with no support or warranty. 
 
@@ -20,8 +20,7 @@ This plugin is experimental and is provided with no support or warranty.
 2. Activate the plugin through the "Plugins" menu in WordPress
 
 == Frequently Asked Questions ==
-= How can I show the MailChimp form in a page? =
-You can use the [mailchimp] shortcode:
+= How can I use the [mailchimp] shortcode? =
 
 [mailchimp url="" u="" id="" first_name="false" last_name="false"]
 
