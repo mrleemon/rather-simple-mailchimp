@@ -114,7 +114,7 @@ class Rather_Simple_Mailchimp {
         wp_register_script(
             'mc-validate',
             plugins_url( 'assets/js/mc-validate.js', __FILE__ ),
-            array( 'jquery' ),
+            array(),
             filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/mc-validate.js' ),
             true
         );
@@ -130,14 +130,21 @@ class Rather_Simple_Mailchimp {
             plugins_url( 'build/index.js', __FILE__ ),
             array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n' ),
             filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
-            false // can't be loaded on footer at the moment
+            //false // can't be loaded on footer at the moment
         );
 
-        register_block_type( 'occ/mailchimp', array(
-            'editor_script' => 'rather-simple-mailchimp-block',
-            'style' => 'rather-simple-mailchimp-frontend',
-            'script' => 'rather-simple-mailchimp-frontend',
-        ) );
+        if ( is_admin() ) {
+            register_block_type( 'occ/mailchimp', array(
+                'editor_script' => 'rather-simple-mailchimp-block',
+                'style' => 'rather-simple-mailchimp-frontend'
+            ) );
+        } else {
+            register_block_type( 'occ/mailchimp', array(
+                'editor_script' => 'rather-simple-mailchimp-block',
+                'style' => 'rather-simple-mailchimp-frontend',
+                'script' => 'rather-simple-mailchimp-frontend',
+            ) );
+        }
 
         $cehck= wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 
