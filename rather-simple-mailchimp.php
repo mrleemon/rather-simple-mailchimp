@@ -139,6 +139,7 @@ class Rather_Simple_Mailchimp {
                 'style' => 'rather-simple-mailchimp-frontend'
             ) );
         } else {
+            // Only load Mailchimp scripts on frontend
             register_block_type( 'occ/mailchimp', array(
                 'editor_script' => 'rather-simple-mailchimp-block',
                 'style' => 'rather-simple-mailchimp-frontend',
