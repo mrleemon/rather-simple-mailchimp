@@ -4,7 +4,7 @@
 
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
-const { PanelBody, TextControl, ToggleControl } = wp.components;
+const { PanelBody, Placeholder, TextControl, ToggleControl } = wp.components;
 const { InspectorControls } = wp.blockEditor;
 const {	registerBlockType } = wp.blocks;
 
@@ -139,7 +139,13 @@ export const settings = {
                             </div>
                         </form>
                     ) : (
-                    <p>hola</p>
+                        <Placeholder
+                            key='rather-simple-mailchimp-block'
+                            icon='email'
+                            label={ __( 'Rather Simple Mailchimp', 'rather-simple-mailchimp' ) }
+                            className={ props.className }
+                            instructions={ __( 'Set up your Mailchimp form filling the fields on the sidebar.', 'rather-simple-mailchimp' ) }>
+                        </Placeholder>
                     )}
                     </div>
                 </div>

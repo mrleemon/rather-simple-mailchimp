@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Rather Simple MailChimp
+Plugin Name: Rather Simple Mailchimp
 Version: v1.0
 Plugin URI:
 Author: Oscar Ciutat
 Author URI: http://oscarciutat.com/code/
-Description: A simple MailChimp plugin with a block, a shortcode and a widget
+Description: A simple Mailchimp plugin with a block, a shortcode and a widget
 */
 
 class Rather_Simple_Mailchimp {
@@ -174,7 +174,7 @@ class Rather_Simple_Mailchimp {
         $atts['first_name'] = filter_var( $atts['first_name'], FILTER_VALIDATE_BOOLEAN );
         $atts['last_name'] = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
 
-        $html = '<!-- Begin MailChimp Signup Form -->
+        $html = '<!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
             <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
