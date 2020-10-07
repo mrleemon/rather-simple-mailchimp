@@ -137,6 +137,12 @@
 		return this.optional(element) || /^\d{5}-\d{4}$|^\d{5}$/.test(value);
 	}, "The specified US ZIP Code is invalid");
 
+	$.validator.addMethod("mc_gdpr", function (value, element, grouping_class) {
+		//if gdpr is required the user must pick at least one option.
+		var $fields = $("input:not(:hidden)", $(element).closest(grouping_class));
+		return $fields.filter(":checked").length !== 0;
+	}, "Please choose an option.");
+
 }(jQuery));
 
 // MC
@@ -167,7 +173,7 @@
             $('#mc_embed_signup').hide();
             var now = new Date();
             var expires_date = new Date( now.getTime() + 31536000000 );
-            document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
+            document.cookie = 'MCPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
         },
         /**
 		 *	Figure out if we should show the popup (if they've closed it before, don't show it.)
@@ -177,7 +183,7 @@
 		    cks = document.cookie.split(';');
 		    for(i=0; i<cks.length; i++){
 		        parts = cks[i].split('=');
-		        if (parts[0].indexOf('MCEvilPopupClosed') != -1) mc.showPopup = false;
+		        if (parts[0].indexOf('MCPopupClosed') != -1) mc.showPopup = false;
 		    }
 		    if (mc.showPopup) mc.openPopup();
         },
@@ -204,7 +210,7 @@
 		getGroups: function (){ 
 			var groups = {};
 			$(".mc-field-group").each(function(index) {
-				var inputs = $(this).find("input:text:not(:hidden)");
+				var inputs = $(this).find("input:text:not(:hidden), input:checkbox:not(:hidden)");
 				if (inputs.length > 1) {
 					var mergeName = inputs.first().attr("name");
 					var fieldNames = $.map(inputs, function(f) { return f.name; });
@@ -251,7 +257,14 @@
 
 		    // If the form has errors, display them, inline if possible, or appended to #mce-error-response
 		    } else {
-
+				if (resp.msg === "captcha") {
+					var url = $("form#mc-embedded-subscribe-form").attr("action");
+					var parameters = $.param(resp.params);
+					url = url.split("?")[0];
+					url += "?";
+					url += parameters;
+					window.open(url);
+				};
 				// Example errors - Note: You only get one back at a time even if you submit several that are bad. 
 				// Error structure - number indicates the index of the merge field that was invalid, then details
 				// Object {result: "error", msg: "6 - Please enter the date"} 
@@ -346,6 +359,7 @@
 	$.validator.addClassRules("birthday", { digits: true, mc_birthday: ".datefield" });
 	$.validator.addClassRules("datepart", { digits: true, mc_date: ".datefield" });
 	$.validator.addClassRules("phonepart", { digits: true, mc_phone: ".phonefield" });
+	$.validator.addClassRules("gdpr", { mc_gdpr: ".gdprRequired" });
 
 	// Evil Popup
 	$('#mc_embed_signup a.mc_embed_close').click(function(){ 
