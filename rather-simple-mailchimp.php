@@ -129,8 +129,7 @@ class Rather_Simple_Mailchimp {
             'rather-simple-mailchimp-block',
             plugins_url( 'build/index.js', __FILE__ ),
             array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n' ),
-            filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
-            //false // can't be loaded on footer at the moment
+            filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' )
         );
 
         if ( is_admin() ) {
