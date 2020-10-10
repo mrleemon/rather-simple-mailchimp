@@ -112,16 +112,9 @@ class Rather_Simple_Mailchimp {
             filemtime( plugin_dir_path( __FILE__ ) . 'build/style-index.css' )
         );
         wp_register_script(
-            'mc-validate',
-            plugins_url( 'assets/js/mc-validate.js', __FILE__ ),
-            array(),
-            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/mc-validate.js' ),
-            true
-        );
-        wp_register_script(
             'rather-simple-mailchimp-frontend',
             plugins_url( 'assets/js/frontend.js', __FILE__ ),
-            array( 'mc-validate' ),
+            array(),
             filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/frontend.js' ),
             true
         );

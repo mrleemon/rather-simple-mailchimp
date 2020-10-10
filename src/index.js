@@ -106,38 +106,40 @@ export const settings = {
                     </PanelBody>
                 </InspectorControls>
                 <div className={ props.className }>
-                    <div id="mc_embed_signup">
                     { attributes.url && attributes.u && attributes.id ? (
-                        <form action={ attributes.url  + "/subscribe/post?u=" + attributes.u  + "&id=" + attributes.id } method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-                            <div id="mc_embed_signup_scroll">
-                                <div style={{position: 'absolute', left: '-5000px'}}>
-                                    <input name={ "b_" + attributes.u + "_" + attributes.id } tabIndex={-1} value="" type="text" />
-                                </div>
-                                { attributes.firstName && (
-                                    <div className="mc-field-group">
-                                        <label htmlFor="mce-FNAME">{ __( 'First Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                        <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" disabled />
+                        <div id="mc_embed_signup">
+                            <form action={ attributes.url  + "/subscribe/post?u=" + attributes.u  + "&id=" + attributes.id } method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                                <div id="mc_embed_signup_scroll">
+                                    <div style={{position: 'absolute', left: '-5000px'}}>
+                                        <input name={ "b_" + attributes.u + "_" + attributes.id } tabIndex={-1} value="" type="text" />
                                     </div>
-                                )}
-                                { attributes.lastName && (
+                                    { attributes.firstName && (
+                                        <div className="mc-field-group">
+                                            <label htmlFor="mce-FNAME">{ __( 'First Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                            <input value="" name="FNAME" className="required" id="mce-FNAME" type="text" disabled />
+                                        </div>
+                                    )}
+                                    { attributes.lastName && (
+                                        <div className="mc-field-group">
+                                            <label htmlFor="mce-LNAME">{ __( 'Last Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                            <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" disabled />
+                                        </div>
+                                    )}
                                     <div className="mc-field-group">
-                                        <label htmlFor="mce-LNAME">{ __( 'Last Name', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                        <input value="" name="LNAME" className="required" id="mce-LNAME" type="text" disabled />
+                                        <label htmlFor="mce-EMAIL">{ __( 'Email', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
+                                        <input value="" name="EMAIL" className="required email" id="mce-EMAIL" type="email" disabled />
                                     </div>
-                                )}
-                                <div className="mc-field-group">
-                                    <label htmlFor="mce-EMAIL">{ __( 'Email', 'rather-simple-mailchimp' ) }<span className="required">*</span></label>
-                                    <input value="" name="EMAIL" className="required email" id="mce-EMAIL" type="email" disabled />
+                                    <div className="mc-submit-button">
+                                        <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" disabled />
+                                    </div>
+                                    <div id="mce-responses" className="clear">
+                                        <div className="response" id="mce-error-response" style={{display: 'none'}} />
+                                        <div className="response" id="mce-success-response" style={{display: 'none'}} />
+                                    </div>
                                 </div>
-                                <div className="mc-submit-button">
-                                    <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" disabled />
-                                </div>
-                                <div id="mce-responses" className="clear">
-                                    <div className="response" id="mce-error-response" style={{display: 'none'}} />
-                                    <div className="response" id="mce-success-response" style={{display: 'none'}} />
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                            <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+                        </div>
                     ) : (
                         <Placeholder
                             key='rather-simple-mailchimp-block'
@@ -147,7 +149,6 @@ export const settings = {
                             instructions={ __( 'Set up your Mailchimp form filling the fields on the sidebar.', 'rather-simple-mailchimp' ) }>
                         </Placeholder>
                     )}
-                    </div>
                 </div>
             </Fragment>
         );
@@ -159,8 +160,8 @@ export const settings = {
 
 		return (
 			<div className={ props.className }>
-                <div id="mc_embed_signup">
-                    { attributes.url && attributes.u && attributes.id && (
+                { attributes.url && attributes.u && attributes.id && (
+                    <div id="mc_embed_signup">
                         <form action={ attributes.url  + "/subscribe/post?u=" + attributes.u  + "&id=" + attributes.id } method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                             <div id="mc_embed_signup_scroll">
                                 <div style={{position: 'absolute', left: '-5000px'}}>
@@ -191,8 +192,9 @@ export const settings = {
                                 </div>
                             </div>
                         </form>
-                    )}
-                </div>
+                        <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+                    </div>
+                )}
 			</div>
 		);
 	}
