@@ -32,22 +32,18 @@
 }
 
 #mailchimp-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 999; /* Sit on top */
+    display: none;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
     overflow: auto;
     background-color: #fff;
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
-}
-
-.mailchimp-popup-content {
-    position: relative;
-    padding: 100px;
+    z-index: 999;
 }
 
 #mailchimp-popup:target {
@@ -56,6 +52,11 @@
 
 #mailchimp-popup:not(:target) {
     display: none;
+}
+
+.mailchimp-popup-content {
+    position: relative;
+    padding: 75px 75px;
 }
 
 .mailchimp-popup-close {
