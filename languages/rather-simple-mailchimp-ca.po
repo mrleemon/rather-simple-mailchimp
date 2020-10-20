@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2020-10-07 21:38+0200\n"
-"PO-Revision-Date: 2020-10-07 21:42+0200\n"
+"POT-Creation-Date: 2020-10-21 00:45+0200\n"
+"PO-Revision-Date: 2020-10-21 00:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -20,6 +20,74 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
+#: include/rather-simple-mailchimp-popup-widget.php:9
+msgid "A simple Mailchimp popup widget"
+msgstr "Un senzill widget popup de Mailchimp"
+
+#: include/rather-simple-mailchimp-popup-widget.php:10
+msgid "Rather Simple Mailchimp popup widget"
+msgstr "Giny Rather Simple MailChimp popup"
+
+#: include/rather-simple-mailchimp-popup-widget.php:41
+#: include/rather-simple-mailchimp-popup-widget.php:72
+#: include/rather-simple-mailchimp-widget.php:67
+#: rather-simple-mailchimp.php:196 src/index.js:133 src/index.js:187
+msgid "Subscribe"
+msgstr "Subscriure's"
+
+#: include/rather-simple-mailchimp-popup-widget.php:54
+#: include/rather-simple-mailchimp-widget.php:49
+#: rather-simple-mailchimp.php:178 src/index.js:118 src/index.js:172
+msgid "First Name"
+msgstr "Nom"
+
+#: include/rather-simple-mailchimp-popup-widget.php:61
+#: include/rather-simple-mailchimp-widget.php:56
+#: rather-simple-mailchimp.php:185 src/index.js:124 src/index.js:178
+msgid "Last Name"
+msgstr "Cognoms"
+
+#: include/rather-simple-mailchimp-popup-widget.php:67
+#: include/rather-simple-mailchimp-widget.php:62
+#: rather-simple-mailchimp.php:191 src/index.js:129 src/index.js:183
+msgid "Email"
+msgstr "Correu electrònic"
+
+#: include/rather-simple-mailchimp-popup-widget.php:132
+#: include/rather-simple-mailchimp-widget.php:125
+msgid "Title:"
+msgstr ""
+
+#: include/rather-simple-mailchimp-popup-widget.php:136
+#: include/rather-simple-mailchimp-widget.php:129
+msgid "Content"
+msgstr "Contingut"
+
+#: include/rather-simple-mailchimp-popup-widget.php:140
+#: include/rather-simple-mailchimp-widget.php:133 src/index.js:75
+msgid "URL"
+msgstr ""
+
+#: include/rather-simple-mailchimp-popup-widget.php:144
+#: include/rather-simple-mailchimp-widget.php:137 src/index.js:81
+msgid "U"
+msgstr ""
+
+#: include/rather-simple-mailchimp-popup-widget.php:148
+#: include/rather-simple-mailchimp-widget.php:141 src/index.js:87
+msgid "ID"
+msgstr ""
+
+#: include/rather-simple-mailchimp-popup-widget.php:153
+#: include/rather-simple-mailchimp-widget.php:146 src/index.js:94
+msgid "Show First Name"
+msgstr "Mostra el camp Nom"
+
+#: include/rather-simple-mailchimp-popup-widget.php:157
+#: include/rather-simple-mailchimp-widget.php:150 src/index.js:101
+msgid "Show Last Name"
+msgstr "Mostra el camp Cognoms"
+
 #: include/rather-simple-mailchimp-widget.php:9
 msgid "A simple Mailchimp widget"
 msgstr "Un senzill widget de Mailchimp"
@@ -27,54 +95,6 @@ msgstr "Un senzill widget de Mailchimp"
 #: include/rather-simple-mailchimp-widget.php:10
 msgid "Rather Simple Mailchimp widget"
 msgstr "Giny Rather Simple Mailchimp"
-
-#: include/rather-simple-mailchimp-widget.php:49
-#: rather-simple-mailchimp.php:185 src/index.js:118 src/index.js:171
-msgid "First Name"
-msgstr "Nom"
-
-#: include/rather-simple-mailchimp-widget.php:56
-#: rather-simple-mailchimp.php:192 src/index.js:124 src/index.js:177
-msgid "Last Name"
-msgstr "Cognoms"
-
-#: include/rather-simple-mailchimp-widget.php:62
-#: rather-simple-mailchimp.php:198 src/index.js:129 src/index.js:182
-msgid "Email"
-msgstr "Correu electrònic"
-
-#: include/rather-simple-mailchimp-widget.php:67
-#: rather-simple-mailchimp.php:203 src/index.js:133 src/index.js:186
-msgid "Subscribe"
-msgstr "Subscriure's"
-
-#: include/rather-simple-mailchimp-widget.php:125
-msgid "Title:"
-msgstr ""
-
-#: include/rather-simple-mailchimp-widget.php:129
-msgid "Content"
-msgstr "Contingut"
-
-#: include/rather-simple-mailchimp-widget.php:133 src/index.js:75
-msgid "URL"
-msgstr ""
-
-#: include/rather-simple-mailchimp-widget.php:137 src/index.js:81
-msgid "U"
-msgstr ""
-
-#: include/rather-simple-mailchimp-widget.php:141 src/index.js:87
-msgid "ID"
-msgstr ""
-
-#: include/rather-simple-mailchimp-widget.php:146 src/index.js:94
-msgid "Show First Name"
-msgstr "Mostra el camp Nom"
-
-#: include/rather-simple-mailchimp-widget.php:150 src/index.js:101
-msgid "Show Last Name"
-msgstr "Mostra el camp Cognoms"
 
 #: src/index.js:40
 msgid "Mailchimp"
@@ -97,11 +117,11 @@ msgid "Mailchimp Settings"
 msgstr "Opcions de Mailchimp"
 
 #. Plugin Name of the plugin/theme
-#: src/index.js:145
+#: src/index.js:147
 msgid "Rather Simple Mailchimp"
 msgstr ""
 
-#: src/index.js:147
+#: src/index.js:149
 msgid "Set up your Mailchimp form filling the fields on the sidebar."
 msgstr ""
 "Configureu el formulari de MailChimp omplint els camps de la barra lateral."

@@ -68,6 +68,7 @@ class Rather_Simple_Mailchimp {
      */
     protected function includes() {
         require_once 'include/rather-simple-mailchimp-widget.php';
+        require_once 'include/rather-simple-mailchimp-popup-widget.php';
     }
     
     /**
@@ -85,7 +86,7 @@ class Rather_Simple_Mailchimp {
      */
     function wp_enqueue_scripts() {
         global $post;
-        if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'my_simple_mailchimp_widget' ) ) {
+        if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'rather_simple_mailchimp_widget' ) || is_active_widget( false, false, 'rather_simple_mailchimp_popup_widget' ) ) {
             wp_enqueue_style( 'rather-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
             wp_enqueue_script( 'mc-validate', plugins_url( '/assets/js/mc-validate.js', __FILE__ ), array( 'jquery' ), false, true );
             wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-validate' ), false, true );
