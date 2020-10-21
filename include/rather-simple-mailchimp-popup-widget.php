@@ -38,11 +38,11 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
             echo wpautop( $textarea );
         }
 
-        $html = '<button class="mailchimp-popup-button" onclick="window.location.href=\'#mailchimp-popup\'">' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '</button>';
+        $html = '<button class="mailchimp-popup-button" onclick="window.location.href=\'#mailchimp-popup\'">' . __( 'Newsletter', 'rather-simple-mailchimp' ) . '</button>';
 
         $html .= '<div id="mailchimp-popup">
             <div class="mailchimp-popup-content">
-            <a class="mailchimp-popup-close" href="#0">&times;</a>
+            <a class="mailchimp-popup-close" title="' . __( 'Close', 'rather-simple-mailchimp' ) . '" rel="nofollow" href="#0">&times;</a>
             <!-- Begin Mailchimp Signup Form -->
             <div id="mc_embed_signup">
             <form action="' . esc_url( $url ) . '/subscribe/post?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>

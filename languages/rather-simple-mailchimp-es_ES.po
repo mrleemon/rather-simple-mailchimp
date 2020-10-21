@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2020-10-21 00:44+0200\n"
-"PO-Revision-Date: 2020-10-21 00:45+0200\n"
+"POT-Creation-Date: 2020-10-21 12:17+0200\n"
+"PO-Revision-Date: 2020-10-21 12:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -29,11 +29,12 @@ msgid "Rather Simple Mailchimp popup widget"
 msgstr "Widget Rather Simple MailChimp popup"
 
 #: include/rather-simple-mailchimp-popup-widget.php:41
-#: include/rather-simple-mailchimp-popup-widget.php:72
-#: include/rather-simple-mailchimp-widget.php:67
-#: rather-simple-mailchimp.php:196 src/index.js:133 src/index.js:187
-msgid "Subscribe"
-msgstr "Suscribirse"
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: include/rather-simple-mailchimp-popup-widget.php:45
+msgid "Close"
+msgstr "Cerrar"
 
 #: include/rather-simple-mailchimp-popup-widget.php:54
 #: include/rather-simple-mailchimp-widget.php:49
@@ -52,6 +53,12 @@ msgstr "Apellidos"
 #: rather-simple-mailchimp.php:191 src/index.js:129 src/index.js:183
 msgid "Email"
 msgstr "Correo electrónico"
+
+#: include/rather-simple-mailchimp-popup-widget.php:72
+#: include/rather-simple-mailchimp-widget.php:67
+#: rather-simple-mailchimp.php:196 src/index.js:133 src/index.js:187
+msgid "Subscribe"
+msgstr "Suscribirse"
 
 #: include/rather-simple-mailchimp-popup-widget.php:132
 #: include/rather-simple-mailchimp-widget.php:125
