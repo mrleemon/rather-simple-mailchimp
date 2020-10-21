@@ -71,6 +71,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
         $html .= '<div class="mc-submit-button">
                     <input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </div>
+                <div class="mc-privacy-policy">' . sprintf( __( 'By subscribing you agree to our %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . '</div>
                 <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
                     <div class="response" id="mce-success-response" style="display:none"></div>

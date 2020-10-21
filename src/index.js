@@ -4,9 +4,10 @@
 
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
-const { PanelBody, Placeholder, TextControl, ToggleControl } = wp.components;
+const { Disabled, PanelBody, Placeholder, TextControl, ToggleControl } = wp.components;
 const { InspectorControls } = wp.blockEditor;
 const {	registerBlockType } = wp.blocks;
+const ServerSideRender = wp.serverSideRender;
 
 import './editor.scss';
 import './style.scss';
@@ -105,6 +106,54 @@ export const settings = {
                         )}
                     </PanelBody>
                 </InspectorControls>
+                <Disabled>
+                    <ServerSideRender
+                        block='occ/mailchimp'
+                        attributes={ attributes }
+                        className={ props.className }
+                    />
+                </Disabled>
+            </Fragment>
+        );
+
+        /*return (
+            <Fragment>
+                <InspectorControls>
+                    <PanelBody title={ __( 'Mailchimp Settings', 'rather-simple-mailchimp' ) }>
+                        <TextControl
+                            label={ __( 'URL', 'rather-simple-mailchimp' ) }
+                            type='url'
+                            value={ attributes.url }
+                            onChange={ setURL }
+                        />
+                        <TextControl
+                            label={ __( 'U', 'rather-simple-mailchimp' ) }
+                            type='text'
+                            value={ attributes.u }
+                            onChange={ setU }
+                        />
+                        <TextControl
+                            label={ __( 'ID', 'rather-simple-mailchimp' ) }
+                            type='text'
+                            value={ attributes.id }
+                            onChange={ setID }
+                        />
+                        { attributes.url && attributes.u && attributes.id && (
+                            <ToggleControl
+                                label={ __( 'Show First Name', 'rather-simple-mailchimp' ) }
+                                checked={ !! attributes.firstName }
+                                onChange={ toggleFirstName }
+                            />
+                        )}
+                        { attributes.url && attributes.u && attributes.id && (
+                            <ToggleControl
+                            label={ __( 'Show Last Name', 'rather-simple-mailchimp' ) }
+                            checked={ !! attributes.lastName }
+                            onChange={ toggleLastName }
+                            />
+                        )}
+                    </PanelBody>
+                </InspectorControls>
                 <div className={ props.className }>
                     { attributes.url && attributes.u && attributes.id ? (
                         <div id="mc_embed_signup">
@@ -132,6 +181,7 @@ export const settings = {
                                     <div className="mc-submit-button">
                                         <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" disabled />
                                     </div>
+                                    <div className="mc-privacy-policy"></div>
                                     <div id="mce-responses" className="clear">
                                         <div className="response" id="mce-error-response" style={{display: 'none'}} />
                                         <div className="response" id="mce-success-response" style={{display: 'none'}} />
@@ -151,11 +201,15 @@ export const settings = {
                     )}
                 </div>
             </Fragment>
-        );
+        );*/
 
     },
 
-    save: props => {
+    save: () => {
+        return null
+    }
+
+    /*save: props => {
         const attributes = props.attributes;
 
 		return (
@@ -186,6 +240,7 @@ export const settings = {
                                 <div className="mc-submit-button">
                                     <input value={ __( 'Subscribe', 'rather-simple-mailchimp' ) } name="subscribe" id="mc-embedded-subscribe" className="button" type="submit" />
                                 </div>
+                                <div className="mc-privacy-policy"></div>
                                 <div id="mce-responses" className="clear">
                                     <div className="response" id="mce-error-response" style={{display: 'none'}} />
                                     <div className="response" id="mce-success-response" style={{display: 'none'}} />
@@ -197,7 +252,7 @@ export const settings = {
                 )}
 			</div>
 		);
-	}
+	}*/
 
 };
 

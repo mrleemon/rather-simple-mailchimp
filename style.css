@@ -11,6 +11,11 @@
     margin: 0;
 }
 
+#mc_embed_signup .mc-privacy-policy {
+    margin-top: 10px;
+    clear: both;
+}
+
 #mc_embed_signup #mce-responses {
     margin-top: 10px;
     font-size: 85%;

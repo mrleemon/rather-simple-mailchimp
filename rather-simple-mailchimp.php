@@ -48,7 +48,7 @@ class Rather_Simple_Mailchimp {
         add_action( 'init', array( $this, 'register_block' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-        add_shortcode( 'mailchimp', array( $this, 'shortcode_mailchimp' ) );
+        add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
 
     }
    
@@ -122,14 +122,37 @@ class Rather_Simple_Mailchimp {
         wp_register_script(
             'rather-simple-mailchimp-block',
             plugins_url( 'build/index.js', __FILE__ ),
-            array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n' ),
+            array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render' ),
             filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' )
         );
 
         if ( is_admin() ) {
             register_block_type( 'occ/mailchimp', array(
                 'editor_script' => 'rather-simple-mailchimp-block',
-                'style' => 'rather-simple-mailchimp-frontend'
+                'style' => 'rather-simple-mailchimp-frontend',
+                'render_callback' => array( $this, 'render_block' ),
+                'attributes' => array(
+                    'url' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'u' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'id' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'firstName'   => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
+                    'lastName'    => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
+                ),
             ) );
         } else {
             // Only load Mailchimp scripts on frontend
@@ -137,6 +160,29 @@ class Rather_Simple_Mailchimp {
                 'editor_script' => 'rather-simple-mailchimp-block',
                 'style' => 'rather-simple-mailchimp-frontend',
                 'script' => 'rather-simple-mailchimp-frontend',
+                'render_callback' => array( $this, 'render_block' ),
+                'attributes' => array(
+                    'url' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'u' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'id' => array(
+                        'type'    => 'string',
+                        'default' => '',
+                    ),
+                    'firstName'   => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
+                    'lastName'    => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
+                ),
             ) );
         }
 
@@ -145,9 +191,9 @@ class Rather_Simple_Mailchimp {
     }
 
     /**
-     * shortcode_mailchimp
+     * render_shortcode
      */
-    function shortcode_mailchimp( $attr ) {
+    function render_shortcode( $attr ) {
         $html = $this->shortcode_atts( $attr );
         return $html;
     }
@@ -195,6 +241,7 @@ class Rather_Simple_Mailchimp {
         $html .= '<div class="mc-submit-button">
                     <input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </div>
+                <div class="mc-privacy-policy">' . sprintf( __( 'By subscribing you agree to our %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . '</div>
                 <div id="mce-responses" class="clear">
                     <div class="response" id="mce-error-response" style="display:none"></div>
                     <div class="response" id="mce-success-response" style="display:none"></div>
@@ -207,6 +254,52 @@ class Rather_Simple_Mailchimp {
         return $html;
     }
     
+    /**
+     * render_block
+     */
+    function render_block( $attr, $content ) {
+        $html = '<!-- Begin Mailchimp Signup Form -->
+          <div id="mc_embed_signup">
+            <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
+
+        if ( $attr['firstName'] ) {
+            $html .= '<div class="mc-field-group">
+                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME">
+                </div>';
+        }
+
+        if ( $attr['lastName'] ) {
+            $html .= '<div class="mc-field-group">
+                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME">
+                </div>';
+        }
+        
+        $html .= '<div class="mc-field-group">
+                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>';
+
+        $html .= '<div class="mc-submit-button">
+                    <input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
+                </div>
+                <div class="mc-privacy-policy">' . sprintf( __( 'By subscribing you agree to our %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . '</div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            </div>
+            </form>
+            <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+        </div>
+        <!--End mc_embed_signup-->';
+
+        return $html;
+    }
+
 }
 
 add_action( 'plugins_loaded', array( Rather_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );
