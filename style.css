@@ -56,21 +56,19 @@
 
 #mailchimp-popup .mailchimp-popup-content {
     position: relative;
-    padding: 75px 75px;
+    padding: 75px;
 }
 
 #mailchimp-popup .mailchimp-popup-close {
-    color: #aaaaaa;
     position: absolute;
     top: 5px;
     right: 15px;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
 }
   
 #mailchimp-popup .mailchimp-popup-close:hover,
 #mailchimp-popup .mailchimp-popup-close:focus {
-    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
