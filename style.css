@@ -54,12 +54,12 @@
     display: none;
 }
 
-.mailchimp-popup-content {
+#mailchimp-popup .mailchimp-popup-content {
     position: relative;
     padding: 75px 75px;
 }
 
-.mailchimp-popup-close {
+#mailchimp-popup .mailchimp-popup-close {
     color: #aaaaaa;
     position: absolute;
     top: 5px;
@@ -68,8 +68,8 @@
     font-weight: bold;
 }
   
-.mailchimp-popup-close:hover,
-.mailchimp-popup-close:focus {
+#mailchimp-popup .mailchimp-popup-close:hover,
+#mailchimp-popup .mailchimp-popup-close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
