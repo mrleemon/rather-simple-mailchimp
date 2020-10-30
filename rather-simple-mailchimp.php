@@ -232,7 +232,7 @@ class Rather_Simple_Mailchimp {
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>';
 
-        $html .= '<div class="mc-field-group"
+        $html .= '<div class="mc-field-group">
                     <input type="checkbox" value="1" name="AGREE" id="mc-privacy-policy" required> <label for="mc-privacy-policy">' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . '</label>
                 </div>';
 
@@ -282,7 +282,7 @@ class Rather_Simple_Mailchimp {
                         <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                     </div>';
 
-            $html .= '<div class="mc-field-group"
+            $html .= '<div class="mc-field-group">
                 <input type="checkbox" value="1" name="AGREE" id="mc-privacy-policy" required> <label for="mc-privacy-policy">' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . '</label>
             </div>';
 
