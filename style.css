@@ -3,17 +3,8 @@
     margin: 0 0 1em;
 }
 
-#mc_embed_signup .mc-field-group input {
-    width: 100%;
-}
-
 #mc_embed_signup .button {
     margin: 0;
-}
-
-#mc_embed_signup .mc-privacy-policy {
-    margin-top: 10px;
-    clear: both;
 }
 
 #mc_embed_signup #mce-responses {

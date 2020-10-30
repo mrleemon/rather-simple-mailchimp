@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2020-10-21 18:22+0200\n"
-"PO-Revision-Date: 2020-10-21 18:22+0200\n"
+"POT-Creation-Date: 2020-10-30 17:26+0100\n"
+"PO-Revision-Date: 2020-10-30 17:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -38,31 +38,30 @@ msgstr "Cerrar"
 
 #: include/rather-simple-mailchimp-popup-widget.php:54
 #: include/rather-simple-mailchimp-widget.php:49
-#: rather-simple-mailchimp.php:224 rather-simple-mailchimp.php:269
+#: rather-simple-mailchimp.php:218 rather-simple-mailchimp.php:268
 msgid "First Name"
 msgstr "Nombre"
 
 #: include/rather-simple-mailchimp-popup-widget.php:61
 #: include/rather-simple-mailchimp-widget.php:56
-#: rather-simple-mailchimp.php:231 rather-simple-mailchimp.php:276
+#: rather-simple-mailchimp.php:225 rather-simple-mailchimp.php:275
 msgid "Last Name"
 msgstr "Apellidos"
 
 #: include/rather-simple-mailchimp-popup-widget.php:67
 #: include/rather-simple-mailchimp-widget.php:62
-#: rather-simple-mailchimp.php:237 rather-simple-mailchimp.php:282
+#: rather-simple-mailchimp.php:231 rather-simple-mailchimp.php:281
 msgid "Email"
 msgstr "Correo electrónico"
 
 #: include/rather-simple-mailchimp-popup-widget.php:72
 #: include/rather-simple-mailchimp-widget.php:67
-#: rather-simple-mailchimp.php:242 rather-simple-mailchimp.php:287
+#: rather-simple-mailchimp.php:240 rather-simple-mailchimp.php:290
 msgid "Subscribe"
 msgstr "Suscribirse"
 
 #: include/rather-simple-mailchimp-popup-widget.php:74
 #: include/rather-simple-mailchimp-widget.php:69
-#: rather-simple-mailchimp.php:244 rather-simple-mailchimp.php:289
 #, php-format
 msgid "By subscribing you agree to our %s."
 msgstr "Al suscribirte, estás de acuerdo con nuestra %s."
@@ -110,6 +109,11 @@ msgstr "Un sencillo widget de Mailchimp"
 msgid "Rather Simple Mailchimp widget"
 msgstr "Widget Rather Simple Mailchimp"
 
+#: rather-simple-mailchimp.php:236 rather-simple-mailchimp.php:286
+#, php-format
+msgid "I have read and agree to the %s."
+msgstr "He leído y acepto la %s."
+
 #: src/index.js:41
 msgid "Mailchimp"
 msgstr ""
@@ -145,8 +149,3 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://oscarciutat.com/code/"
 msgstr ""
-
-#~ msgid "Set up your Mailchimp form filling the fields on the sidebar."
-#~ msgstr ""
-#~ "Configura tu formulario de Mailchimp rellenando los campos de la barra "
-#~ "lateral."
