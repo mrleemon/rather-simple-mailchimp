@@ -51,20 +51,20 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 
         if ( $first_name ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
                     <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
                     </div>';
         }
 
         if ( $last_name ) {
             $html .= '<div class="mc-field-group">
-                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
                     <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
                     </div>';
         }
         
         $html .= '<div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . '<span class="required">*</span></label>
+                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>';
 
