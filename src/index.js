@@ -9,7 +9,7 @@ const { InspectorControls } = wp.blockEditor;
 const {	registerBlockType } = wp.blocks;
 const ServerSideRender = wp.serverSideRender;
 
-import './editor.scss';
+//import './editor.scss';
 import './style.scss';
 
 const blockAttributes = {
