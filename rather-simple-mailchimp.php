@@ -106,6 +106,15 @@ class Rather_Simple_Mailchimp {
             return;
         }
 
+        $dir = dirname( __FILE__ );
+        $script_asset_path = "$dir/build/index.asset.php";
+        if ( ! file_exists( $script_asset_path ) ) {
+            throw new Error(
+                'You need to run `npm start` or `npm run build` for the block first.'
+            );
+        }
+        $script_asset = require( $script_asset_path );
+        
         wp_register_style(
             'rather-simple-mailchimp-frontend',
             plugins_url( 'build/style-index.css', __FILE__ ),
@@ -122,7 +131,7 @@ class Rather_Simple_Mailchimp {
         wp_register_script(
             'rather-simple-mailchimp-block',
             plugins_url( 'build/index.js', __FILE__ ),
-            array( 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render' ),
+            $script_asset['dependencies'],
             filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' )
         );
 
