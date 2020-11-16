@@ -12,29 +12,6 @@ const ServerSideRender = wp.serverSideRender;
 //import './editor.scss';
 import './style.scss';
 
-const blockAttributes = {
-	url: {
-		type: 'string',
-		default: '',
-	},
-	u: {
-		type: 'string',
-		default: '',
-	},
-	id: {
-		type: 'string',
-		default: '',
-	},
-    firstName: {
-        type: 'boolean',
-        default: false,
-    },
-    lastName: {
-        type: 'boolean',
-        default: false,
-    },
-};
-
 export const name = 'occ/mailchimp';
 
 export const settings = {
@@ -43,7 +20,28 @@ export const settings = {
 	icon: 'email',
 	category: 'embed',
 	keywords: [ __( 'email' ), __( 'newsletter' ) ],
-	attributes: blockAttributes,
+	attributes: {
+        url: {
+            type: 'string',
+            default: '',
+        },
+        u: {
+            type: 'string',
+            default: '',
+        },
+        id: {
+            type: 'string',
+            default: '',
+        },
+        firstName: {
+            type: 'boolean',
+            default: false,
+        },
+        lastName: {
+            type: 'boolean',
+            default: false,
+        },
+    },
 
 	edit: props => {
         const attributes = props.attributes;
