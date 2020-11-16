@@ -4,7 +4,6 @@
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
   "dependencies": {
-    "classnames": "2.2.6",
     "npm-check-updates": "^10.1.0"
   },
   "devDependencies": {
