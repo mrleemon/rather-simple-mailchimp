@@ -4,9 +4,15 @@
 
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
-const { Disabled, PanelBody, Placeholder, TextControl, ToggleControl } = wp.components;
+const {
+	Disabled,
+	PanelBody,
+	Placeholder,
+	TextControl,
+	ToggleControl,
+} = wp.components;
 const { InspectorControls } = wp.blockEditor;
-const {	registerBlockType } = wp.blocks;
+const { registerBlockType } = wp.blocks;
 const ServerSideRender = wp.serverSideRender;
 
 //import './editor.scss';
@@ -21,100 +27,111 @@ export const settings = {
 	category: 'embed',
 	keywords: [ __( 'email' ), __( 'newsletter' ) ],
 	attributes: {
-        url: {
-            type: 'string',
-            default: '',
-        },
-        u: {
-            type: 'string',
-            default: '',
-        },
-        id: {
-            type: 'string',
-            default: '',
-        },
-        firstName: {
-            type: 'boolean',
-            default: false,
-        },
-        lastName: {
-            type: 'boolean',
-            default: false,
-        },
-    },
+		url: {
+			type: 'string',
+			default: '',
+		},
+		u: {
+			type: 'string',
+			default: '',
+		},
+		id: {
+			type: 'string',
+			default: '',
+		},
+		firstName: {
+			type: 'boolean',
+			default: false,
+		},
+		lastName: {
+			type: 'boolean',
+			default: false,
+		},
+	},
 
-	edit: props => {
-        const attributes = props.attributes;
+	edit: ( props ) => {
+		const attributes = props.attributes;
 
-        const setID = value => {
-            props.setAttributes( { id: value } );
-        };
+		const setID = ( value ) => {
+			props.setAttributes( { id: value } );
+		};
 
-        const setURL = value => {
-            props.setAttributes( { url: value } );
-        };
+		const setURL = ( value ) => {
+			props.setAttributes( { url: value } );
+		};
 
-        const setU = value => {
-            props.setAttributes( { u: value } );
-        };
+		const setU = ( value ) => {
+			props.setAttributes( { u: value } );
+		};
 
-        const toggleFirstName = () => {
-            props.setAttributes( { firstName: ! props.attributes.firstName } );
-        };
+		const toggleFirstName = () => {
+			props.setAttributes( { firstName: ! props.attributes.firstName } );
+		};
 
-        const toggleLastName = () => {
-            props.setAttributes( { lastName: ! props.attributes.lastName } );
-        };
+		const toggleLastName = () => {
+			props.setAttributes( { lastName: ! props.attributes.lastName } );
+		};
 
-        return (
-            <Fragment>
-                <InspectorControls>
-                    <PanelBody title={ __( 'Mailchimp Settings', 'rather-simple-mailchimp' ) }>
-                        <TextControl
-                            label={ __( 'URL', 'rather-simple-mailchimp' ) }
-                            type='url'
-                            value={ attributes.url }
-                            onChange={ setURL }
-                        />
-                        <TextControl
-                            label={ __( 'U', 'rather-simple-mailchimp' ) }
-                            type='text'
-                            value={ attributes.u }
-                            onChange={ setU }
-                        />
-                        <TextControl
-                            label={ __( 'ID', 'rather-simple-mailchimp' ) }
-                            type='text'
-                            value={ attributes.id }
-                            onChange={ setID }
-                        />
-                        { attributes.url && attributes.u && attributes.id && (
-                            <ToggleControl
-                                label={ __( 'Show First Name', 'rather-simple-mailchimp' ) }
-                                checked={ !! attributes.firstName }
-                                onChange={ toggleFirstName }
-                            />
-                        )}
-                        { attributes.url && attributes.u && attributes.id && (
-                            <ToggleControl
-                            label={ __( 'Show Last Name', 'rather-simple-mailchimp' ) }
-                            checked={ !! attributes.lastName }
-                            onChange={ toggleLastName }
-                            />
-                        )}
-                    </PanelBody>
-                </InspectorControls>
-                <Disabled>
-                    <ServerSideRender
-                        block='occ/mailchimp'
-                        attributes={ attributes }
-                        className={ props.className }
-                    />
-                </Disabled>
-            </Fragment>
-        );
+		return (
+			<Fragment>
+				<InspectorControls>
+					<PanelBody
+						title={ __(
+							'Mailchimp Settings',
+							'rather-simple-mailchimp'
+						) }
+					>
+						<TextControl
+							label={ __( 'URL', 'rather-simple-mailchimp' ) }
+							type="url"
+							value={ attributes.url }
+							onChange={ setURL }
+						/>
+						<TextControl
+							label={ __( 'U', 'rather-simple-mailchimp' ) }
+							type="text"
+							value={ attributes.u }
+							onChange={ setU }
+						/>
+						<TextControl
+							label={ __( 'ID', 'rather-simple-mailchimp' ) }
+							type="text"
+							value={ attributes.id }
+							onChange={ setID }
+						/>
+						{ attributes.url && attributes.u && attributes.id && (
+							<ToggleControl
+								label={ __(
+									'Show First Name',
+									'rather-simple-mailchimp'
+								) }
+								checked={ !! attributes.firstName }
+								onChange={ toggleFirstName }
+							/>
+						) }
+						{ attributes.url && attributes.u && attributes.id && (
+							<ToggleControl
+								label={ __(
+									'Show Last Name',
+									'rather-simple-mailchimp'
+								) }
+								checked={ !! attributes.lastName }
+								onChange={ toggleLastName }
+							/>
+						) }
+					</PanelBody>
+				</InspectorControls>
+				<Disabled>
+					<ServerSideRender
+						block="occ/mailchimp"
+						attributes={ attributes }
+						className={ props.className }
+					/>
+				</Disabled>
+			</Fragment>
+		);
 
-        /*return (
+		/*return (
             <Fragment>
                 <InspectorControls>
                     <PanelBody title={ __( 'Mailchimp Settings', 'rather-simple-mailchimp' ) }>
@@ -200,18 +217,17 @@ export const settings = {
                 </div>
             </Fragment>
         );*/
+	},
 
-    },
+	save: () => {
+		return null;
+	},
 
-    save: () => {
-        return null
-    }
-
-    /*save: props => {
+	/*save: props => {
         const attributes = props.attributes;
 
-		return (
-			<div className={ props.className }>
+        return (
+            <div className={ props.className }>
                 { attributes.url && attributes.u && attributes.id && (
                     <div id="mc_embed_signup">
                         <form action={ attributes.url  + "/subscribe/post?u=" + attributes.u  + "&id=" + attributes.id } method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
@@ -248,10 +264,9 @@ export const settings = {
                         <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
                     </div>
                 )}
-			</div>
-		);
-	}*/
-
+            </div>
+        );
+    }*/
 };
 
 registerBlockType( name, settings );
