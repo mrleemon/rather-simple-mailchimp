@@ -25,7 +25,11 @@ export const settings = {
 	description: __( 'A Mailchimp form.', 'rather-simple-mailchimp' ),
 	icon: 'email',
 	category: 'embed',
-	keywords: [ __( 'email' ), __( 'newsletter' ) ],
+    keywords: [ __( 'email' ), __( 'newsletter' ) ],
+    supports: {
+        html: false,
+        multiple: false,
+    },
 	attributes: {
 		url: {
 			type: 'string',
