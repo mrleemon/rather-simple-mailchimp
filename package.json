@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
-  "dependencies": {
-    "npm-check-updates": "^10.2.1"
-  },
   "devDependencies": {
     "@wordpress/scripts": "^12.5.0",
-    "path": "^0.12.7",
     "po2json": "^1.0.0-beta-2"
   },
   "scripts": {
@@ -23,5 +19,8 @@
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js",
     "i18n": "po2json languages/rather-simple-mailchimp-es_ES.po languages/rather-simple-mailchimp-es_ES-rather-simple-mailchimp-block.json -f jed && po2json languages/rather-simple-mailchimp-ca.po languages/rather-simple-mailchimp-ca-rather-simple-mailchimp-block.json -f jed"
+  },
+  "dependencies": {
+    "npm-check-updates": "^10.2.1"
   }
 }
