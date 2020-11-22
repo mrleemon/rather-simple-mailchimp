@@ -7,7 +7,6 @@ const { Fragment } = wp.element;
 const {
 	Disabled,
 	PanelBody,
-	Placeholder,
 	TextControl,
 	ToggleControl,
 } = wp.components;
@@ -15,7 +14,7 @@ const { InspectorControls } = wp.blockEditor;
 const { registerBlockType } = wp.blocks;
 const ServerSideRender = wp.serverSideRender;
 
-import './editor.scss';
+//import './editor.scss';
 import './style.scss';
 
 export const name = 'occ/mailchimp';

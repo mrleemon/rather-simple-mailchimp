@@ -40,27 +40,27 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 
         $html = '<!-- Begin Mailchimp Signup Form -->
             <div id="mc_embed_signup">
-            <form action="' . esc_url( $url ) . '/subscribe/post?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <form action="' . esc_url( $url ) . '/subscribe/post-json?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
             <div id="mc_embed_signup_scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $u ) . '_' . esc_attr( $id ) . '" tabindex="-1" value=""></div>';
 
         if ( $first_name ) {
             $html .= '<div class="mc-field-group">
                     <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required>
                     </div>';
         }
 
         if ( $last_name ) {
             $html .= '<div class="mc-field-group">
                     <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME" required>
                     </div>';
         }
         
         $html .= '<div class="mc-field-group">
                     <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
                 </div>';
 
         $html .= '<div class="mc-field-group">

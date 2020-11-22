@@ -88,8 +88,8 @@ class Rather_Simple_Mailchimp {
         global $post;
         if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'rather_simple_mailchimp_widget' ) || is_active_widget( false, false, 'rather_simple_mailchimp_popup_widget' ) ) {
             wp_enqueue_style( 'rather-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
-            wp_enqueue_script( 'mc-validate', plugins_url( '/assets/js/mc-validate.js', __FILE__ ), array( 'jquery' ), false, true );
-            wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-validate' ), false, true );
+            wp_enqueue_script( 'mc-subscribe', plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ), array( 'jquery' ), false, true );
+            wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-subscribe' ), false, true );
         }
     }
 
@@ -218,27 +218,27 @@ class Rather_Simple_Mailchimp {
 
         $html = '<!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
-            <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
             <div id="mc_embed_signup_scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
 
         if ( $atts['first_name'] ) {
             $html .= '<div class="mc-field-group">
                     <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME">
+                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required>
                 </div>';
         }
 
         if ( $atts['last_name'] ) {
             $html .= '<div class="mc-field-group">
                     <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME">
+                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required>
                 </div>';
         }
         
         $html .= '<div class="mc-field-group">
                     <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
                 </div>';
 
         $html .= '<div class="mc-field-group">
@@ -268,27 +268,27 @@ class Rather_Simple_Mailchimp {
         if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
             $html = '<!-- Begin Mailchimp Signup Form -->
             <div id="mc_embed_signup">
-                <form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) .'" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
                 <div id="mc_embed_signup_scroll">
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
 
             if ( $attr['firstName'] ) {
                 $html .= '<div class="mc-field-group">
                         <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                        <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME">
+                        <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required>
                     </div>';
             }
 
             if ( $attr['lastName'] ) {
                 $html .= '<div class="mc-field-group">
                         <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                        <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME">
+                        <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required>
                     </div>';
             }
             
             $html .= '<div class="mc-field-group">
                         <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
                     </div>';
 
             $html .= '<div class="mc-field-group">
@@ -304,7 +304,7 @@ class Rather_Simple_Mailchimp {
                     </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 </div>
                 </form>
-                <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+                <script src="' . plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) . '"></script>
             </div>
             <!--End mc_embed_signup-->';
         }
