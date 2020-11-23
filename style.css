@@ -1,3 +1,4 @@
+/* General */
 #mc_embed_signup .mc-field-group {
     position: relative;
     margin: 0 0 1em;
@@ -7,14 +8,14 @@
     margin: 0;
 }
 
-#mc_embed_signup #mce-responses {
+#mc_embed_signup .mce-responses {
     margin-top: 10px;
     font-size: 85%;
     text-align: center;
     clear: both;
 }
 
-#mc_embed_signup #mce-responses .response {
+#mc_embed_signup .mce-responses .response {
     margin-bottom: 10px;
 }
 
@@ -27,6 +28,7 @@
     display: none !important;
 }
 
+/* Popup */
 #mailchimp-popup {
     display: none;
     position: fixed;
