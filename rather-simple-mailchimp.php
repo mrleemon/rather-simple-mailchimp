@@ -217,9 +217,9 @@ class Rather_Simple_Mailchimp {
         $atts['last_name'] = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
 
         $html = '<!-- Begin Mailchimp Signup Form -->
-          <div id="mc_embed_signup">
+          <div class="mc-embed-signup">
             <form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
-            <div id="mc_embed_signup_scroll">
+            <div class="mc-embed-signup-scroll">
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
 
         if ( $atts['first_name'] ) {
@@ -255,7 +255,7 @@ class Rather_Simple_Mailchimp {
             </div>
             </form>
         </div>
-        <!--End mc_embed_signup-->';
+        <!--End mc-embed-signup-->';
     
         return $html;
     }
@@ -267,9 +267,9 @@ class Rather_Simple_Mailchimp {
         $html = '';
         if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
             $html = '<!-- Begin Mailchimp Signup Form -->
-            <div id="mc_embed_signup">
+            <div class="mc-embed-signup">
                 <form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
-                <div id="mc_embed_signup_scroll">
+                <div class="mc-embed-signup-scroll">
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
 
             if ( $attr['firstName'] ) {
@@ -306,7 +306,7 @@ class Rather_Simple_Mailchimp {
                 </form>
                 <script src="' . plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) . '"></script>
             </div>
-            <!--End mc_embed_signup-->';
+            <!--End mc-embed-signup-->';
         }
 
         return $html;

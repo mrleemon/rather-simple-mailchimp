@@ -1,34 +1,34 @@
 /* General */
-#mc_embed_signup .mc-field-group {
+.mc-embed-signup .mc-field-group {
     position: relative;
     margin: 0 0 1em;
 }
 
-#mc_embed_signup .mc-submit-button {
+.mc-embed-signup .mc-submit-button {
     overflow: hidden;
 }
 
-#mc_embed_signup .button {
+.mc-embed-signup .button {
     margin: 0;
 }
 
-#mc_embed_signup .mce-responses {
+.mc-embed-signup .mce-responses {
     margin-top: 10px;
     font-size: 85%;
     text-align: center;
     clear: both;
 }
 
-#mc_embed_signup .mce-responses .response {
+.mc-embed-signup .mce-responses .response {
     margin-bottom: 10px;
 }
 
-#mc_embed_signup input.mce_inline_error {
+.mc-embed-signup input.mce_inline_error {
     background: #f4e7e6;
     border-color: #b85f56;
 }
 
-#mc_embed_signup div.mce_inline_error {
+.mc-embed-signup div.mce_inline_error {
     display: none !important;
 }
 
