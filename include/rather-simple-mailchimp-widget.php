@@ -70,9 +70,9 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         $html .= '<div class="mc-submit-button">
                     <input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button">
                 </div>
-                <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
+                <div class="mce-responses" class="clear">
+                    <div class="response mce-error-response" style="display:none"></div>
+                    <div class="response mce-success-response" style="display:none"></div>
                 </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
             </div>
             </form>
