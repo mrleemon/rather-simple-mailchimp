@@ -4,6 +4,10 @@
     margin: 0 0 1em;
 }
 
+#mc_embed_signup .mc-submit-button {
+    overflow: hidden;
+}
+
 #mc_embed_signup .button {
     margin: 0;
 }
