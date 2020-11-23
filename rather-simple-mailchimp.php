@@ -242,7 +242,7 @@ class Rather_Simple_Mailchimp {
                 </div>';
 
         $html .= '<div class="mc-field-group">
-                <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label for="mc-privacy-policy">' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <span class="required">*</span></label>
+                <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <span class="required">*</span></label>
             </div>';
 
         $html .= '<div class="mc-submit-button">
@@ -292,7 +292,7 @@ class Rather_Simple_Mailchimp {
                     </div>';
 
             $html .= '<div class="mc-field-group">
-                    <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label for="mc-privacy-policy">' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <span class="required">*</span></label>
+                    <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <span class="required">*</span></label>
                 </div>';
 
             $html .= '<div class="mc-submit-button">
