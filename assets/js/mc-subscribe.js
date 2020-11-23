@@ -14,7 +14,7 @@
             success: function( data ) {
                 if ( data.result != 'success' ) {
                     $( '.mce-error-response', $form ).show();
-                    $( '.mce-error-response', $form ).html( '<p>' + data.msg.substring( 4 ) + '</p>' );
+                    $( '.mce-error-response', $form ).html( '<p>' + data.msg + '</p>' );
                 } else {
                     $( '.mce-success-response', $form ).show();
                     $( '.mce-success-response', $form ).html( '<p>Thank you for subscribing. We have sent you a confirmation email.</p>' );
