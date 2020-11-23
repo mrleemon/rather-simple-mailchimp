@@ -1,5 +1,5 @@
 .wp-block-occ-mailchimp {
-    #mc_embed_signup {
+    .mc-embed-signup {
         .mc-field-group {
 	        position: relative;
             margin: 0 0 1em;
@@ -10,7 +10,7 @@
         .button {
             margin: 0;
         }
-        #mce-responses {
+        .mce-responses {
             margin-top: 10px;
             font-size: 85%;
             text-align: center;
