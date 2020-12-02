@@ -189,7 +189,7 @@ class Rather_Simple_Mailchimp {
             ) );
         }
 
-        $cehck= wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
+        wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 
     }
 
