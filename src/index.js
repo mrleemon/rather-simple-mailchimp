@@ -14,8 +14,8 @@ const { InspectorControls } = wp.blockEditor;
 const { registerBlockType } = wp.blocks;
 const ServerSideRender = wp.serverSideRender;
 
-//import './editor.scss';
 import './style.scss';
+import './editor.scss';
 
 const name = 'occ/mailchimp';
 
