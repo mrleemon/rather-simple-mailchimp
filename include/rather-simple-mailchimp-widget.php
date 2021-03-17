@@ -27,6 +27,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         $id = empty( $instance['id'] ) ? '' : $instance['id'];
         $first_name = !empty( $instance['first_name'] );
         $last_name = !empty( $instance['last_name'] );
+        $placeholder = !empty( $instance['placeholder'] );
         
         echo $before_widget;
         
@@ -45,22 +46,25 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $u ) . '_' . esc_attr( $id ) . '" tabindex="-1" value=""></div>';
 
         if ( $first_name ) {
+            $placeholder_st = $placeholder ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
                     <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required>
+                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required ' . $placeholder_st . '>
                     </div>';
         }
 
         if ( $last_name ) {
+            $placeholder_st = $placeholder ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
                     <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME" required>
+                    <input type="text" value="" name="LNAME" class="required" id="mce-LNAME" required ' . $placeholder_st . '>
                     </div>';
         }
         
+        $placeholder_st = $placeholder ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
         $html .= '<div class="mc-field-group">
                     <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder_st . '>
                 </div>';
 
         $html .= '<div class="mc-field-group">
@@ -105,6 +109,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         $instance['id'] = strip_tags( $new_instance['id'] );
         $instance['first_name'] = !empty( $new_instance['first_name'] );
         $instance['last_name'] = !empty( $new_instance['last_name'] );
+        $instance['placeholder'] = !empty( $new_instance['placeholder'] );
         return $instance;
     }
 
@@ -123,6 +128,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         $id = strip_tags( $instance['id'] );
         $first_name = !empty( $instance['first_name'] );
         $last_name = !empty( $instance['last_name'] );
+        $placeholder = !empty( $instance['placeholder'] );
         
         ?>
             <p>
@@ -152,6 +158,10 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
             <p>
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'last_name' ); ?>" name="<?php echo $this->get_field_name( 'last_name' ); ?>" <?php echo checked( $last_name, true, false ); ?> />
             <label for="<?php echo $this->get_field_id( 'last_name' ); ?>"><?php _e( 'Show Last Name', 'rather-simple-mailchimp' ); ?></label>
+            </p>
+            <p>
+            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'placeholder' ); ?>" name="<?php echo $this->get_field_name( 'placeholder' ); ?>" <?php echo checked( $placeholder, true, false ); ?> />
+            <label for="<?php echo $this->get_field_id( 'placeholder' ); ?>"><?php _e( 'Show Placeholder', 'rather-simple-mailchimp' ); ?></label>
             </p>
         <?php
     }

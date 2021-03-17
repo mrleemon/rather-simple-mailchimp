@@ -158,6 +158,10 @@ class Rather_Simple_Mailchimp {
                         'type'    => 'boolean',
                         'default' => false,
                     ),
+                    'placeholder' => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
                 ),
             ) );
         } else {
@@ -185,6 +189,10 @@ class Rather_Simple_Mailchimp {
                         'type'    => 'boolean',
                         'default' => false,
                     ),
+                    'placeholder' => array(
+                        'type'    => 'boolean',
+                        'default' => false,
+                    ),
                 ),
             ) );
         }
@@ -206,15 +214,17 @@ class Rather_Simple_Mailchimp {
      */
     function shortcode_atts( $attr ) {
         $atts = shortcode_atts( array(
-            'url' => '',
-            'u' => '',
-            'id' => '',
-            'first_name' => 'false',
-            'last_name' => 'false',
+            'url'         => '',
+            'u'           => '',
+            'id'          => '',
+            'first_name'  => 'false',
+            'last_name'   => 'false',
+            'placeholder' => 'false',
         ), $attr, 'mailchimp' );
 
         $atts['first_name'] = filter_var( $atts['first_name'], FILTER_VALIDATE_BOOLEAN );
         $atts['last_name'] = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
+        $atts['placeholder'] = filter_var( $atts['placeholder'], FILTER_VALIDATE_BOOLEAN );
 
         $html = '<!-- Begin Mailchimp Signup Form -->
           <div class="mc-embed-signup">
@@ -223,22 +233,25 @@ class Rather_Simple_Mailchimp {
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
 
         if ( $atts['first_name'] ) {
+            $placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
                     <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required>
+                    <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required ' . $placeholder . '>
                 </div>';
         }
 
         if ( $atts['last_name'] ) {
+            $placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
                     <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required>
+                    <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required ' . $placeholder . '>
                 </div>';
         }
         
+        $placeholder = $atts['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
         $html .= '<div class="mc-field-group">
                     <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder . '>
                 </div>';
 
         $html .= '<div class="mc-field-group">
