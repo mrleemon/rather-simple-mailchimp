@@ -1,18 +1,17 @@
 /**
  * WordPress dependencies
  */
-
-const { __ } = wp.i18n;
-const { Fragment } = wp.element;
-const {
-	Disabled,
+import { __ } from '@wordpress/i18n';
+import { Fragment } from '@wordpress/element';
+import {
+    Disabled,
 	PanelBody,
 	TextControl,
 	ToggleControl,
-} = wp.components;
-const { InspectorControls } = wp.blockEditor;
-const { registerBlockType } = wp.blocks;
-const ServerSideRender = wp.serverSideRender;
+} from '@wordpress/components';
+import { InspectorControls } from '@wordpress/block-editor';
+import { registerBlockType } from '@wordpress/blocks';
+import ServerSideRender from '@wordpress/server-side-render';
 
 import './style.scss';
 import './editor.scss';
