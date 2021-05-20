@@ -3,6 +3,7 @@
 Plugin Name: Rather Simple Mailchimp
 Version: v1.0
 Plugin URI:
+Update URI: false
 Author: Oscar Ciutat
 Author URI: http://oscarciutat.com/code/
 Description: A simple Mailchimp plugin with a block, a shortcode and a widget
