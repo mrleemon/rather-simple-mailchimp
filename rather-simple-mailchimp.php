@@ -1,11 +1,14 @@
 <?php
 /*
 Plugin Name: Rather Simple Mailchimp
-Version: v1.0
 Plugin URI:
 Update URI: false
+Version: v1.0
+Requires at least: 5.3
+Requires PHP: 7.0
 Author: Oscar Ciutat
 Author URI: http://oscarciutat.com/code/
+Text Domain: rather-simple-mailchimp
 Description: A simple Mailchimp plugin with a block, a shortcode and a widget
 License: GPLv2 or later
 
