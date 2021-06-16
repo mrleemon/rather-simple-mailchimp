@@ -297,7 +297,7 @@ class Rather_Simple_Mailchimp {
     function render_block( $attr, $content ) {
         $html = '';
         if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
-            $html = '<!-- Begin Mailchimp Signup Form -->
+            $html .= '<!-- Begin Mailchimp Signup Form -->
             <div class="mc-embed-signup">
                 <form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
                 <div class="mc-embed-signup-scroll">
