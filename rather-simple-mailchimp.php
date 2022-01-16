@@ -215,6 +215,9 @@ class Rather_Simple_Mailchimp {
             ) );
         }
 
+        // Register the block by passing the location of block.json to register_block_type.
+	    // register_block_type( __DIR__ );
+
         wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 
     }
