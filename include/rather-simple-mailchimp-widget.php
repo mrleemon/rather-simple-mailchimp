@@ -48,7 +48,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         if ( $first_name ) {
             $placeholder_st = $placeholder ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
-                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                     <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required ' . $placeholder_st . '>
                     </div>';
         }
@@ -56,19 +56,19 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
         if ( $last_name ) {
             $placeholder_st = $placeholder ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
             $html .= '<div class="mc-field-group">
-                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                     <input type="text" value="" name="LNAME" class="required" id="mce-LNAME" required ' . $placeholder_st . '>
                     </div>';
         }
         
         $placeholder_st = $placeholder ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
         $html .= '<div class="mc-field-group">
-                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <span class="required">*</span></label>
+                    <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder_st . '>
                 </div>';
 
         $html .= '<div class="mc-field-group">
-                <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <span class="required">*</span></label>
+                <input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
             </div>';
 
         $html .= '<div class="mc-submit-button">
