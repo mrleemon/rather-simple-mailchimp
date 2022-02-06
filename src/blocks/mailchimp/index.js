@@ -9,7 +9,10 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { InspectorControls } from '@wordpress/block-editor';
+import {
+    InspectorControls,
+    useBlockProps
+} from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -49,6 +52,7 @@ const settings = {
 	},
 
 	edit: ( props ) => {
+        const blockProps = useBlockProps();
 		const attributes = props.attributes;
 
 		const setID = ( value ) => {
@@ -121,11 +125,12 @@ const settings = {
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>
-					<ServerSideRender
-						block="occ/mailchimp"
-						attributes={ attributes }
-						className={ props.className }
-					/>
+                    <div { ...blockProps }>
+					    <ServerSideRender
+						    block="occ/mailchimp"
+						    attributes={ attributes }
+					    />
+                    </div>
 				</Disabled>
 			</Fragment>
 		);
