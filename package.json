@@ -14,11 +14,13 @@
     "format": "wp-scripts format",
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
     "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js",
-    "plugin-zip": "wp-scripts plugin-zip",
     "i18n": "po2json languages/rather-simple-mailchimp-es_ES.po languages/rather-simple-mailchimp-es_ES-rather-simple-mailchimp-block.json -f jed && po2json languages/rather-simple-mailchimp-ca.po languages/rather-simple-mailchimp-ca-rather-simple-mailchimp-block.json -f jed"
   },
   "dependencies": {
