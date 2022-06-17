@@ -73,8 +73,8 @@ class Rather_Simple_Mailchimp {
 	 * Includes required core files used in admin and on the frontend
 	 */
 	protected function includes() {
-		require_once 'include/rather-simple-mailchimp-widget.php';
-		require_once 'include/rather-simple-mailchimp-popup-widget.php';
+		require_once 'include/class-rather-simple-mailchimp-widget.php';
+		require_once 'include/class-rather-simple-mailchimp-popup-widget.php';
 	}
 
 	/**
