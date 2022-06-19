@@ -27,6 +27,10 @@
  *
  * @package rather_simple_mailchimp
  */
+
+/**
+ * Core class used to implement the plugin.
+ */
 class Rather_Simple_Mailchimp {
 
 	/**
@@ -81,7 +85,7 @@ class Rather_Simple_Mailchimp {
 	 * Loads language
 	 */
 	public function load_language() {
-		load_plugin_textdomain( 'rather-simple-mailchimp', '', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'rather-simple-mailchimp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -98,6 +102,8 @@ class Rather_Simple_Mailchimp {
 
 	/**
 	 * Registers block
+	 *
+	 * @throws Error If block is not built.
 	 */
 	public function register_block() {
 
@@ -213,6 +219,8 @@ class Rather_Simple_Mailchimp {
 
 	/**
 	 * Render shortcode
+	 *
+	 * @param array $attr  The shortcode attributes.
 	 */
 	public function render_shortcode( $attr ) {
 		$html = $this->shortcode_atts( $attr );
@@ -221,6 +229,8 @@ class Rather_Simple_Mailchimp {
 
 	/**
 	 * Shortcode attributes
+	 *
+	 * @param array $attr  The shortcode attributes.
 	 */
 	public function shortcode_atts( $attr ) {
 		$atts = shortcode_atts(
@@ -289,6 +299,9 @@ class Rather_Simple_Mailchimp {
 
 	/**
 	 * Render block
+	 *
+	 * @param array  $attr     The block attributes.
+	 * @param string $content  The content.
 	 */
 	public function render_block( $attr, $content ) {
 		$html = '';
