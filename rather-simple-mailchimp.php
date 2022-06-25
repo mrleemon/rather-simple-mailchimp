@@ -94,9 +94,26 @@ class Rather_Simple_Mailchimp {
 	public function wp_enqueue_scripts() {
 		global $post;
 		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'rather_simple_mailchimp_widget' ) || is_active_widget( false, false, 'rather_simple_mailchimp_popup_widget' ) ) {
-			wp_enqueue_style( 'rather-simple-mailchimp-css', plugins_url( '/style.css', __FILE__ ) );
-			wp_enqueue_script( 'mc-subscribe', plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ), array( 'jquery' ), false, true );
-			wp_enqueue_script( 'frontend', plugins_url( '/assets/js/frontend.js', __FILE__ ), array( 'mc-subscribe' ), false, true );
+			wp_enqueue_style(
+				'rather-simple-mailchimp-css',
+				plugins_url( '/style.css', __FILE__ ),
+				array(),
+				filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
+			);
+			wp_enqueue_script(
+				'mc-subscribe',
+				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
+				array( 'jquery' ),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
+				true
+			);
+			wp_enqueue_script(
+				'frontend',
+				plugins_url( '/assets/js/frontend.js', __FILE__ ),
+				array( 'mc-subscribe' ),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
+				true
+			);
 		}
 	}
 
@@ -346,7 +363,7 @@ class Rather_Simple_Mailchimp {
                     </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 </div>
                 </form>
-                <script src="' . plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) . '"></script>
+                <script src="' . esc_url( plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) ) . '"></script>
             </div>
             <!--End mc-embed-signup-->
             </div>';

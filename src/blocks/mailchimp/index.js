@@ -16,11 +16,11 @@ import ServerSideRender from '@wordpress/server-side-render';
 const name = 'occ/mailchimp';
 
 const settings = {
-	title: __('Mailchimp', 'rather-simple-mailchimp'),
-	description: __('A Mailchimp form.', 'rather-simple-mailchimp'),
+	title: __( 'Mailchimp', 'rather-simple-mailchimp' ),
+	description: __( 'A Mailchimp form.', 'rather-simple-mailchimp' ),
 	icon: 'email',
 	category: 'embed',
-	keywords: [__('email'), __('newsletter')],
+	keywords: [ __( 'email' ), __( 'newsletter' ) ],
 	supports: {
 		html: false,
 		multiple: false,
@@ -48,84 +48,84 @@ const settings = {
 		},
 	},
 
-	edit: (props) => {
+	edit: ( props ) => {
 		const blockProps = useBlockProps();
 		const attributes = props.attributes;
 
-		const setID = (value) => {
-			props.setAttributes({ id: value });
+		const setID = ( value ) => {
+			props.setAttributes( { id: value } );
 		};
 
-		const setURL = (value) => {
-			props.setAttributes({ url: value });
+		const setURL = ( value ) => {
+			props.setAttributes( { url: value } );
 		};
 
-		const setU = (value) => {
-			props.setAttributes({ u: value });
+		const setU = ( value ) => {
+			props.setAttributes( { u: value } );
 		};
 
 		const toggleFirstName = () => {
-			props.setAttributes({ firstName: !props.attributes.firstName });
+			props.setAttributes( { firstName: ! props.attributes.firstName } );
 		};
 
 		const toggleLastName = () => {
-			props.setAttributes({ lastName: !props.attributes.lastName });
+			props.setAttributes( { lastName: ! props.attributes.lastName } );
 		};
 
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody
-						title={__(
+						title={ __(
 							'Mailchimp Settings',
 							'rather-simple-mailchimp'
-						)}
+						) }
 					>
 						<TextControl
-							label={__('URL', 'rather-simple-mailchimp')}
+							label={ __( 'URL', 'rather-simple-mailchimp' ) }
 							type="url"
-							value={attributes.url}
-							onChange={setURL}
+							value={ attributes.url }
+							onChange={ setURL }
 						/>
 						<TextControl
-							label={__('U', 'rather-simple-mailchimp')}
+							label={ __( 'U', 'rather-simple-mailchimp' ) }
 							type="text"
-							value={attributes.u}
-							onChange={setU}
+							value={ attributes.u }
+							onChange={ setU }
 						/>
 						<TextControl
-							label={__('ID', 'rather-simple-mailchimp')}
+							label={ __( 'ID', 'rather-simple-mailchimp' ) }
 							type="text"
-							value={attributes.id}
-							onChange={setID}
+							value={ attributes.id }
+							onChange={ setID }
 						/>
-						{attributes.url && attributes.u && attributes.id && (
+						{ attributes.url && attributes.u && attributes.id && (
 							<ToggleControl
-								label={__(
+								label={ __(
 									'Show First Name',
 									'rather-simple-mailchimp'
-								)}
-								checked={!!attributes.firstName}
-								onChange={toggleFirstName}
+								) }
+								checked={ !! attributes.firstName }
+								onChange={ toggleFirstName }
 							/>
-						)}
-						{attributes.url && attributes.u && attributes.id && (
+						) }
+						{ attributes.url && attributes.u && attributes.id && (
 							<ToggleControl
-								label={__(
+								label={ __(
 									'Show Last Name',
 									'rather-simple-mailchimp'
-								)}
-								checked={!!attributes.lastName}
-								onChange={toggleLastName}
+								) }
+								checked={ !! attributes.lastName }
+								onChange={ toggleLastName }
 							/>
-						)}
+						) }
 					</PanelBody>
 				</InspectorControls>
 				<Disabled>
-					<div {...blockProps}>
+					<div { ...blockProps }>
 						<ServerSideRender
 							block="occ/mailchimp"
-							attributes={attributes}
+							attributes={ attributes }
 						/>
 					</div>
 				</Disabled>
@@ -270,4 +270,4 @@ const settings = {
     }*/
 };
 
-registerBlockType(name, settings);
+registerBlockType( name, settings );
