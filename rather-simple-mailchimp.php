@@ -352,8 +352,6 @@ class Rather_Simple_Mailchimp {
 	 * @param array $attr     The block attributes.
 	 */
 	public function render_block( $attr ) {
-		error_log( print_r( $attr, true ), 1, 'oscarciutat@gmail.com' );
-
 		if ( ! is_admin() ) {
 			wp_enqueue_script(
 				'mc-subscribe',
