@@ -147,14 +147,14 @@ const settings = {
 						) }
 					</PanelBody>
 				</InspectorControls>
-				<Disabled>
-					<div { ...blockProps }>
+				<div { ...blockProps }>
+					<Disabled>
 						<ServerSideRender
 							block="occ/mailchimp"
 							attributes={ props.attributes }
 						/>
-					</div>
-				</Disabled>
+					</Disabled>
+				</div>
 			</Fragment>
 		);
 	},
