@@ -24,6 +24,10 @@ const settings = {
 	supports: {
 		html: false,
 		multiple: false,
+		spacing: {
+			margin: true,
+			padding: true,
+		}
 	},
 	attributes: {
 		url: {
