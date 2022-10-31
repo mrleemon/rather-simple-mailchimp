@@ -61,7 +61,8 @@ class Rather_Simple_Mailchimp {
 		$this->includes();
 
 		add_action( 'init', array( $this, 'load_language' ) );
-		add_action( 'init', array( $this, 'register_block' ) );
+		// add_action( 'init', array( $this, 'register_block' ) );
+		add_action( 'init', array( $this, 'create_block_init' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
@@ -86,6 +87,24 @@ class Rather_Simple_Mailchimp {
 	 */
 	public function load_language() {
 		load_plugin_textdomain( 'rather-simple-mailchimp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
+	 * Create block
+	 */
+	public function create_block_init() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			// The block editor is not active.
+			return;
+		}
+
+		// Register the block by passing the location of block.json to register_block_type.
+		register_block_type(
+			__DIR__ . '/build/blocks/mailchimp',
+			array(
+				'render_callback' => array( $this, 'render_block' ),
+			)
+		);
 	}
 
 	/**
@@ -243,9 +262,6 @@ class Rather_Simple_Mailchimp {
 			);
 		}
 
-		// Register the block by passing the location of block.json to register_block_type.
-		// register_block_type( __DIR__ );
-
 		wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 
 	}
@@ -333,10 +349,21 @@ class Rather_Simple_Mailchimp {
 	/**
 	 * Render block
 	 *
-	 * @param array  $attr     The block attributes.
-	 * @param string $content  The content.
+	 * @param array $attr     The block attributes.
 	 */
-	public function render_block( $attr, $content ) {
+	public function render_block( $attr ) {
+		error_log( print_r( $attr, true ), 1, 'oscarciutat@gmail.com' );
+
+		if ( ! is_admin() ) {
+			wp_enqueue_script(
+				'mc-subscribe',
+				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
+				array( 'jquery' ),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
+				true
+			);
+		}
+
 		$html = '';
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
 			$wrapper_attributes = get_block_wrapper_attributes();
@@ -348,22 +375,25 @@ class Rather_Simple_Mailchimp {
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
 
 			if ( $attr['firstName'] ) {
-				$html .= '<div class="mc-field-group">
+				$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
+				$html       .= '<div class="mc-field-group">
                         <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-                        <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required>
+                        <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required ' . $placeholder . '>
                     </div>';
 			}
 
 			if ( $attr['lastName'] ) {
-				$html .= '<div class="mc-field-group">
+				$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
+				$html       .= '<div class="mc-field-group">
                         <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-                        <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required>
+                        <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required ' . $placeholder . '>
                     </div>';
 			}
 
-			$html .= '<div class="mc-field-group">
+			$placeholder = $atts['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
+			$html       .= '<div class="mc-field-group">
                         <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder . '>
                     </div>';
 
 			$html .= '<div class="mc-field-group">
@@ -383,6 +413,8 @@ class Rather_Simple_Mailchimp {
             </div>
             <!--End mc-embed-signup-->
             </div>';
+		} else {
+			$html = 'empty';
 		}
 
 		return $html;

@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "occ/mailchimp",
+	"title": "Mailchimp",
+    "description": "A Mailchimp form.",
+	"textdomain": "rather-simple-mailchimp",
+	"icon": "email",
+	"category": "embed",
+    "attributes": {
+        "url": {
+            "type": "string"
+        },
+        "u": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "firstName": {
+            "type": "boolean"
+        },
+        "lastName": {
+            "type": "boolean"
+        },
+        "placeholder": {
+            "type": "boolean"
+        }
+    },
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+    "editorScript": "file:./index.js",
+	"viewScript": "file:./assets/js/mc-subscribe.js",
+    "style": "file:./style-index.css",
+	"editorStyle": "file:./index.css"
+}
