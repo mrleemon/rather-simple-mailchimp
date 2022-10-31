@@ -364,18 +364,18 @@ class Rather_Simple_Mailchimp {
 			);
 		}
 
-		$html = '';
+		$wrapper_attributes = get_block_wrapper_attributes();
+		$html              .= '<div ' . $wrapper_attributes . '>';
+
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
-			$wrapper_attributes = get_block_wrapper_attributes();
-			$html              .= '<div ' . $wrapper_attributes . '>
-            <!-- Begin Mailchimp Signup Form -->
+			$html .= '<!-- Begin Mailchimp Signup Form -->
             <div class="mc-embed-signup">
                 <form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
                 <div class="mc-embed-signup-scroll">
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
 
 			if ( $attr['firstName'] ) {
-				$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
+				$placeholder = $attr['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
 				$html       .= '<div class="mc-field-group">
                         <label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                         <input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required ' . $placeholder . '>
@@ -383,14 +383,14 @@ class Rather_Simple_Mailchimp {
 			}
 
 			if ( $attr['lastName'] ) {
-				$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
+				$placeholder = $attr['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
 				$html       .= '<div class="mc-field-group">
                         <label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                         <input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required ' . $placeholder . '>
                     </div>';
 			}
 
-			$placeholder = $atts['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
+			$placeholder = $attr['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
 			$html       .= '<div class="mc-field-group">
                         <label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
                         <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder . '>
@@ -411,11 +411,12 @@ class Rather_Simple_Mailchimp {
                 </form>
                 <script src="' . esc_url( plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) ) . '"></script>
             </div>
-            <!--End mc-embed-signup-->
-            </div>';
+            <!--End mc-embed-signup-->';
 		} else {
-			$html = 'empty';
+			$html .= __( 'The Mailchimp form is not set up correctly.', 'rather-simple-mailchimp' );
 		}
+
+		$html .= '</div>';
 
 		return $html;
 	}
