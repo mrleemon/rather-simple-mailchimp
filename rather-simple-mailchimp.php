@@ -165,6 +165,14 @@ class Rather_Simple_Mailchimp {
 				array(
 					'editor_script'   => 'rather-simple-mailchimp-block',
 					'style'           => 'rather-simple-mailchimp-frontend',
+					'supports'        => array(
+						'html'     => false,
+						'multiple' => false,
+						'spacing'  => array(
+							'margin'  => true,
+							'padding' => true,
+						),
+					),
 					'render_callback' => array( $this, 'render_block' ),
 					'attributes'      => array(
 						'url'         => array(
@@ -199,6 +207,14 @@ class Rather_Simple_Mailchimp {
 					'editor_script'   => 'rather-simple-mailchimp-block',
 					'style'           => 'rather-simple-mailchimp-frontend',
 					'script'          => 'rather-simple-mailchimp-frontend',
+					'supports'        => array(
+						'html'     => false,
+						'multiple' => false,
+						'spacing'  => array(
+							'margin'  => true,
+							'padding' => true,
+						),
+					),
 					'render_callback' => array( $this, 'render_block' ),
 					'attributes'      => array(
 						'url'         => array(
