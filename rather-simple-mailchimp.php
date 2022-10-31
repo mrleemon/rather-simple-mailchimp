@@ -105,6 +105,10 @@ class Rather_Simple_Mailchimp {
 				'render_callback' => array( $this, 'render_block' ),
 			)
 		);
+
+		// Load translations.
+		$script_handle = generate_block_asset_handle( 'occ/mailchimp', 'editorScript' );
+		wp_set_script_translations( $script_handle, 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 	}
 
 	/**
