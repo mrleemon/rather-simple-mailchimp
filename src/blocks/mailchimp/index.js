@@ -17,46 +17,10 @@ import metadata from "./block.json";
 import './editor.scss';
 import './style.scss';
 
-//const name = 'occ/mailchimp';
 const { name } = metadata;
 
 const settings = {
-	/*title: __( 'Mailchimp', 'rather-simple-mailchimp' ),
-	description: __( 'A Mailchimp form.', 'rather-simple-mailchimp' ),
-	icon: 'email',
-	category: 'embed',
-	keywords: [ __( 'email' ), __( 'newsletter' ) ],
-	supports: {
-		html: false,
-		multiple: false,
-		spacing: {
-			margin: true,
-			padding: true,
-		}
-	},
-	attributes: {
-		url: {
-			type: 'string',
-			default: '',
-		},
-		u: {
-			type: 'string',
-			default: '',
-		},
-		id: {
-			type: 'string',
-			default: '',
-		},
-		firstName: {
-			type: 'boolean',
-			default: false,
-		},
-		lastName: {
-			type: 'boolean',
-			default: false,
-		},
-	},*/
-
+	
 	edit: ( props ) => {
 		const blockProps = useBlockProps();
 		const {
