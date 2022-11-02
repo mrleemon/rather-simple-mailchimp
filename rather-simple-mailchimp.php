@@ -61,8 +61,7 @@ class Rather_Simple_Mailchimp {
 		$this->includes();
 
 		add_action( 'init', array( $this, 'load_language' ) );
-		// add_action( 'init', array( $this, 'register_block' ) );
-		add_action( 'init', array( $this, 'create_block_init' ) );
+		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
@@ -90,9 +89,11 @@ class Rather_Simple_Mailchimp {
 	}
 
 	/**
-	 * Create block
+	 * Registers block
+	 *
+	 * @throws Error If block is not built.
 	 */
-	public function create_block_init() {
+	public function register_block() {
 		if ( ! function_exists( 'register_block_type' ) ) {
 			// The block editor is not active.
 			return;
@@ -138,136 +139,6 @@ class Rather_Simple_Mailchimp {
 				true
 			);
 		}
-	}
-
-	/**
-	 * Registers block
-	 *
-	 * @throws Error If block is not built.
-	 */
-	public function register_block() {
-
-		if ( ! function_exists( 'register_block_type' ) ) {
-			// The block editor is not active.
-			return;
-		}
-
-		$dir               = dirname( __FILE__ );
-		$script_asset_path = "$dir/build/index.asset.php";
-		if ( ! file_exists( $script_asset_path ) ) {
-			throw new Error(
-				'You need to run `npm start` or `npm run build` for the block first.'
-			);
-		}
-		$script_asset = require $script_asset_path;
-
-		wp_register_style(
-			'rather-simple-mailchimp-frontend',
-			plugins_url( 'build/style-index.css', __FILE__ ),
-			array(),
-			filemtime( plugin_dir_path( __FILE__ ) . 'build/style-index.css' )
-		);
-		wp_register_script(
-			'rather-simple-mailchimp-frontend',
-			plugins_url( 'assets/js/frontend.js', __FILE__ ),
-			array(),
-			filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/frontend.js' ),
-			true
-		);
-		wp_register_script(
-			'rather-simple-mailchimp-block',
-			plugins_url( 'build/index.js', __FILE__ ),
-			$script_asset['dependencies'],
-			filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
-			true
-		);
-
-		if ( is_admin() ) {
-			register_block_type(
-				'occ/mailchimp',
-				array(
-					'editor_script'   => 'rather-simple-mailchimp-block',
-					'style'           => 'rather-simple-mailchimp-frontend',
-					'supports'        => array(
-						'html'     => false,
-						'multiple' => false,
-						'spacing'  => array(
-							'margin'  => true,
-							'padding' => true,
-						),
-					),
-					'render_callback' => array( $this, 'render_block' ),
-					'attributes'      => array(
-						'url'         => array(
-							'type' => 'string',
-						),
-						'u'           => array(
-							'type' => 'string',
-						),
-						'id'          => array(
-							'type' => 'string',
-						),
-						'firstName'   => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-						'lastName'    => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-						'placeholder' => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-					),
-				)
-			);
-		} else {
-			// Only load Mailchimp scripts on frontend.
-			register_block_type(
-				'occ/mailchimp',
-				array(
-					'editor_script'   => 'rather-simple-mailchimp-block',
-					'style'           => 'rather-simple-mailchimp-frontend',
-					'script'          => 'rather-simple-mailchimp-frontend',
-					'supports'        => array(
-						'html'     => false,
-						'multiple' => false,
-						'spacing'  => array(
-							'margin'  => true,
-							'padding' => true,
-						),
-					),
-					'render_callback' => array( $this, 'render_block' ),
-					'attributes'      => array(
-						'url'         => array(
-							'type' => 'string',
-						),
-						'u'           => array(
-							'type' => 'string',
-						),
-						'id'          => array(
-							'type' => 'string',
-						),
-						'firstName'   => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-						'lastName'    => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-						'placeholder' => array(
-							'type'    => 'boolean',
-							'default' => false,
-						),
-					),
-				)
-			);
-		}
-
-		wp_set_script_translations( 'rather-simple-mailchimp-block', 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
-
 	}
 
 	/**
