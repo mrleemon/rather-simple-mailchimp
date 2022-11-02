@@ -36,7 +36,10 @@
     }
   },
   "editorScript": "file:./index.js",
-  "viewScript": "file:./assets/js/mc-subscribe.js",
+  "viewScript": [
+    "file:./assets/js/mc-subscribe.js",
+    "file:./assets/js/frontend.js"
+  ],
   "style": "file:./style-index.css",
   "editorStyle": "file:./index.css"
 }

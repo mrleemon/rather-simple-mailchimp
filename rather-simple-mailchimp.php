@@ -364,6 +364,13 @@ class Rather_Simple_Mailchimp {
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
 				true
 			);
+			wp_enqueue_script(
+				'frontend',
+				plugins_url( '/assets/js/frontend.js', __FILE__ ),
+				array( 'mc-subscribe' ),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
+				true
+			);
 		}
 
 		$wrapper_attributes = get_block_wrapper_attributes();
