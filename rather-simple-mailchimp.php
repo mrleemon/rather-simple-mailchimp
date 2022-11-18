@@ -245,7 +245,7 @@ class Rather_Simple_Mailchimp {
 		}
 
 		$wrapper_attributes = get_block_wrapper_attributes();
-		$html              .= '<div ' . $wrapper_attributes . '>';
+		$html               = '<div ' . $wrapper_attributes . '>';
 
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
 			$html .= '<!-- Begin Mailchimp Signup Form -->
