@@ -18,13 +18,16 @@
             "type": "string"
         },
         "firstName": {
-            "type": "boolean"
+            "type": "boolean",
+			"default": false
         },
         "lastName": {
-            "type": "boolean"
+            "type": "boolean",
+			"default": false
         },
         "placeholder": {
-            "type": "boolean"
+            "type": "boolean",
+			"default": false
         }
     },
 	"supports": {
