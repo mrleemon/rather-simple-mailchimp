@@ -11,7 +11,7 @@
 				console.log('error');
 			},
 			success: function (data) {
-				if (data.result != 'success') {
+				if (data.result !== 'success') {
 					$('.mce-error-response', $form).show();
 					$('.mce-error-response', $form).html(
 						'<p>' + data.msg + '</p>'
