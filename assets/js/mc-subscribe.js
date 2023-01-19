@@ -1,4 +1,5 @@
 (function ($) {
+
 	function subscribe($form) {
 		$.ajax({
 			type: 'GET',
@@ -31,6 +32,7 @@
 			var $form = $(this);
 			e.preventDefault();
 			subscribe($form);
-		} catch (error) {}
+		} catch (error) { }
 	});
+
 })(jQuery);
