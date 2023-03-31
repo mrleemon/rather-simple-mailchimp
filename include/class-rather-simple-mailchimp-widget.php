@@ -188,7 +188,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 	/**
 	 * Enqueues styles and scripts.
 	 */
-	private function enqueue() {
+	public function enqueue() {
 		wp_enqueue_style(
 			'rather-simple-mailchimp-css',
 			plugins_url( '/style.css', __FILE__ ),
