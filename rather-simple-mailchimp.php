@@ -289,7 +289,6 @@ class Rather_Simple_Mailchimp {
                     </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 </div>
                 </form>
-                <script src="' . esc_url( plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ) ) . '"></script>
             </div>
             <!--End mc-embed-signup-->';
 		} else {
