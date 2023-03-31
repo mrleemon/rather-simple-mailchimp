@@ -40,7 +40,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 		$last_name   = ! empty( $instance['last_name'] );
 		$placeholder = ! empty( $instance['placeholder'] );
 
-		add_action( 'wp_footer', array( $this, 'enqueue' ) );
+		$this->enqueue();
 
 		echo $args['before_widget'];
 
@@ -213,7 +213,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 		wp_enqueue_script(
 			'rsm-frontend',
 			plugins_url( '/assets/js/frontend.js', dirname( __FILE__ ) ),
-			array( 'mc-subscribe' ),
+			array( 'rsm-subscribe' ),
 			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/frontend.js' ),
 			true
 		);
