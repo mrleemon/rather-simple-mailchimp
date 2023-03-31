@@ -39,6 +39,8 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		$last_name   = ! empty( $instance['last_name'] );
 		$placeholder = ! empty( $instance['placeholder'] );
 
+		add_action( 'wp_footer', array( $this, 'enqueue' ) );
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $title ) ) {
@@ -181,6 +183,32 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php _e( 'Show Placeholder', 'rather-simple-mailchimp' ); ?></label>
 			</p>
 		<?php
+	}
+
+	/**
+	 * Enqueues styles and scripts.
+	 */
+	private function enqueue() {
+		wp_enqueue_style(
+			'rather-simple-mailchimp-css',
+			plugins_url( '/style.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
+		);
+		wp_enqueue_script(
+			'mc-subscribe',
+			plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
+			array( 'jquery' ),
+			filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
+			true
+		);
+		wp_enqueue_script(
+			'frontend',
+			plugins_url( '/assets/js/frontend.js', __FILE__ ),
+			array( 'mc-subscribe' ),
+			filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
+			true
+		);
 	}
 
 }

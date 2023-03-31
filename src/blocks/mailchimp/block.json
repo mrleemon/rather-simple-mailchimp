@@ -39,7 +39,7 @@
 		}
 	},
     "editorScript": "file:./index.js",
-	"viewScript": ["file:./assets/js/mc-subscribe.js", "file:./assets/js/frontend.js"],
+	"viewScript": ["file:./mc-subscribe.js", "file:./frontend.js"],
     "style": "file:./style-index.css",
 	"editorStyle": "file:./index.css"
 }

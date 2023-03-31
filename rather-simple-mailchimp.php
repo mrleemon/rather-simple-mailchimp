@@ -117,7 +117,7 @@ class Rather_Simple_Mailchimp {
 	 */
 	public function wp_enqueue_scripts() {
 		global $post;
-		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) || is_active_widget( false, false, 'rather_simple_mailchimp_widget' ) || is_active_widget( false, false, 'rather_simple_mailchimp_popup_widget' ) ) {
+		if ( is_page() && has_shortcode( $post->post_content, 'mailchimp' ) ) {
 			wp_enqueue_style(
 				'rather-simple-mailchimp-css',
 				plugins_url( '/style.css', __FILE__ ),
@@ -227,7 +227,7 @@ class Rather_Simple_Mailchimp {
 	 * @param array $attr     The block attributes.
 	 */
 	public function render_block( $attr ) {
-		if ( ! is_admin() ) {
+		/*if ( ! is_admin() ) {
 			wp_enqueue_script(
 				'mc-subscribe',
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
@@ -242,7 +242,7 @@ class Rather_Simple_Mailchimp {
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
 				true
 			);
-		}
+		}*/
 
 		$wrapper_attributes = get_block_wrapper_attributes();
 		$html               = '<div ' . $wrapper_attributes . '>';
