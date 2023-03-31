@@ -191,22 +191,22 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 	public function enqueue() {
 		wp_enqueue_style(
 			'rsm-style',
-			plugins_url( '/style.css', __FILE__ ),
+			plugins_url( '/style.css', dirname( __FILE__ ) ),
 			array(),
-			filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
+			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/style.css' )
 		);
 		wp_enqueue_script(
 			'rsm-subscribe',
-			plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
+			plugins_url( '/assets/js/mc-subscribe.js', dirname( __FILE__ ) ),
 			array( 'jquery' ),
-			filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
+			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/mc-subscribe.js' ),
 			true
 		);
 		wp_enqueue_script(
 			'rsm-frontend',
-			plugins_url( '/assets/js/frontend.js', __FILE__ ),
+			plugins_url( '/assets/js/frontend.js', dirname( __FILE__ ) ),
 			array( 'mc-subscribe' ),
-			filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
+			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/frontend.js' ),
 			true
 		);
 	}
