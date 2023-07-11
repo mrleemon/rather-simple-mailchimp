@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Fragment } from '@wordpress/element';
 import {
 	Disabled,
 	PanelBody,
@@ -12,7 +11,8 @@ import {
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
-import metadata from "./block.json";
+
+import metadata from './block.json';
 
 import './editor.scss';
 import './style.scss';
@@ -53,7 +53,7 @@ const settings = {
 		};
 
 		return (
-			<Fragment>
+			<>
 				<InspectorControls>
 					<PanelBody
 						title={ __(
@@ -119,12 +119,8 @@ const settings = {
 						/>
 					</Disabled>
 				</div>
-			</Fragment>
+			</>
 		);
-	},
-
-	save: () => {
-		return null;
 	},
 
 };
