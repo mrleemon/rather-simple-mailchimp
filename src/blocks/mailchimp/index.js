@@ -12,6 +12,9 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
 
+/**
+ * Internal dependencies
+ */
 import metadata from './block.json';
 
 import './editor.scss';
