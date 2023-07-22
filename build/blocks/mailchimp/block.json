@@ -5,7 +5,6 @@
   "title": "Mailchimp",
   "description": "A Mailchimp form.",
   "textdomain": "rather-simple-mailchimp",
-  "icon": "email",
   "category": "embed",
   "attributes": {
     "url": {
