@@ -200,14 +200,20 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			plugins_url( '/assets/js/mc-subscribe.js', dirname( __FILE__ ) ),
 			array( 'jquery' ),
 			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/mc-subscribe.js' ),
-			true
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
 		);
 		wp_enqueue_script(
 			'rsm-frontend',
 			plugins_url( '/assets/js/frontend.js', dirname( __FILE__ ) ),
 			array( 'rsm-subscribe' ),
 			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/frontend.js' ),
-			true
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
 		);
 	}
 

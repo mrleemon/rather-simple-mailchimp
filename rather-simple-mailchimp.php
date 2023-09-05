@@ -129,14 +129,20 @@ class Rather_Simple_Mailchimp {
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
 				array( 'jquery' ),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
-				true
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
 			);
 			wp_enqueue_script(
 				'rsm-frontend',
 				plugins_url( '/assets/js/frontend.js', __FILE__ ),
 				array( 'rsm-subscribe' ),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
-				true
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
 			);
 		}
 	}
@@ -233,14 +239,20 @@ class Rather_Simple_Mailchimp {
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
 				array( 'jquery' ),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
-				true
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
 			);
 			wp_enqueue_script(
 				'frontend',
 				plugins_url( '/assets/js/frontend.js', __FILE__ ),
 				array( 'mc-subscribe' ),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
-				true
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
 			);
 		}*/
 
