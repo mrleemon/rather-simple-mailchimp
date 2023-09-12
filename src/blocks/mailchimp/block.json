@@ -3,32 +3,32 @@
 	"apiVersion": 3,
 	"name": "occ/mailchimp",
 	"title": "Mailchimp",
-    "description": "A Mailchimp form.",
+	"description": "A Mailchimp form.",
 	"textdomain": "rather-simple-mailchimp",
 	"category": "embed",
-    "attributes": {
-        "url": {
-            "type": "string"
-        },
-        "u": {
-            "type": "string"
-        },
-        "id": {
-            "type": "string"
-        },
-        "firstName": {
-            "type": "boolean",
+	"attributes": {
+		"url": {
+			"type": "string"
+		},
+		"u": {
+			"type": "string"
+		},
+		"id": {
+			"type": "string"
+		},
+		"firstName": {
+			"type": "boolean",
 			"default": false
-        },
-        "lastName": {
-            "type": "boolean",
+		},
+		"lastName": {
+			"type": "boolean",
 			"default": false
-        },
-        "placeholder": {
-            "type": "boolean",
+		},
+		"placeholder": {
+			"type": "boolean",
 			"default": false
-        }
-    },
+		}
+	},
 	"supports": {
 		"html": false,
 		"multiple": false,
@@ -37,8 +37,8 @@
 			"padding": true
 		}
 	},
-    "editorScript": "file:./index.js",
+	"editorScript": "file:./index.js",
 	"viewScript": ["file:./mc-subscribe.js", "file:./frontend.js"],
-    "style": "file:./style-index.css",
+	"style": "file:./style-index.css",
 	"editorStyle": "file:./index.css"
 }

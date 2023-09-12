@@ -1,26 +1,26 @@
 .wp-block-occ-mailchimp {
-    .mc-embed-signup {
-        .mc-field-group {
-	        position: relative;
-            margin: 0 0 1em;
-        }
-        .button {
-            margin: 0;
-        }
-        .mce-responses {
-            margin-top: 10px;
-            font-size: 85%;
-            text-align: center;
-            .response {
-                margin-bottom: 10px;
-            }
-        }
-        input.mce_inline_error {
-            background: #f4e7e6;
-            border-color: #b85f56;
-        }
-        div.mce_inline_error {
-            display: none !important;
-        }
-    }
+	.mc-embed-signup {
+		.mc-field-group {
+			position: relative;
+			margin: 0 0 1em;
+		}
+		.button {
+			margin: 0;
+		}
+		.mce-responses {
+			margin-top: 10px;
+			font-size: 85%;
+			text-align: center;
+			.response {
+				margin-bottom: 10px;
+			}
+		}
+		input.mce_inline_error {
+			background: #f4e7e6;
+			border-color: #b85f56;
+		}
+		div.mce_inline_error {
+			display: none !important;
+		}
+	}
 }
