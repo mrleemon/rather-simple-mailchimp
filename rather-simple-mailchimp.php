@@ -50,7 +50,6 @@ class Rather_Simple_Mailchimp {
 		}
 
 		return self::$instance;
-
 	}
 
 	/**
@@ -65,7 +64,6 @@ class Rather_Simple_Mailchimp {
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
-
 	}
 
 	/**
@@ -233,7 +231,8 @@ class Rather_Simple_Mailchimp {
 	 * @param array $attr    The block attributes.
 	 */
 	public function render_block( $attr ) {
-		/*if ( ! is_admin() ) {
+		/*
+		if ( ! is_admin() ) {
 			wp_enqueue_script(
 				'mc-subscribe',
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
@@ -311,7 +310,6 @@ class Rather_Simple_Mailchimp {
 
 		return $html;
 	}
-
 }
 
 add_action( 'plugins_loaded', array( Rather_Simple_Mailchimp::get_instance(), 'plugin_setup' ) );

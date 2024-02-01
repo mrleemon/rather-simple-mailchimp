@@ -45,7 +45,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 
 		if ( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
-		};
+		}
 
 		if ( ! empty( $textarea ) ) {
 			echo wpautop( $textarea );
@@ -191,15 +191,15 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 	public function enqueue() {
 		wp_enqueue_style(
 			'rsm-style',
-			plugins_url( '/style.css', dirname( __FILE__ ) ),
+			plugins_url( '/style.css', __DIR__ ),
 			array(),
-			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/style.css' )
+			filemtime( plugin_dir_path( __DIR__ ) . '/style.css' )
 		);
 		wp_enqueue_script(
 			'rsm-subscribe',
-			plugins_url( '/assets/js/mc-subscribe.js', dirname( __FILE__ ) ),
+			plugins_url( '/assets/js/mc-subscribe.js', __DIR__ ),
 			array( 'jquery' ),
-			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/mc-subscribe.js' ),
+			filemtime( plugin_dir_path( __DIR__ ) . '/assets/js/mc-subscribe.js' ),
 			array(
 				'in_footer' => true,
 				'strategy'  => 'defer',
@@ -207,21 +207,20 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		);
 		wp_enqueue_script(
 			'rsm-frontend',
-			plugins_url( '/assets/js/frontend.js', dirname( __FILE__ ) ),
+			plugins_url( '/assets/js/frontend.js', __DIR__ ),
 			array( 'rsm-subscribe' ),
-			filemtime( plugin_dir_path( dirname( __FILE__ ) ) . '/assets/js/frontend.js' ),
+			filemtime( plugin_dir_path( __DIR__ ) . '/assets/js/frontend.js' ),
 			array(
 				'in_footer' => true,
 				'strategy'  => 'defer',
 			)
 		);
 	}
-
 }
 
 add_action(
 	'widgets_init',
-	function() {
+	function () {
 		return register_widget( 'Rather_Simple_Mailchimp_Widget' );
 	}
 );
