@@ -213,7 +213,7 @@ class Rather_Simple_Mailchimp {
 		$html .= '<div class="mc-submit-button">
 					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button wp-element-button">
 				</div>
-				<div class="mce-responses" class="clear">
+				<div class="mce-responses clear">
 					<div class="response mce-error-response" style="display:none"></div>
 					<div class="response mce-success-response" style="display:none"></div>
 				</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -294,7 +294,7 @@ class Rather_Simple_Mailchimp {
 			$html .= '<div class="mc-submit-button">
 						<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button wp-element-button">
 					</div>
-					<div class="mce-responses" class="clear">
+					<div class="mce-responses clear">
 						<div class="response mce-error-response" style="display:none"></div>
 						<div class="response mce-success-response" style="display:none"></div>
 					</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
