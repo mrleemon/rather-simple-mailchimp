@@ -1,8 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
-"POT-Creation-Date: 2022-10-31 18:07+0100\n"
-"PO-Revision-Date: 2022-10-31 18:08+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rather-simple-"
+"mailchimp\n"
+"POT-Creation-Date: 2024-06-20T08:00:14+00:00\n"
+"PO-Revision-Date: 2024-06-20 10:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -20,6 +22,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
+#. Plugin Name of the plugin
+msgid "Rather Simple Mailchimp"
+msgstr ""
+
+#. Description of the plugin
+msgid "A simple Mailchimp plugin with a block, a shortcode and a widget"
+msgstr ""
+
+#. Author of the plugin
+msgid "Oscar Ciutat"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://oscarciutat.com/code/"
+msgstr ""
+
 #: include/class-rather-simple-mailchimp-popup-widget.php:21
 msgid "A simple Mailchimp popup widget"
 msgstr "Un senzill widget popup de Mailchimp"
@@ -28,112 +46,101 @@ msgstr "Un senzill widget popup de Mailchimp"
 msgid "Rather Simple Mailchimp popup widget"
 msgstr "Giny Rather Simple MailChimp popup"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:52
+#: include/class-rather-simple-mailchimp-popup-widget.php:55
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:56
+#: include/class-rather-simple-mailchimp-popup-widget.php:59
 msgid "Close"
 msgstr "Tanca"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:64
-#: include/class-rather-simple-mailchimp-popup-widget.php:66
-#: include/class-rather-simple-mailchimp-widget.php:59
+#: include/class-rather-simple-mailchimp-popup-widget.php:67
+#: include/class-rather-simple-mailchimp-popup-widget.php:69
 #: include/class-rather-simple-mailchimp-widget.php:61
-#: rather-simple-mailchimp.php:309 rather-simple-mailchimp.php:311
-#: rather-simple-mailchimp.php:378 rather-simple-mailchimp.php:380
+#: include/class-rather-simple-mailchimp-widget.php:63
+#: rather-simple-mailchimp.php:188 rather-simple-mailchimp.php:190
+#: rather-simple-mailchimp.php:269 rather-simple-mailchimp.php:271
 msgid "First Name"
 msgstr "Nom"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:66
-#: include/class-rather-simple-mailchimp-popup-widget.php:74
-#: include/class-rather-simple-mailchimp-popup-widget.php:81
-#: include/class-rather-simple-mailchimp-popup-widget.php:86
-#: include/class-rather-simple-mailchimp-widget.php:61
-#: include/class-rather-simple-mailchimp-widget.php:69
-#: include/class-rather-simple-mailchimp-widget.php:76
-#: include/class-rather-simple-mailchimp-widget.php:81
-#: rather-simple-mailchimp.php:311 rather-simple-mailchimp.php:319
-#: rather-simple-mailchimp.php:326 rather-simple-mailchimp.php:331
-#: rather-simple-mailchimp.php:380 rather-simple-mailchimp.php:388
-#: rather-simple-mailchimp.php:395 rather-simple-mailchimp.php:400
+#: include/class-rather-simple-mailchimp-popup-widget.php:69
+#: include/class-rather-simple-mailchimp-popup-widget.php:77
+#: include/class-rather-simple-mailchimp-popup-widget.php:84
+#: include/class-rather-simple-mailchimp-popup-widget.php:89
+#: include/class-rather-simple-mailchimp-widget.php:63
+#: include/class-rather-simple-mailchimp-widget.php:71
+#: include/class-rather-simple-mailchimp-widget.php:78
+#: include/class-rather-simple-mailchimp-widget.php:83
+#: rather-simple-mailchimp.php:190 rather-simple-mailchimp.php:198
+#: rather-simple-mailchimp.php:205 rather-simple-mailchimp.php:210
+#: rather-simple-mailchimp.php:271 rather-simple-mailchimp.php:279
+#: rather-simple-mailchimp.php:286 rather-simple-mailchimp.php:291
 msgid "required"
 msgstr "obligatori"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:72
-#: include/class-rather-simple-mailchimp-popup-widget.php:74
-#: include/class-rather-simple-mailchimp-widget.php:67
+#: include/class-rather-simple-mailchimp-popup-widget.php:75
+#: include/class-rather-simple-mailchimp-popup-widget.php:77
 #: include/class-rather-simple-mailchimp-widget.php:69
-#: rather-simple-mailchimp.php:317 rather-simple-mailchimp.php:319
-#: rather-simple-mailchimp.php:386 rather-simple-mailchimp.php:388
+#: include/class-rather-simple-mailchimp-widget.php:71
+#: rather-simple-mailchimp.php:196 rather-simple-mailchimp.php:198
+#: rather-simple-mailchimp.php:277 rather-simple-mailchimp.php:279
 msgid "Last Name"
 msgstr "Cognoms"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:79
-#: include/class-rather-simple-mailchimp-popup-widget.php:81
-#: include/class-rather-simple-mailchimp-widget.php:74
+#: include/class-rather-simple-mailchimp-popup-widget.php:82
+#: include/class-rather-simple-mailchimp-popup-widget.php:84
 #: include/class-rather-simple-mailchimp-widget.php:76
-#: rather-simple-mailchimp.php:324 rather-simple-mailchimp.php:326
-#: rather-simple-mailchimp.php:393 rather-simple-mailchimp.php:395
+#: include/class-rather-simple-mailchimp-widget.php:78
+#: rather-simple-mailchimp.php:203 rather-simple-mailchimp.php:205
+#: rather-simple-mailchimp.php:284 rather-simple-mailchimp.php:286
 msgid "Email"
 msgstr "Correu electrònic"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:86
-#: include/class-rather-simple-mailchimp-widget.php:81
-#: rather-simple-mailchimp.php:331 rather-simple-mailchimp.php:400
-#, php-format
+#: include/class-rather-simple-mailchimp-popup-widget.php:89
+#: include/class-rather-simple-mailchimp-widget.php:83
+#: rather-simple-mailchimp.php:210 rather-simple-mailchimp.php:291
 msgid "I have read and agree to the %s."
 msgstr "He llegit i accepto la %s."
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:90
-#: include/class-rather-simple-mailchimp-widget.php:85
-#: rather-simple-mailchimp.php:335 rather-simple-mailchimp.php:404
+#: include/class-rather-simple-mailchimp-popup-widget.php:93
+#: include/class-rather-simple-mailchimp-widget.php:87
+#: rather-simple-mailchimp.php:214 rather-simple-mailchimp.php:295
 msgid "Subscribe"
 msgstr "Subscriu"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:159
-#: include/class-rather-simple-mailchimp-widget.php:152
-msgid "Title:"
-msgstr ""
-
-#: include/class-rather-simple-mailchimp-popup-widget.php:163
-#: include/class-rather-simple-mailchimp-widget.php:156
-msgid "Content"
-msgstr "Contingut"
-
-#: include/class-rather-simple-mailchimp-popup-widget.php:167
-#: include/class-rather-simple-mailchimp-widget.php:160
-#: src/blocks/mailchimp/index.js:101
+#: include/class-rather-simple-mailchimp-popup-widget.php:170
+#: include/class-rather-simple-mailchimp-widget.php:162
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:78
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:171
-#: include/class-rather-simple-mailchimp-widget.php:164
-#: src/blocks/mailchimp/index.js:107
+#: include/class-rather-simple-mailchimp-popup-widget.php:174
+#: include/class-rather-simple-mailchimp-widget.php:166
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:84
 msgid "U"
-msgstr ""
+msgstr "U"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:175
-#: include/class-rather-simple-mailchimp-widget.php:168
-#: src/blocks/mailchimp/index.js:113
+#: include/class-rather-simple-mailchimp-popup-widget.php:178
+#: include/class-rather-simple-mailchimp-widget.php:170
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:90
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:180
-#: include/class-rather-simple-mailchimp-widget.php:173
-#: src/blocks/mailchimp/index.js:121
+#: include/class-rather-simple-mailchimp-popup-widget.php:183
+#: include/class-rather-simple-mailchimp-widget.php:175
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:97
 msgid "Show First Name"
 msgstr "Mostra el camp Nom"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:184
-#: include/class-rather-simple-mailchimp-widget.php:177
-#: src/blocks/mailchimp/index.js:131
+#: include/class-rather-simple-mailchimp-popup-widget.php:187
+#: include/class-rather-simple-mailchimp-widget.php:179
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:107
 msgid "Show Last Name"
 msgstr "Mostra el camp Cognoms"
 
-#: include/class-rather-simple-mailchimp-popup-widget.php:188
-#: include/class-rather-simple-mailchimp-widget.php:181
-#: src/blocks/mailchimp/index.js:141
+#: include/class-rather-simple-mailchimp-popup-widget.php:191
+#: include/class-rather-simple-mailchimp-widget.php:183
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:117
 msgid "Show Placeholder"
 msgstr "Mostra el marcador de posició"
 
@@ -145,35 +152,29 @@ msgstr "Un senzill widget de Mailchimp"
 msgid "Rather Simple Mailchimp widget"
 msgstr "Giny Rather Simple Mailchimp"
 
-#: rather-simple-mailchimp.php:416
+#: rather-simple-mailchimp.php:306
 msgid "The Mailchimp form is not set up correctly."
 msgstr "El formulari del Mailchimp no està configurat correctament."
 
-#: src/blocks/mailchimp/index.js:96
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/index.js:72
 msgid "Mailchimp Settings"
 msgstr "Opcions de Mailchimp"
 
-#. Plugin Name of the plugin/theme
-msgid "Rather Simple Mailchimp"
-msgstr ""
+#: build/blocks/mailchimp/block.json src/blocks/mailchimp/block.json
+msgctxt "block title"
+msgid "Mailchimp"
+msgstr "Mailchimp"
 
-#. Description of the plugin/theme
-msgid "A simple Mailchimp plugin with a block, a shortcode and a widget"
-msgstr ""
+#: build/blocks/mailchimp/block.json src/blocks/mailchimp/block.json
+msgctxt "block description"
+msgid "A Mailchimp form."
+msgstr "Un formulari de Mailchimp."
 
-#. Author of the plugin/theme
-msgid "Oscar Ciutat"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://oscarciutat.com/code/"
-msgstr ""
+#~ msgid "Content"
+#~ msgstr "Contingut"
 
 #~ msgid "Fill in the Mailchimp Settings fields, please."
 #~ msgstr "Ompliu els camps de configuració del Mailchimp."
-
-#~ msgid "A Mailchimp form."
-#~ msgstr "Un formulari de Mailchimp."
 
 #~ msgid "email"
 #~ msgstr "correu electrònic"
