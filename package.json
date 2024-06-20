@@ -4,8 +4,7 @@
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
   "devDependencies": {
-    "@wordpress/scripts": "^27.9.0",
-    "po2json": "^1.0.0-beta-2"
+    "@wordpress/scripts": "^27.9.0"
   },
   "scripts": {
     "build": "wp-scripts build",
@@ -21,7 +20,8 @@
     "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js",
-    "i18n": "po2json languages/rather-simple-mailchimp-es_ES.po languages/rather-simple-mailchimp-es_ES-occ-mailchimp-editor-script.json -f jed && po2json languages/rather-simple-mailchimp-ca.po languages/rather-simple-mailchimp-ca-occ-mailchimp-editor-script.json -f jed"
+    "make-pot": "wp i18n make-pot . languages/rather-simple-mailchimp.pot",
+    "make-json": "wp i18n make-json languages --no-purge"
   },
   "dependencies": {
     "npm-check-updates": "^16.14.20"
