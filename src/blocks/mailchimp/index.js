@@ -1,31 +1,26 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import {
 	Path,
 	SVG,
-	Disabled,
-	PanelBody,
-	TextControl,
-	ToggleControl,
 } from '@wordpress/components';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { registerBlockType } from '@wordpress/blocks';
-import ServerSideRender from '@wordpress/server-side-render';
+import {
+	registerBlockType
+} from '@wordpress/blocks';
 
 /**
  * Internal dependencies
  */
 import metadata from './block.json';
+import Edit from './edit';
 
 import './editor.scss';
 import './style.scss';
 
 const { name } = metadata;
 
-const settings = {
-
+export const settings = {
 	icon: {
 		src: <SVG viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 			<Path fill="currentColor" d="M16.279 11.506c.132-.016.257-.018.373 0c.066-.154.078-.419.019-.708c-.09-.429-.211-.688-.461-.646c-.251.04-.261.35-.17.779c.05.24.14.446.239.575zm-2.149.339c.18.078.29.129.331.086c.029-.028.021-.084-.022-.154a1.05 1.05 0 0 0-.464-.371a1.26 1.26 0 0 0-1.228.146c-.119.088-.232.209-.218.283c.007.023.023.042.065.05c.099.011.444-.164.843-.188c.282-.02.513.068.693.148zm-.361.205c-.232.037-.361.113-.443.187c-.071.062-.113.128-.113.177l.018.042l.037.014c.053 0 .171-.046.171-.046c.324-.115.539-.102.752-.078c.117.014.172.02.198-.02c.007-.012.018-.035-.007-.074c-.056-.091-.291-.24-.613-.202zm1.784.756c.159.078.333.046.39-.069c.059-.115-.024-.272-.183-.349c-.158-.079-.333-.049-.39.066c-.057.115.026.274.183.352zm1.018-.891c-.128-.002-.234.138-.238.316c-.003.177.1.321.229.322c.129.002.235-.139.238-.315s-.099-.32-.229-.323zm-8.644 3.183c-.032-.04-.085-.029-.136-.015c-.036.007-.076.017-.119.016a.265.265 0 0 1-.221-.111c-.059-.09-.056-.225.01-.378l.03-.069c.104-.231.275-.619.082-.988a.88.88 0 0 0-.671-.488a.861.861 0 0 0-.739.267c-.284.313-.327.741-.273.893c.021.056.053.071.075.074c.048.007.119-.029.164-.15l.014-.038c.02-.064.057-.184.118-.278a.518.518 0 0 1 .717-.15c.2.131.275.375.19.608c-.044.121-.115.351-.1.54c.032.383.27.537.48.556c.206.007.35-.108.387-.193c.021-.053.003-.084-.008-.096z"/>
@@ -34,108 +29,7 @@ const settings = {
 		foreground: '#ff8a00'
 	},
 
-	edit: ( props ) => {
-		const blockProps = useBlockProps();
-		const {
-			attributes: { url, u, id, firstName, lastName, placeholder },
-			setAttributes,
-		} = props;
-
-		const setURL = ( value ) => {
-			setAttributes( { url: value } );
-		};
-
-		const setU = ( value ) => {
-			setAttributes( { u: value } );
-		};
-
-		const setID = ( value ) => {
-			setAttributes( { id: value } );
-		};
-
-		const toggleFirstName = () => {
-			setAttributes( { firstName: ! props.attributes.firstName } );
-		};
-
-		const toggleLastName = () => {
-			setAttributes( { lastName: ! props.attributes.lastName } );
-		};
-
-		const togglePlaceholder = () => {
-			setAttributes( { placeholder: ! props.attributes.placeholder } );
-		};
-
-		return (
-			<>
-				<InspectorControls>
-					<PanelBody
-						title={ __(
-							'Mailchimp Settings',
-							'rather-simple-mailchimp'
-						) }
-					>
-						<TextControl
-							label={ __( 'URL', 'rather-simple-mailchimp' ) }
-							type="url"
-							value={ url }
-							onChange={ setURL }
-						/>
-						<TextControl
-							label={ __( 'U', 'rather-simple-mailchimp' ) }
-							type="text"
-							value={ u }
-							onChange={ setU }
-						/>
-						<TextControl
-							label={ __( 'ID', 'rather-simple-mailchimp' ) }
-							type="text"
-							value={ id }
-							onChange={ setID }
-						/>
-						{ url && u && id && (
-							<ToggleControl
-								label={ __(
-									'Show First Name',
-									'rather-simple-mailchimp'
-								) }
-								checked={ !! firstName }
-								onChange={ toggleFirstName }
-							/>
-						) }
-						{ url && u && id && (
-							<ToggleControl
-								label={ __(
-									'Show Last Name',
-									'rather-simple-mailchimp'
-								) }
-								checked={ !! lastName }
-								onChange={ toggleLastName }
-							/>
-						) }
-						{ url && u && id && (
-							<ToggleControl
-								label={ __(
-									'Show Placeholder',
-									'rather-simple-mailchimp'
-								) }
-								checked={ !! placeholder }
-								onChange={ togglePlaceholder }
-							/>
-						) }
-					</PanelBody>
-				</InspectorControls>
-				<div { ...blockProps }>
-					<Disabled>
-						<ServerSideRender
-							block="occ/mailchimp"
-							attributes={ props.attributes }
-						/>
-					</Disabled>
-				</div>
-			</>
-		);
-	},
-
+	edit: Edit,
 };
 
-registerBlockType( name, settings );
+registerBlockType(name, settings);
