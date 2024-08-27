@@ -40,7 +40,7 @@
   "editorScript": "file:./index.js",
   "viewScript": [
     "file:./mc-subscribe.js",
-    "file:./frontend.js"
+    "file:./view.js"
   ],
   "style": "file:./style-index.css",
   "editorStyle": "file:./index.css"
