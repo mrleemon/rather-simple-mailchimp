@@ -231,32 +231,7 @@ class Rather_Simple_Mailchimp {
 	 * @param array $attr    The block attributes.
 	 */
 	public function render_block( $attr ) {
-		/*
-		if ( ! is_admin() ) {
-			wp_enqueue_script(
-				'mc-subscribe',
-				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
-				array( 'jquery' ),
-				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
-				array(
-					'in_footer' => true,
-					'strategy'  => 'defer',
-				)
-			);
-			wp_enqueue_script(
-				'frontend',
-				plugins_url( '/assets/js/frontend.js', __FILE__ ),
-				array( 'mc-subscribe' ),
-				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
-				array(
-					'in_footer' => true,
-					'strategy'  => 'defer',
-				)
-			);
-		}*/
-
-		$wrapper_attributes = get_block_wrapper_attributes();
-		$html               = '<div ' . $wrapper_attributes . '>';
+		$html = '<div ' . wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
 			$html .= '<!-- Begin Mailchimp Signup Form -->
