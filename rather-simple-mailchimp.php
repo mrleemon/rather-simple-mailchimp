@@ -62,7 +62,6 @@ class Rather_Simple_Mailchimp {
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-		// add_action( 'template_redirect', array( $this, 'form_handler' ) );
 		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
 		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
 
@@ -298,37 +297,6 @@ class Rather_Simple_Mailchimp {
 		$html .= '</div>';
 
 		return $html;
-	}
-
-	/**
-	 * Handle form
-	 */
-	public function form_handler() {
-		if ( ! isset( $_POST['subscribe'] ) /*|| ! isset( $_POST['cagnotte-verif'] ) */ ) {
-			return;
-		}
-
-		/*
-		if ( ! wp_verify_nonce( $_POST['cagnotte-verif'], 'faire-don' ) ) {
-			return;
-		}*/
-
-		$email   = $_POST['EMAIL'];
-		$fname   = $_POST['FNAME'] ?? '';
-		$lname   = $_POST['LNAME'] ?? '';
-		$list_id = $_POST['ID'];
-
-		$url = get_permalink();
-
-		if ( ! empty( $list_id ) &&
-		! empty( $email ) &&
-		! filter_var( $email, FILTER_VALIDATE_EMAIL ) === false ) {
-			$this->subscribe_mailchimp_list( $email, $fname, $lname, $list_id );
-		}
-
-		// Redirect user back to the form, with an error or success marker in $_GET.
-		wp_safe_redirect( $url );
-		exit();
 	}
 
 	/**
