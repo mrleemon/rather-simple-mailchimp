@@ -190,16 +190,6 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 			array(),
 			filemtime( plugin_dir_path( __DIR__ ) . 'style.css' )
 		);
-		/*wp_enqueue_script(
-			'rsm-subscribe',
-			plugins_url( '/assets/js/mc-subscribe.js', __DIR__ ),
-			array( 'jquery' ),
-			filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/mc-subscribe.js' ),
-			array(
-				'in_footer' => true,
-				'strategy'  => 'defer',
-			)
-		);*/
 		wp_enqueue_script(
 			'rsm-subscribe',
 			plugins_url( '/assets/js/subscribe.js', __DIR__ ),
@@ -222,8 +212,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 		wp_enqueue_script(
 			'rsm-frontend',
 			plugins_url( '/assets/js/frontend.js', __DIR__ ),
-			/*array( 'rsm-subscribe' ),*/
-			array(),
+			array( 'rsm-subscribe' ),
 			filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/frontend.js' ),
 			array(
 				'in_footer' => true,
