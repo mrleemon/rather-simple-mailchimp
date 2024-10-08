@@ -97,7 +97,9 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 				</div>
 				<div class="mce-responses clear">
 					<div class="response mce-error-response" style="display:none"></div>
-					<div class="response mce-success-response" style="display:none"></div>
+					<div class="response mce-success-response" style="display:none"><p>
+					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
+					</p></div>
 				</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 			</div>
 			</form>
@@ -204,24 +206,43 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 			'rsm-style',
 			plugins_url( '/style.css', __DIR__ ),
 			array(),
-			filemtime( plugin_dir_path( __DIR__ ) . '/style.css' )
+			filemtime( plugin_dir_path( __DIR__ ) . 'style.css' )
 		);
 		/*wp_enqueue_script(
 			'rsm-subscribe',
 			plugins_url( '/assets/js/mc-subscribe.js', __DIR__ ),
 			array( 'jquery' ),
-			filemtime( plugin_dir_path( __DIR__ ) . '/assets/js/mc-subscribe.js' ),
+			filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/mc-subscribe.js' ),
 			array(
 				'in_footer' => true,
 				'strategy'  => 'defer',
 			)
 		);*/
 		wp_enqueue_script(
+			'rsm-subscribe',
+			plugins_url( '/assets/js/subscribe.js', __DIR__ ),
+			array( 'jquery' ),
+			filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/subscribe.js' ),
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_localize_script(
+			'rsm-subscribe',
+			'ajax_var',
+			array(
+				'url'    => admin_url( 'admin-ajax.php' ),
+				'nonce'  => wp_create_nonce( 'rsm-nonce' ),
+				'action' => 'subscribe',
+			)
+		);
+		wp_enqueue_script(
 			'rsm-frontend',
 			plugins_url( '/assets/js/frontend.js', __DIR__ ),
 			/*array( 'rsm-subscribe' ),*/
 			array(),
-			filemtime( plugin_dir_path( __DIR__ ) . '/assets/js/frontend.js' ),
+			filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/frontend.js' ),
 			array(
 				'in_footer' => true,
 				'strategy'  => 'defer',

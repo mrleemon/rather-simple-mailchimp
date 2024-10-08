@@ -62,7 +62,9 @@ class Rather_Simple_Mailchimp {
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-		add_action( 'template_redirect', array( $this, 'form_handler' ) );
+		// add_action( 'template_redirect', array( $this, 'form_handler' ) );
+		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
+		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
 	}
@@ -121,24 +123,44 @@ class Rather_Simple_Mailchimp {
 				'rsm-style',
 				plugins_url( '/style.css', __FILE__ ),
 				array(),
-				filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
+				filemtime( plugin_dir_path( __FILE__ ) . 'style.css' )
 			);
-			/*wp_enqueue_script(
+			/*
+			wp_enqueue_script(
 				'rsm-subscribe',
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
 				array( 'jquery' ),
-				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/mc-subscribe.js' ),
+				filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/mc-subscribe.js' ),
 				array(
 					'in_footer' => true,
 					'strategy'  => 'defer',
 				)
 			);*/
 			wp_enqueue_script(
+				'rsm-subscribe',
+				plugins_url( '/assets/js/subscribe.js', __FILE__ ),
+				array( 'jquery' ),
+				filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/subscribe.js' ),
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
+			);
+			wp_localize_script(
+				'rsm-subscribe',
+				'ajax_var',
+				array(
+					'url'    => admin_url( 'admin-ajax.php' ),
+					'nonce'  => wp_create_nonce( 'rsm-nonce' ),
+					'action' => 'subscribe',
+				)
+			);
+			wp_enqueue_script(
 				'rsm-frontend',
 				plugins_url( '/assets/js/frontend.js', __FILE__ ),
 				/*array( 'rsm-subscribe' ),*/
 				array(),
-				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
+				filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/frontend.js' ),
 				array(
 					'in_footer' => true,
 					'strategy'  => 'defer',
@@ -220,7 +242,9 @@ class Rather_Simple_Mailchimp {
 				</div>
 				<div class="mce-responses clear">
 					<div class="response mce-error-response" style="display:none"></div>
-					<div class="response mce-success-response" style="display:none"></div>
+					<div class="response mce-success-response" style="display:none"><p>
+					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
+					</p></div>
 				</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 			</div>
 			</form>
@@ -237,7 +261,7 @@ class Rather_Simple_Mailchimp {
 	 */
 	public function render_block( $attr ) {
 		$html = '<div ' . wp_kses_data( get_block_wrapper_attributes() ) . '>';
-		
+
 		/*<form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
 
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
@@ -279,7 +303,9 @@ class Rather_Simple_Mailchimp {
 					</div>
 					<div class="mce-responses clear">
 						<div class="response mce-error-response" style="display:none"></div>
-						<div class="response mce-success-response" style="display:none"></div>
+						<div class="response mce-success-response" style="display:none"><p>
+					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
+						</p></div>
 					</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 				</div>
 				</form>
@@ -326,6 +352,26 @@ class Rather_Simple_Mailchimp {
 	}
 
 	/**
+	 * Handle form with AJAX
+	 */
+	public function form_handler_ajax() {
+		if ( ! wp_verify_nonce( $_POST['nonce'], 'rsm-nonce' ) ) {
+			return;
+		}
+
+		$email   = $_POST['EMAIL'];
+		$fname   = $_POST['FNAME'] ?? '';
+		$lname   = $_POST['LNAME'] ?? '';
+		$list_id = $_POST['ID'];
+
+		if ( ! empty( $list_id ) &&
+		! empty( $email ) &&
+		! filter_var( $email, FILTER_VALIDATE_EMAIL ) === false ) {
+			$this->subscribe_mailchimp_list( $email, $fname, $lname, $list_id );
+		}
+	}
+
+	/**
 	 * Subscribe user to list
 	 *
 	 * @param string $email     The user email.
@@ -360,9 +406,14 @@ class Rather_Simple_Mailchimp {
 				)
 			);
 
-			if ( 'OK' === wp_remote_retrieve_response_message( $response ) ) {
-				//echo 'The user has been successfully subscribed.';
+			if ( 200 === $response['response']['code'] ) {
+				$out['result'] = 'success';
+			} else {
+				$out['result'] = 'error';
+				$out['msg']    = '<b>' . $response['response']['code'] . $body->title . ':</b> ' . $body->detail;
 			}
+
+			wp_send_json( $out );
 		}
 	}
 }
