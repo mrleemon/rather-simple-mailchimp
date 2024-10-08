@@ -227,7 +227,7 @@ class Rather_Simple_Mailchimp {
 					<div class="response mce-success-response" style="display:none"><p>
 					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
 					</p></div>
-				</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+				</div>
 			</div>
 			</form>
 		</div>
@@ -285,7 +285,7 @@ class Rather_Simple_Mailchimp {
 						<div class="response mce-success-response" style="display:none"><p>
 					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
 						</p></div>
-					</div>	<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					</div>
 				</div>
 				</form>
 			</div>
