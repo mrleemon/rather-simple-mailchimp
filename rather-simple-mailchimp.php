@@ -192,8 +192,7 @@ class Rather_Simple_Mailchimp {
 		  <div class="mc-embed-signup">
 			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $atts['id'] ) . '" name="ID">
-			<div class="mc-embed-signup-scroll">
-				<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
+			<div class="mc-embed-signup-scroll">';
 
 		if ( $atts['first_name'] ) {
 			$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
@@ -251,8 +250,7 @@ class Rather_Simple_Mailchimp {
 			<div class="mc-embed-signup">
 				<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 				<input type="hidden" value="' . esc_attr( $attr['id'] ) . '" name="ID">
-				<div class="mc-embed-signup-scroll">
-					<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
+				<div class="mc-embed-signup-scroll">';
 
 			if ( $attr['firstName'] ) {
 				$placeholder = $attr['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
