@@ -18,17 +18,9 @@ const Edit = (props) => {
 
 	const blockProps = useBlockProps();
 	const {
-		attributes: { url, u, id, firstName, lastName, placeholder },
+		attributes: { id, firstName, lastName, placeholder },
 		setAttributes,
 	} = props;
-
-	const setURL = (value) => {
-		setAttributes({ url: value });
-	};
-
-	const setU = (value) => {
-		setAttributes({ u: value });
-	};
 
 	const setID = (value) => {
 		setAttributes({ id: value });
@@ -56,24 +48,12 @@ const Edit = (props) => {
 					)}
 				>
 					<TextControl
-						label={__('URL', 'rather-simple-mailchimp')}
-						type="url"
-						value={url}
-						onChange={setURL}
-					/>
-					<TextControl
-						label={__('U', 'rather-simple-mailchimp')}
-						type="text"
-						value={u}
-						onChange={setU}
-					/>
-					<TextControl
 						label={__('ID', 'rather-simple-mailchimp')}
 						type="text"
 						value={id}
 						onChange={setID}
 					/>
-					{url && u && id && (
+					{id && (
 						<ToggleControl
 							label={__(
 								'Show First Name',
@@ -83,7 +63,7 @@ const Edit = (props) => {
 							onChange={toggleFirstName}
 						/>
 					)}
-					{url && u && id && (
+					{id && (
 						<ToggleControl
 							label={__(
 								'Show Last Name',
@@ -93,7 +73,7 @@ const Edit = (props) => {
 							onChange={toggleLastName}
 						/>
 					)}
-					{url && u && id && (
+					{id && (
 						<ToggleControl
 							label={__(
 								'Show Placeholder',

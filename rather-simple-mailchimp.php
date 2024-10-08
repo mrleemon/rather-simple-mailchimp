@@ -187,8 +187,6 @@ class Rather_Simple_Mailchimp {
 	public function shortcode_atts( $attr ) {
 		$atts = shortcode_atts(
 			array(
-				'url'         => '',
-				'u'           => '',
 				'id'          => '',
 				'first_name'  => 'false',
 				'last_name'   => 'false',
@@ -201,8 +199,6 @@ class Rather_Simple_Mailchimp {
 		$atts['first_name']  = filter_var( $atts['first_name'], FILTER_VALIDATE_BOOLEAN );
 		$atts['last_name']   = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
 		$atts['placeholder'] = filter_var( $atts['placeholder'], FILTER_VALIDATE_BOOLEAN );
-
-		/*<form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
 
 		$html = '<!-- Begin Mailchimp Signup Form -->
 		  <div class="mc-embed-signup">
@@ -262,9 +258,7 @@ class Rather_Simple_Mailchimp {
 	public function render_block( $attr ) {
 		$html = '<div ' . wp_kses_data( get_block_wrapper_attributes() ) . '>';
 
-		/*<form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
-
-		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
+		if ( $attr['id'] ) {
 			$html .= '<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
 				<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">

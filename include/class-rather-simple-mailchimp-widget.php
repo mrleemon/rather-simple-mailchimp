@@ -32,8 +32,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		$title       = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance );
 		$textarea    = apply_filters( 'widget_textarea', empty( $instance['textarea'] ) ? '' : $instance['textarea'], $instance );
-		$url         = untrailingslashit( empty( $instance['url'] ) ? '' : $instance['url'] );
-		$u           = empty( $instance['u'] ) ? '' : $instance['u'];
 		$id          = empty( $instance['id'] ) ? '' : $instance['id'];
 		$first_name  = ! empty( $instance['first_name'] );
 		$last_name   = ! empty( $instance['last_name'] );
@@ -50,8 +48,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		if ( ! empty( $textarea ) ) {
 			echo wpautop( $textarea );
 		}
-
-		/*<form action="' . esc_url( $url ) . '/subscribe/post-json?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
 
 		$html = '<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
@@ -120,8 +116,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		} else {
 			$instance['textarea'] = stripslashes( wp_filter_post_kses( addslashes( $new_instance['textarea'] ) ) );
 		}
-		$instance['url']         = wp_strip_all_tags( $new_instance['url'] );
-		$instance['u']           = wp_strip_all_tags( $new_instance['u'] );
 		$instance['id']          = wp_strip_all_tags( $new_instance['id'] );
 		$instance['first_name']  = ! empty( $new_instance['first_name'] );
 		$instance['last_name']   = ! empty( $new_instance['last_name'] );
@@ -140,15 +134,11 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			array(
 				'title'    => '',
 				'textarea' => '',
-				'url'      => '',
-				'u'        => '',
 				'id'       => '',
 			)
 		);
 		$title       = wp_strip_all_tags( $instance['title'] );
 		$textarea    = $instance['textarea'];
-		$url         = wp_strip_all_tags( $instance['url'] );
-		$u           = wp_strip_all_tags( $instance['u'] );
 		$id          = wp_strip_all_tags( $instance['id'] );
 		$first_name  = ! empty( $instance['first_name'] );
 		$last_name   = ! empty( $instance['last_name'] );
@@ -162,14 +152,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'textarea' ) ); ?>"><?php _e( 'Content' ); ?></label>
 			<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'textarea' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'textarea' ) ); ?>"><?php echo esc_textarea( $textarea ); ?></textarea>
-			</p>
-			<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'url' ) ); ?>"><?php _e( 'URL', 'rather-simple-mailchimp' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'url' ) ); ?>" type="text" value="<?php echo esc_url( $url ); ?>" />
-			</p>
-			<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'u' ) ); ?>"><?php _e( 'U', 'rather-simple-mailchimp' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'u' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'u' ) ); ?>" type="text" value="<?php echo esc_attr( $u ); ?>" />
 			</p>
 			<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php _e( 'ID', 'rather-simple-mailchimp' ); ?></label>

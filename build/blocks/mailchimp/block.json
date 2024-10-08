@@ -7,12 +7,6 @@
   "textdomain": "rather-simple-mailchimp",
   "category": "embed",
   "attributes": {
-    "url": {
-      "type": "string"
-    },
-    "u": {
-      "type": "string"
-    },
     "id": {
       "type": "string"
     },

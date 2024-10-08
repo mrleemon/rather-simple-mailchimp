@@ -22,9 +22,9 @@ This plugin is experimental and is provided with no support or warranty.
 == Frequently Asked Questions ==
 = How can I use the [mailchimp] shortcode? =
 
-[mailchimp url="" u="" id="" first_name="false" last_name="false"]
+[mailchimp id="" first_name="false" last_name="false"]
 
-where url, u and id are the MailChimp list parameters, and first_name and last_name
+where id is the MailChimp list identifier, and first_name and last_name
 show or not the first and last name fields
 
 == Changelog ==
