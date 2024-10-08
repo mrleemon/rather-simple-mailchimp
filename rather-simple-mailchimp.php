@@ -62,6 +62,7 @@ class Rather_Simple_Mailchimp {
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'template_redirect', array( $this, 'form_handler' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
 	}
@@ -122,7 +123,7 @@ class Rather_Simple_Mailchimp {
 				array(),
 				filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
 			);
-			wp_enqueue_script(
+			/*wp_enqueue_script(
 				'rsm-subscribe',
 				plugins_url( '/assets/js/mc-subscribe.js', __FILE__ ),
 				array( 'jquery' ),
@@ -131,11 +132,12 @@ class Rather_Simple_Mailchimp {
 					'in_footer' => true,
 					'strategy'  => 'defer',
 				)
-			);
+			);*/
 			wp_enqueue_script(
 				'rsm-frontend',
 				plugins_url( '/assets/js/frontend.js', __FILE__ ),
-				array( 'rsm-subscribe' ),
+				/*array( 'rsm-subscribe' ),*/
+				array(),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/frontend.js' ),
 				array(
 					'in_footer' => true,
@@ -178,9 +180,12 @@ class Rather_Simple_Mailchimp {
 		$atts['last_name']   = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
 		$atts['placeholder'] = filter_var( $atts['placeholder'], FILTER_VALIDATE_BOOLEAN );
 
+		/*<form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
+
 		$html = '<!-- Begin Mailchimp Signup Form -->
 		  <div class="mc-embed-signup">
-			<form action="' . esc_attr( untrailingslashit( $atts['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $atts['u'] ) . '&amp;id=' . esc_attr( $atts['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+			<input type="hidden" value="' . esc_attr( $atts['id'] ) . '" name="ID">
 			<div class="mc-embed-signup-scroll">
 				<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $atts['u'] ) . '_' . esc_attr( $atts['id'] ) . '" tabindex="-1" value=""></div>';
 
@@ -232,11 +237,14 @@ class Rather_Simple_Mailchimp {
 	 */
 	public function render_block( $attr ) {
 		$html = '<div ' . wp_kses_data( get_block_wrapper_attributes() ) . '>';
+		
+		/*<form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
 
 		if ( $attr['url'] && $attr['u'] && $attr['id'] ) {
 			$html .= '<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
-				<form action="' . esc_attr( untrailingslashit( $attr['url'] ) ) . '/subscribe/post-json?u=' . esc_attr( $attr['u'] ) . '&amp;id=' . esc_attr( $attr['id'] ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+				<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+				<input type="hidden" value="' . esc_attr( $attr['id'] ) . '" name="ID">
 				<div class="mc-embed-signup-scroll">
 					<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $attr['u'] ) . '_' . esc_attr( $attr['id'] ) . '" tabindex="-1" value=""></div>';
 
@@ -284,6 +292,78 @@ class Rather_Simple_Mailchimp {
 		$html .= '</div>';
 
 		return $html;
+	}
+
+	/**
+	 * Handle form
+	 */
+	public function form_handler() {
+		if ( ! isset( $_POST['subscribe'] ) /*|| ! isset( $_POST['cagnotte-verif'] ) */ ) {
+			return;
+		}
+
+		/*
+		if ( ! wp_verify_nonce( $_POST['cagnotte-verif'], 'faire-don' ) ) {
+			return;
+		}*/
+
+		$email   = $_POST['EMAIL'];
+		$fname   = $_POST['FNAME'] ?? '';
+		$lname   = $_POST['LNAME'] ?? '';
+		$list_id = $_POST['ID'];
+
+		$url = get_permalink();
+
+		if ( ! empty( $list_id ) &&
+		! empty( $email ) &&
+		! filter_var( $email, FILTER_VALIDATE_EMAIL ) === false ) {
+			$this->subscribe_mailchimp_list( $email, $fname, $lname, $list_id );
+		}
+
+		// Redirect user back to the form, with an error or success marker in $_GET.
+		wp_safe_redirect( $url );
+		exit();
+	}
+
+	/**
+	 * Subscribe user to list
+	 *
+	 * @param string $email     The user email.
+	 * @param string $fname     The user first name.
+	 * @param string $lname     The user last name.
+	 * @param string $list_id   The list ID.
+	 */
+	public function subscribe_mailchimp_list( $email, $fname, $lname, $list_id ) {
+		$api_key = RSM_API_KEY;
+		if ( ! empty( $api_key ) ) {
+			// MailChimp API URL.
+			$member_id   = md5( strtolower( $email ) );
+			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
+
+			$response = wp_remote_request(
+				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
+				array(
+					'method'  => 'PUT',
+					'headers' => array(
+						'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
+					),
+					'body'    => wp_json_encode(
+						array(
+							'email_address' => $email,
+							'merge_fields'  => array(
+								'FNAME' => $fname,
+								'LNAME' => $lname,
+							),
+							'status'        => 'pending', // Unsubscribed, subscribed or pending.
+						)
+					),
+				)
+			);
+
+			if ( 'OK' === wp_remote_retrieve_response_message( $response ) ) {
+				//echo 'The user has been successfully subscribed.';
+			}
+		}
 	}
 }
 

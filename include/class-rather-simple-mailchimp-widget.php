@@ -51,9 +51,12 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			echo wpautop( $textarea );
 		}
 
+		/*<form action="' . esc_url( $url ) . '/subscribe/post-json?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">*/
+
 		$html = '<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
-			<form action="' . esc_url( $url ) . '/subscribe/post-json?u=' . esc_attr( $u ) . '&amp;id=' . esc_attr( $id ) . '&amp;c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">
 			<div class="mc-embed-signup-scroll">
 				<div style="position: absolute; left: -5000px;"><input type="text" name="b_' . esc_attr( $u ) . '_' . esc_attr( $id ) . '" tabindex="-1" value=""></div>';
 
@@ -195,7 +198,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			array(),
 			filemtime( plugin_dir_path( __DIR__ ) . '/style.css' )
 		);
-		wp_enqueue_script(
+		/*wp_enqueue_script(
 			'rsm-subscribe',
 			plugins_url( '/assets/js/mc-subscribe.js', __DIR__ ),
 			array( 'jquery' ),
@@ -204,11 +207,12 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 				'in_footer' => true,
 				'strategy'  => 'defer',
 			)
-		);
+		);*/
 		wp_enqueue_script(
 			'rsm-frontend',
 			plugins_url( '/assets/js/frontend.js', __DIR__ ),
-			array( 'rsm-subscribe' ),
+			/*array( 'rsm-subscribe' ),*/
+			array(),
 			filemtime( plugin_dir_path( __DIR__ ) . '/assets/js/frontend.js' ),
 			array(
 				'in_footer' => true,
