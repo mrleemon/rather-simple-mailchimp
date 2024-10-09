@@ -1,32 +1,46 @@
-(function ($) {
+(function () {
 
-	function subscribe($form) {
-		$.ajax({
-			type: 'POST',
-			url: ajax_var.url,
-			data: $form.serialize() + '&action=' + ajax_var.action + '&nonce=' + ajax_var.nonce,
-			dataType: 'json',
-			cache: false,
-		}).done(function (data) {
-			if (data.result !== 'success') {
-				$('.mce-error-response', $form).show();
-				$('.mce-error-response', $form).html(
-					'<p>' + data.msg + '</p>'
-				);
-			} else {
-				$('.mce-success-response', $form).show();
+	function subscribe(form) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', ajax_var.url, true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		// Prepare the data to send
+		var data = new URLSearchParams(new FormData(form)).toString() + 
+			'&action=' + ajax_var.action + 
+			'&nonce=' + ajax_var.nonce;
+
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					var data = JSON.parse(xhr.responseText);
+					if (data.result !== 'success') {
+						var errorResponse = form.querySelector('.mce-error-response');
+						if (errorResponse) {
+							errorResponse.style.display = 'block';
+							errorResponse.innerHTML = '<p>' + data.msg + '</p>';
+						}
+					} else {
+						var successResponse = form.querySelector('.mce-success-response');
+						if (successResponse) {
+							successResponse.style.display = 'block';
+						}
+					}
+				} else {
+					console.log('error: ' + xhr.statusText);
+				}
 			}
-		}).fail(function (jqXHR, textStatus, error) {
-			console.log('error:' + error);
-		});
+		};
+
+		xhr.send(data);
 	}
 
-	$('.mc-embedded-subscribe-form').on('submit', function (e) {
-		try {
-			var $form = $(this);
+	var forms = document.querySelectorAll('.mc-embedded-subscribe-form');
+	forms.forEach(function (form) {
+		form.addEventListener('submit', function (e) {
 			e.preventDefault();
-			subscribe($form);
-		} catch (error) { }
+			subscribe(form);
+		});
 	});
 
-})(jQuery);
+})();
