@@ -335,9 +335,9 @@ class Rather_Simple_Mailchimp {
 			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
 
 			$response = wp_remote_request(
-				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members',
+				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
 				array(
-					'method'  => 'POST',
+					'method'  => 'PUT',
 					'headers' => array(
 						'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
 					),
