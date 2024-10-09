@@ -303,6 +303,10 @@ class Rather_Simple_Mailchimp {
 	 * Handle form with AJAX
 	 */
 	public function form_handler_ajax() {
+		if ( isset( $_POST['action'] ) && 'subscribe' !== $_POST['action'] ) {
+			return;
+		}
+
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'rsm-nonce' ) ) {
 			return;
 		}
