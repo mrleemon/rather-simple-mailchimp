@@ -381,7 +381,7 @@ class Rather_Simple_Mailchimp {
 
 			} else {
 				$out['result'] = 'error';
-				$out['msg']    = $email . ' is already registered.';
+				$out['msg']    = sprintf( __( '%s is already subscribed.', 'rather-simple-mailchimp' ), $email );
 				wp_send_json( $out );
 			}
 		}
