@@ -334,35 +334,56 @@ class Rather_Simple_Mailchimp {
 			$member_id   = md5( strtolower( $email ) );
 			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
 
+			// Check if user is already subscribed.
 			$response = wp_remote_request(
 				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
 				array(
-					'method'  => 'PUT',
+					'method'  => 'GET',
 					'headers' => array(
-						'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
-					),
-					'body'    => wp_json_encode(
-						array(
-							'email_address' => $email,
-							'merge_fields'  => array(
-								'FNAME' => $fname,
-								'LNAME' => $lname,
-							),
-							'status'        => 'pending', // Unsubscribed, subscribed or pending.
-						)
+						'Authorization'               => 'Basic ' . base64_encode( 'user:' . $api_key ),
+						'Access-Control-Allow-Origin' => '*',
 					),
 				)
 			);
 			$body     = json_decode( $response['body'] );
 
-			if ( 200 === $response['response']['code'] ) {
-				$out['result'] = 'success';
+			if ( 'subscribed' !== $body->status ) {
+
+				// If user is not subscribed, send confirmation email.
+				$response = wp_remote_request(
+					'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
+					array(
+						'method'  => 'PUT',
+						'headers' => array(
+							'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
+						),
+						'body'    => wp_json_encode(
+							array(
+								'email_address' => $email,
+								'merge_fields'  => array(
+									'FNAME' => $fname,
+									'LNAME' => $lname,
+								),
+								'status'        => 'pending', // Unsubscribed, subscribed or pending.
+							)
+						),
+					)
+				);
+				$body     = json_decode( $response['body'] );
+
+				if ( 200 === $response['response']['code'] ) {
+					$out['result'] = 'success';
+				} else {
+					$out['result'] = 'error';
+					$out['msg']    = $body->title . ': ' . $body->detail;
+				}
+				wp_send_json( $out );
+
 			} else {
 				$out['result'] = 'error';
-				$out['msg']    = $body->title . ': ' . $body->detail;
+				$out['msg']    = $email . ' is already registered.';
+				wp_send_json( $out );
 			}
-
-			wp_send_json( $out );
 		}
 	}
 }
