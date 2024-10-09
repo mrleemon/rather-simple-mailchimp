@@ -380,6 +380,7 @@ class Rather_Simple_Mailchimp {
 				wp_send_json( $out );
 
 			} else {
+				// If user is already subscribed, send error message.
 				$out['result'] = 'error';
 				$out['msg']    = sprintf( __( '%s is already subscribed.', 'rather-simple-mailchimp' ), $email );
 				wp_send_json( $out );
