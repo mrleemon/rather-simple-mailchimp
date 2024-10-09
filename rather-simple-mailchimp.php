@@ -127,7 +127,7 @@ class Rather_Simple_Mailchimp {
 			wp_enqueue_script(
 				'rsm-subscribe',
 				plugins_url( '/assets/js/subscribe.js', __FILE__ ),
-				array( 'jquery' ),
+				array(),
 				filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/subscribe.js' ),
 				array(
 					'in_footer' => true,
