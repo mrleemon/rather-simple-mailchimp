@@ -58,8 +58,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 			<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
 			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
-			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">
-			<div class="mc-embed-signup-scroll">';
+			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">';
 
 		if ( $first_name ) {
 			$placeholder_st = $placeholder ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
@@ -96,7 +95,6 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
 					</p></div>
 				</div>
-			</div>
 			</form>
 		</div>
 		<!--End mc-embed-signup-->
