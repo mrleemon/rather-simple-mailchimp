@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rather-simple-"
 "mailchimp\n"
 "POT-Creation-Date: 2024-10-09T13:06:08+00:00\n"
-"PO-Revision-Date: 2024-10-09 15:06+0200\n"
+"PO-Revision-Date: 2024-10-09 15:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -138,7 +138,7 @@ msgstr "Mostrar los apellidos"
 #: include/class-rather-simple-mailchimp-widget.php:167
 #: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:78
 msgid "Show Placeholder"
-msgstr "Mostrar marcador de posición"
+msgstr "Mostrar mensaje de muestra"
 
 #: include/class-rather-simple-mailchimp-widget.php:21
 msgid "A simple Mailchimp widget"
