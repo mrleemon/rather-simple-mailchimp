@@ -1,6 +1,6 @@
 === Rather Simple MailChimp ===
 Contributors: leemon
-Tags: mailchimp, newsletter, shortcode, widget
+Tags: mailchimp, newsletter, shortcode, widget, block
 Requires at least: 6.6
 Tested up to: 6.6
 Stable tag: 1.0
@@ -22,10 +22,10 @@ This plugin is experimental and is provided with no support or warranty.
 == Frequently Asked Questions ==
 = How can I use the [mailchimp] shortcode? =
 
-[mailchimp id="" first_name="false" last_name="false"]
+[mailchimp id="" first_name="false" last_name="false" placeholder="false"]
 
 where id is the MailChimp list identifier, and first_name and last_name
-show or not the first and last name fields
+show or not the first name, last name and placeholder fields
 
 == Changelog ==
 = 1.0 =
