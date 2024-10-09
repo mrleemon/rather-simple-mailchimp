@@ -330,8 +330,9 @@ class Rather_Simple_Mailchimp {
 	public function subscribe_mailchimp_list( $email, $fname, $lname, $list_id ) {
 		$api_key = RSM_API_KEY;
 		if ( ! empty( $api_key ) ) {
+			// MailChimp user ID.
+			$member_id = md5( strtolower( $email ) );
 			// MailChimp API URL.
-			$member_id   = md5( strtolower( $email ) );
 			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
 
 			// Check if user is already subscribed.
