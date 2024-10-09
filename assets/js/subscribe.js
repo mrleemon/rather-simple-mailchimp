@@ -5,6 +5,7 @@
 			type: 'POST',
 			url: ajax_var.url,
 			data: $form.serialize() + '&action=' + ajax_var.action + '&nonce=' + ajax_var.nonce,
+			dataType: 'json',
 			cache: false,
 		}).done(function (data) {
 			if (data.result !== 'success') {

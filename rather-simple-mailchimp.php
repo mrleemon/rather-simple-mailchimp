@@ -335,9 +335,11 @@ class Rather_Simple_Mailchimp {
 			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
 
 			$response = wp_remote_request(
-				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
+				/*'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,*/
+				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members',
 				array(
-					'method'  => 'PUT',
+					//'method'  => 'PUT',
+					'method'  => 'POST',
 					'headers' => array(
 						'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
 					),
@@ -353,12 +355,13 @@ class Rather_Simple_Mailchimp {
 					),
 				)
 			);
+			$body     = json_decode( $response['body'] );
 
 			if ( 200 === $response['response']['code'] ) {
 				$out['result'] = 'success';
 			} else {
 				$out['result'] = 'error';
-				$out['msg']    = '<b>' . $response['response']['code'] . $body->title . ':</b> ' . $body->detail;
+				$out['msg']    = $body->title . ': ' . $body->detail;
 			}
 
 			wp_send_json( $out );
