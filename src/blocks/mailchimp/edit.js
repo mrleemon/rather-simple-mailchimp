@@ -88,7 +88,7 @@ const Edit = (props) => {
 			<div {...blockProps}>
 				<Disabled>
 					<ServerSideRender
-						block="occ/mailchimp"
+						block="occ/rather-simple-mailchimp"
 						attributes={props.attributes}
 					/>
 				</Disabled>

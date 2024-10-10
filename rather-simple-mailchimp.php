@@ -62,6 +62,7 @@ class Rather_Simple_Mailchimp {
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
 		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
 
@@ -108,7 +109,7 @@ class Rather_Simple_Mailchimp {
 		);
 
 		// Load translations.
-		$script_handle = generate_block_asset_handle( 'occ/mailchimp', 'editorScript' );
+		$script_handle = generate_block_asset_handle( 'occ/rather-simple-mailchimp', 'editorScript' );
 		wp_set_script_translations( $script_handle, 'rather-simple-mailchimp', plugin_dir_path( __FILE__ ) . 'languages' );
 	}
 
@@ -154,6 +155,22 @@ class Rather_Simple_Mailchimp {
 				)
 			);
 		}
+	}
+
+	/**
+	 * Enqueue block assets
+	 */
+	public function enqueue_block_assets() {
+		$script_handle = generate_block_asset_handle( 'occ/rather-simple-mailchimp', 'viewScript' );
+		wp_localize_script(
+			$script_handle,
+			'ajax_var',
+			array(
+				'url'    => admin_url( 'admin-ajax.php' ),
+				'nonce'  => wp_create_nonce( 'rsm-nonce' ),
+				'action' => 'subscribe',
+			)
+		);
 	}
 
 	/**
