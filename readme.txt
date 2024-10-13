@@ -3,7 +3,7 @@ Contributors: leemon
 Tags: mailchimp, newsletter, shortcode, widget, block
 Requires at least: 6.6
 Tested up to: 6.6
-Stable tag: 1.0
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,5 +28,9 @@ where id is the MailChimp list identifier, and first_name and last_name
 show or not the first name, last name and placeholder fields
 
 == Changelog ==
+= 2.0 =
+* Refactor using Mailchimp API
+* Remove jQuery dependency
+
 = 1.0 =
 * Initial release

@@ -3,7 +3,7 @@
  * Plugin Name: Rather Simple Mailchimp
  * Plugin URI:
  * Update URI: false
- * Version: 1.0
+ * Version: 2.0
  * Requires at least: 6.6
  * Requires PHP: 7.4
  * Author: Oscar Ciutat
