@@ -78,6 +78,7 @@ class Rather_Simple_Mailchimp {
 	 * Includes required core files used in admin and on the frontend
 	 */
 	protected function includes() {
+		require_once 'include/class-rather-simple-mailchimp-admin.php';
 		require_once 'include/class-rather-simple-mailchimp-widget.php';
 		require_once 'include/class-rather-simple-mailchimp-popup-widget.php';
 	}
@@ -345,7 +346,9 @@ class Rather_Simple_Mailchimp {
 	 * @param string $list_id   The list ID.
 	 */
 	public function subscribe_mailchimp_list( $email, $fname, $lname, $list_id ) {
-		$api_key = RSM_API_KEY;
+		$settings = (array) get_option( 'rsm_settings' );
+		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
+
 		if ( ! empty( $api_key ) ) {
 			// MailChimp user ID.
 			$member_id = md5( strtolower( $email ) );
@@ -403,6 +406,11 @@ class Rather_Simple_Mailchimp {
 				$out['msg']    = sprintf( __( '%s is already subscribed.', 'rather-simple-mailchimp' ), $email );
 				wp_send_json( $out );
 			}
+		} else {
+			// If API key is missing, send error message.
+			$out['result'] = 'error';
+			$out['msg']    = sprintf( __( 'Mailchimp API key is missing.', 'rather-simple-mailchimp' ), $email );
+			wp_send_json( $out );
 		}
 	}
 }
