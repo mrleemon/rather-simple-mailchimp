@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rather-simple-"
 "mailchimp\n"
-"POT-Creation-Date: 2024-10-09T13:06:08+00:00\n"
-"PO-Revision-Date: 2024-10-09 15:08+0200\n"
+"POT-Creation-Date: 2024-10-14T10:12:28+00:00\n"
+"PO-Revision-Date: 2024-10-14 12:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -23,6 +23,8 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 #. Plugin Name of the plugin
+#: include/class-rather-simple-mailchimp-admin.php:62
+#: include/class-rather-simple-mailchimp-admin.php:86
 msgid "Rather Simple Mailchimp"
 msgstr ""
 
@@ -38,9 +40,27 @@ msgstr ""
 msgid "http://oscarciutat.com/code/"
 msgstr ""
 
+#: include/class-rather-simple-mailchimp-admin.php:76
+msgid "Mailchimp API Key"
+msgstr "Clau de l'API del Mailchimp"
+
+#: include/class-rather-simple-mailchimp-admin.php:77
+msgid "API Key"
+msgstr "Clau de l'API"
+
+#: include/class-rather-simple-mailchimp-admin.php:107
+msgid ""
+"To use this plugin, please generate a Mailchimp API key by following the "
+"instructions <a href=\"%s\" target=\"_blank\">here</a> and copy it into this "
+"field."
+msgstr ""
+"Per utilitzar aquesta extensió, genereu una clau de l'API del Mailchimp "
+"seguint les instruccions que trobareu <a href=\"%s\" target=\"_blank\">aquí</"
+"a> i copieu-la en aquest camp."
+
 #: include/class-rather-simple-mailchimp-popup-widget.php:21
 msgid "A simple Mailchimp popup widget"
-msgstr "Un senzill widget popup de Mailchimp"
+msgstr "Un senzill widget popup del Mailchimp"
 
 #: include/class-rather-simple-mailchimp-popup-widget.php:23
 msgid "Rather Simple Mailchimp popup widget"
@@ -58,8 +78,8 @@ msgstr "Tanca"
 #: include/class-rather-simple-mailchimp-popup-widget.php:66
 #: include/class-rather-simple-mailchimp-widget.php:58
 #: include/class-rather-simple-mailchimp-widget.php:60
-#: rather-simple-mailchimp.php:196 rather-simple-mailchimp.php:198
-#: rather-simple-mailchimp.php:252 rather-simple-mailchimp.php:254
+#: rather-simple-mailchimp.php:214 rather-simple-mailchimp.php:216
+#: rather-simple-mailchimp.php:270 rather-simple-mailchimp.php:272
 msgid "First Name"
 msgstr "Nom"
 
@@ -71,10 +91,10 @@ msgstr "Nom"
 #: include/class-rather-simple-mailchimp-widget.php:68
 #: include/class-rather-simple-mailchimp-widget.php:75
 #: include/class-rather-simple-mailchimp-widget.php:80
-#: rather-simple-mailchimp.php:198 rather-simple-mailchimp.php:206
-#: rather-simple-mailchimp.php:213 rather-simple-mailchimp.php:218
-#: rather-simple-mailchimp.php:254 rather-simple-mailchimp.php:262
-#: rather-simple-mailchimp.php:269 rather-simple-mailchimp.php:274
+#: rather-simple-mailchimp.php:216 rather-simple-mailchimp.php:224
+#: rather-simple-mailchimp.php:231 rather-simple-mailchimp.php:236
+#: rather-simple-mailchimp.php:272 rather-simple-mailchimp.php:280
+#: rather-simple-mailchimp.php:287 rather-simple-mailchimp.php:292
 msgid "required"
 msgstr "obligatori"
 
@@ -82,8 +102,8 @@ msgstr "obligatori"
 #: include/class-rather-simple-mailchimp-popup-widget.php:74
 #: include/class-rather-simple-mailchimp-widget.php:66
 #: include/class-rather-simple-mailchimp-widget.php:68
-#: rather-simple-mailchimp.php:204 rather-simple-mailchimp.php:206
-#: rather-simple-mailchimp.php:260 rather-simple-mailchimp.php:262
+#: rather-simple-mailchimp.php:222 rather-simple-mailchimp.php:224
+#: rather-simple-mailchimp.php:278 rather-simple-mailchimp.php:280
 msgid "Last Name"
 msgstr "Cognoms"
 
@@ -91,26 +111,26 @@ msgstr "Cognoms"
 #: include/class-rather-simple-mailchimp-popup-widget.php:81
 #: include/class-rather-simple-mailchimp-widget.php:73
 #: include/class-rather-simple-mailchimp-widget.php:75
-#: rather-simple-mailchimp.php:211 rather-simple-mailchimp.php:213
-#: rather-simple-mailchimp.php:267 rather-simple-mailchimp.php:269
+#: rather-simple-mailchimp.php:229 rather-simple-mailchimp.php:231
+#: rather-simple-mailchimp.php:285 rather-simple-mailchimp.php:287
 msgid "Email"
 msgstr "Correu electrònic"
 
 #: include/class-rather-simple-mailchimp-popup-widget.php:86
 #: include/class-rather-simple-mailchimp-widget.php:80
-#: rather-simple-mailchimp.php:218 rather-simple-mailchimp.php:274
+#: rather-simple-mailchimp.php:236 rather-simple-mailchimp.php:292
 msgid "I have read and agree to the %s."
 msgstr "He llegit i accepto la %s."
 
 #: include/class-rather-simple-mailchimp-popup-widget.php:90
 #: include/class-rather-simple-mailchimp-widget.php:84
-#: rather-simple-mailchimp.php:222 rather-simple-mailchimp.php:278
+#: rather-simple-mailchimp.php:240 rather-simple-mailchimp.php:296
 msgid "Subscribe"
 msgstr "Subscriu"
 
 #: include/class-rather-simple-mailchimp-popup-widget.php:95
 #: include/class-rather-simple-mailchimp-widget.php:89
-#: rather-simple-mailchimp.php:227 rather-simple-mailchimp.php:283
+#: rather-simple-mailchimp.php:245 rather-simple-mailchimp.php:301
 msgid "Thank you for subscribing. We have sent you a confirmation email."
 msgstr ""
 "Gràcies per subscriure-us. Us hem enviat un correu electrònic de confirmació."
@@ -141,23 +161,27 @@ msgstr "Mostra el missatge de mostra"
 
 #: include/class-rather-simple-mailchimp-widget.php:21
 msgid "A simple Mailchimp widget"
-msgstr "Un senzill widget de Mailchimp"
+msgstr "Un senzill widget del Mailchimp"
 
 #: include/class-rather-simple-mailchimp-widget.php:23
 msgid "Rather Simple Mailchimp widget"
 msgstr "Giny Rather Simple Mailchimp"
 
-#: rather-simple-mailchimp.php:290
+#: rather-simple-mailchimp.php:308
 msgid "The Mailchimp form is not set up correctly."
 msgstr "El formulari del Mailchimp no està configurat correctament."
 
-#: rather-simple-mailchimp.php:384
+#: rather-simple-mailchimp.php:406
 msgid "%s is already subscribed."
 msgstr "%s ja està subscrit."
 
+#: rather-simple-mailchimp.php:412
+msgid "Mailchimp API key is missing."
+msgstr "Falta la clau de l'API del Mailchimp."
+
 #: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:45
 msgid "Mailchimp Settings"
-msgstr "Opcions de Mailchimp"
+msgstr "Opcions del Mailchimp"
 
 #: build/blocks/mailchimp/block.json src/blocks/mailchimp/block.json
 msgctxt "block title"
@@ -167,4 +191,4 @@ msgstr "Mailchimp"
 #: build/blocks/mailchimp/block.json src/blocks/mailchimp/block.json
 msgctxt "block description"
 msgid "A Mailchimp form."
-msgstr "Un formulari de Mailchimp."
+msgstr "Un formulari del Mailchimp."
