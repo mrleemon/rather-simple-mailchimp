@@ -321,14 +321,14 @@ class Rather_Simple_Mailchimp {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['nonce'], 'rsm-nonce' ) ) {
+		if ( ! wp_verify_nonce( wp_unslash( $_POST['nonce'] ), 'rsm-nonce' ) ) {
 			return;
 		}
 
-		$email   = $_POST['EMAIL'];
-		$fname   = $_POST['FNAME'] ?? '';
-		$lname   = $_POST['LNAME'] ?? '';
-		$list_id = $_POST['ID'];
+		$email   = wp_unslash( $_POST['EMAIL'] );
+		$fname   = wp_unslash( $_POST['FNAME'] ) ?? '';
+		$lname   = wp_unslash( $_POST['LNAME'] ) ?? '';
+		$list_id = wp_unslash( $_POST['ID'] );
 
 		if ( ! empty( $list_id ) &&
 		! empty( $email ) &&
