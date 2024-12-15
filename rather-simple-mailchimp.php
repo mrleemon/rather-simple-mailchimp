@@ -101,13 +101,8 @@ class Rather_Simple_Mailchimp {
 			return;
 		}
 
-		// Register the block by passing the location of block.json to register_block_type.
-		register_block_type(
-			__DIR__ . '/build/blocks/mailchimp',
-			array(
-				'render_callback' => array( $this, 'render_block' ),
-			)
-		);
+		// Register the block.
+		register_block_type( __DIR__ . '/build/blocks/mailchimp' );
 
 		// Load translations.
 		$script_handle = generate_block_asset_handle( 'occ/rather-simple-mailchimp', 'editorScript' );
@@ -248,67 +243,6 @@ class Rather_Simple_Mailchimp {
 			</form>
 		</div>
 		<!--End mc-embed-signup-->';
-
-		return $html;
-	}
-
-	/**
-	 * Render block
-	 *
-	 * @param array $attr    The block attributes.
-	 */
-	public function render_block( $attr ) {
-		$html = '<div ' . wp_kses_data( get_block_wrapper_attributes() ) . '>';
-
-		if ( $attr['id'] ) {
-			$html .= '<!-- Begin Mailchimp Signup Form -->
-			<div class="mc-embed-signup">
-				<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
-				<input type="hidden" value="' . esc_attr( $attr['id'] ) . '" name="ID">';
-
-			if ( $attr['firstName'] ) {
-				$placeholder = $attr['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
-				$html       .= '<div class="mc-field-group">
-						<label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-						<input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required ' . $placeholder . '>
-					</div>';
-			}
-
-			if ( $attr['lastName'] ) {
-				$placeholder = $attr['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
-				$html       .= '<div class="mc-field-group">
-						<label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-						<input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required ' . $placeholder . '>
-					</div>';
-			}
-
-			$placeholder = $attr['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
-			$html       .= '<div class="mc-field-group">
-						<label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder . '>
-					</div>';
-
-			$html .= '<div class="mc-field-group">
-					<input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-				</div>';
-
-			$html .= '<div class="mc-submit-button">
-						<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button wp-element-button">
-					</div>
-					<div class="mce-responses clear">
-						<div class="response mce-error-response" style="display:none"></div>
-						<div class="response mce-success-response" style="display:none"><p>
-					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
-						</p></div>
-					</div>
-				</form>
-			</div>
-			<!--End mc-embed-signup-->';
-		} else {
-			$html .= __( 'The Mailchimp form is not set up correctly.', 'rather-simple-mailchimp' );
-		}
-
-		$html .= '</div>';
 
 		return $html;
 	}
