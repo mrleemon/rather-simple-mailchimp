@@ -65,6 +65,7 @@ class Rather_Simple_Mailchimp {
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
 		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
+		add_action( 'rest_api_init', array( $this, 'register_rest_route' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
 	}
@@ -269,6 +270,42 @@ class Rather_Simple_Mailchimp {
 		! filter_var( $email, FILTER_VALIDATE_EMAIL ) === false ) {
 			$this->subscribe_mailchimp_list( $email, $fname, $lname, $list_id );
 		}
+	}
+
+	/**
+	 * Handle form with REST API
+	 */
+	public function register_rest_route() {
+		register_rest_route(
+			'occ/v1',
+			'/mailchimp/subscribe/',
+			array(
+				'methods'  => 'POST',
+				'callback' => array( $this, 'subscribe_mailchimp_list' ),
+				'args'     => array(
+					'email'   => array(
+						'validate_callback' => function ( $param ) {
+							return is_email( $param );
+						},
+					),
+					'fname'   => array(
+						'validate_callback' => function ( $param ) {
+							return is_string( $param );
+						},
+					),
+					'lname'   => array(
+						'validate_callback' => function ( $param ) {
+							return is_string( $param );
+						},
+					),
+					'list_id' => array(
+						'validate_callback' => function ( $param ) {
+							return is_string( $param );
+						},
+					),
+				),
+			),
+		);
 	}
 
 	/**
