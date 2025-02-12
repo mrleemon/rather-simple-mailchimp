@@ -10,8 +10,10 @@ store('rsm-store', {
 					method: 'POST',
 				}
 			).then(function (response) {
+				context.displaySuccess = 'block';
 				return response.json();
 			}).catch(function (error) {
+				context.displayError = 'block';
 				console.error(error);
 			});
 		},
