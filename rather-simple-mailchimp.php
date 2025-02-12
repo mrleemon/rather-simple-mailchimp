@@ -281,7 +281,7 @@ class Rather_Simple_Mailchimp {
 			'/mailchimp/subscribe/',
 			array(
 				'methods'  => 'POST',
-				'callback' => array( $this, 'subscribe_mailchimp_list' ),
+				'callback' => array( $this, 'subscribe_mailchimp_list_rest' ),
 				'args'     => array(
 					'email'   => array(
 						'validate_callback' => function ( $param ) {
@@ -317,6 +317,85 @@ class Rather_Simple_Mailchimp {
 	 * @param string $list_id   The list ID.
 	 */
 	public function subscribe_mailchimp_list( $email, $fname, $lname, $list_id ) {
+		$settings = (array) get_option( 'rsm_settings' );
+		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
+
+		if ( ! empty( $api_key ) ) {
+			// MailChimp user ID.
+			$member_id = md5( strtolower( $email ) );
+			// MailChimp API URL.
+			$data_center = substr( $api_key, strpos( $api_key, '-' ) + 1 );
+
+			// Verify whether user is already subscribed, as Mailchimp retains users even after they unsubscribe.
+			$response = wp_remote_request(
+				'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
+				array(
+					'method'  => 'GET',
+					'headers' => array(
+						'Authorization'               => 'Basic ' . base64_encode( 'user:' . $api_key ),
+						'Access-Control-Allow-Origin' => '*',
+					),
+				)
+			);
+			$body     = json_decode( $response['body'] );
+
+			if ( 'subscribed' !== $body->status ) {
+
+				// If user is not subscribed, send confirmation email.
+				$response = wp_remote_request(
+					'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . $member_id,
+					array(
+						'method'  => 'PUT',
+						'headers' => array(
+							'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
+						),
+						'body'    => wp_json_encode(
+							array(
+								'email_address' => $email,
+								'merge_fields'  => array(
+									'FNAME' => $fname,
+									'LNAME' => $lname,
+								),
+								'status'        => 'pending', // Unsubscribed, subscribed or pending.
+							)
+						),
+					)
+				);
+				$body     = json_decode( $response['body'] );
+
+				if ( 200 === $response['response']['code'] ) {
+					$out['result'] = 'success';
+				} else {
+					$out['result'] = 'error';
+					$out['msg']    = $body->title . ': ' . $body->detail;
+				}
+				wp_send_json( $out );
+
+			} else {
+				// If user is already subscribed, send error message.
+				$out['result'] = 'error';
+				$out['msg']    = sprintf( __( '%s is already subscribed.', 'rather-simple-mailchimp' ), $email );
+				wp_send_json( $out );
+			}
+		} else {
+			// If API key is missing, send error message.
+			$out['result'] = 'error';
+			$out['msg']    = sprintf( __( 'Mailchimp API key is missing.', 'rather-simple-mailchimp' ), $email );
+			wp_send_json( $out );
+		}
+	}
+
+	/**
+	 * Subscribe user to list
+	 *
+	 * @param WP_REST_Request $request    The REST request.
+	 */
+	public function subscribe_mailchimp_list_rest( $request ) {
+		$email   = $request->get_param( 'email' );
+		$fname   = $request->get_param( 'fname' );
+		$lname   = $request->get_param( 'lname' );
+		$list_id = $request->get_param( 'list_id' );
+
 		$settings = (array) get_option( 'rsm_settings' );
 		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
 
