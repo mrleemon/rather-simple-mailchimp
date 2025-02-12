@@ -1,7 +1,18 @@
 <?php
-$block_props = get_block_wrapper_attributes();
+	$block_attributes = get_block_wrapper_attributes()
 ?>
-<figure <?php echo wp_kses_data( $block_props ); ?>>
+<div
+	<?php echo $block_attributes; ?>
+	<?php
+	echo wp_interactivity_data_wp_context(
+		array(
+			'offset'   => 0,
+		)
+	);
+	?>
+	data-wp-interactive="rsm-store"
+>
+
 	<?php if ( $attributes['id'] ) : ?>
 		<!-- Begin Mailchimp Signup Form -->
 		<div class="mc-embed-signup">
@@ -48,11 +59,11 @@ $block_props = get_block_wrapper_attributes();
 				</div>
 				
 				<div class="mc-submit-button">
-					<input type="submit" value="<?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button wp-element-button">
+					<button data-wp-on--click="actions.subscribe"><?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?></button>
 				</div>
 				<div class="mce-responses clear">
-					<div class="response mce-error-response" style="display:none"></div>
-					<div class="response mce-success-response" style="display:none">
+					<div class="response mce-error-response" data-wp-style--display="context.displayError" style="display:none"></div>
+					<div class="response mce-success-response" data-wp-style--display="context.displaySuccess" style="display:none">
 						<p><?php _e( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ); ?></p>
 					</div>
 				</div>
@@ -62,4 +73,5 @@ $block_props = get_block_wrapper_attributes();
 	<?php else : ?>
 		<?php _e( 'The Mailchimp form is not set up correctly.', 'rather-simple-mailchimp' ); ?>
 	<?php endif; ?>
+
 </div>

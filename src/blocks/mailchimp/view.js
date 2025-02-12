@@ -1,12 +1,21 @@
-(function () {
+import { store, getContext, getElement } from '@wordpress/interactivity';
 
-	document.querySelectorAll('.wp-block-occ-rather-simple-mailchimp .mc-field-group .fname, .wp-block-occ-rather-simple-mailchimp .mc-field-group .lname, .wp-block-occ-rather-simple-mailchimp .mc-field-group .email').forEach(function (item) {
-		item.addEventListener('focus', function (e) {
-			var form = e.currentTarget.form;
-			form.querySelectorAll('.mce-responses .response').forEach(function (item) {
-				item.style.display = 'none';
+store('rsm-store', {
+	actions: {
+		subscribe() {
+			const context = getContext()
+			const subscribe = fetch(
+				'https://' + window.location.hostname + '/wp-json/occ/v1/mailchimp/subscribe',
+				{
+					method: 'POST',
+				}
+			).then(function (response) {
+				context.displaySuccess = 'block';
+				return response.json();
+			}).catch(function (error) {
+				context.displayError = 'block';
+				console.error(error);
 			});
-		});
-	});
-
-})();
+		},
+	}
+});
