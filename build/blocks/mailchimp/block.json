@@ -29,7 +29,8 @@
     "spacing": {
       "margin": true,
       "padding": true
-    }
+    },
+    "interactivity": true
   },
   "editorScript": "file:./index.js",
   "viewScript": [
