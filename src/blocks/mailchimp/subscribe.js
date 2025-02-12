@@ -35,8 +35,7 @@
 		xhr.send(data);
 	}
 
-	var forms = document.querySelectorAll('.wp-block-occ-rather-simple-mailchimp .mc-embedded-subscribe-form');
-	forms.forEach(function (form) {
+	document.querySelectorAll('.wp-block-occ-rather-simple-mailchimp .mc-embedded-subscribe-form').forEach(function (form) {
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
 			subscribe(form);
