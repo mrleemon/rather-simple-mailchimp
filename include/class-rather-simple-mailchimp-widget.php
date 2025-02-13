@@ -49,7 +49,8 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 			echo wpautop( $textarea );
 		}
 
-		$html = '<!-- Begin Mailchimp Signup Form -->
+		$html = '<div class="wp-classic-occ-rather-simple-mailchimp">
+			<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
 			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">';
@@ -91,7 +92,8 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 				</div>
 			</form>
 		</div>
-		<!--End mc-embed-signup-->';
+		<!--End mc-embed-signup-->
+		</div>';
 
 		echo $html;
 

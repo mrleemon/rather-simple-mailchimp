@@ -55,6 +55,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 		$html .= '<div id="mailchimp-popup">
 			<div class="mailchimp-popup-content">
 			<a class="mailchimp-popup-close" title="' . __( 'Close', 'rather-simple-mailchimp' ) . '" rel="nofollow" href="#0">&times;</a>
+			<div class="wp-classic-occ-rather-simple-mailchimp">
 			<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
 			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
@@ -98,6 +99,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 			</form>
 		</div>
 		<!--End mc-embed-signup-->
+		</div>
 		</div>
 		</div>';
 

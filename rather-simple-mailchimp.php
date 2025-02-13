@@ -201,7 +201,8 @@ class Rather_Simple_Mailchimp {
 		$atts['last_name']   = filter_var( $atts['last_name'], FILTER_VALIDATE_BOOLEAN );
 		$atts['placeholder'] = filter_var( $atts['placeholder'], FILTER_VALIDATE_BOOLEAN );
 
-		$html = '<!-- Begin Mailchimp Signup Form -->
+		$html = '<div class="wp-classic-occ-rather-simple-mailchimp">
+		  <!-- Begin Mailchimp Signup Form -->
 		  <div class="mc-embed-signup">
 			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $atts['id'] ) . '" name="ID">';
@@ -243,7 +244,8 @@ class Rather_Simple_Mailchimp {
 				</div>
 			</form>
 		</div>
-		<!--End mc-embed-signup-->';
+		<!--End mc-embed-signup-->
+		</div>';
 
 		return $html;
 	}

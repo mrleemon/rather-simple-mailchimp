@@ -35,7 +35,7 @@
 		xhr.send(data);
 	}
 
-	var forms = document.querySelectorAll('.mc-embedded-subscribe-form');
+	var forms = document.querySelectorAll('.wp-classic-occ-rather-simple-mailchimp .mc-embedded-subscribe-form');
 	forms.forEach(function (form) {
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
