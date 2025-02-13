@@ -61,11 +61,12 @@ class Rather_Simple_Mailchimp {
 
 		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
+		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
 		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
-		add_action( 'rest_api_init', array( $this, 'register_rest_route' ) );
 
 		add_shortcode( 'mailchimp', array( $this, 'render_shortcode' ) );
 	}
@@ -277,30 +278,33 @@ class Rather_Simple_Mailchimp {
 	/**
 	 * Handle form with REST API
 	 */
-	public function register_rest_route() {
+	public function register_rest_routes() {
 		register_rest_route(
 			'occ/v1',
-			'/mailchimp/subscribe/',
+			'/mailchimp/subscribe',
 			array(
-				'methods'  => 'POST',
-				'callback' => array( $this, 'subscribe_mailchimp_list_rest' ),
-				'args'     => array(
-					'email'   => array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'subscribe_mailchimp_list_rest' ),
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'id'    => array(
+						'required'          => true,
+						'validate_callback' => function ( $param ) {
+							return is_string( $param );
+						},
+					),
+					'email' => array(
+						'required'          => true,
 						'validate_callback' => function ( $param ) {
 							return is_email( $param );
 						},
 					),
-					'fname'   => array(
+					'fname' => array(
 						'validate_callback' => function ( $param ) {
 							return is_string( $param );
 						},
 					),
-					'lname'   => array(
-						'validate_callback' => function ( $param ) {
-							return is_string( $param );
-						},
-					),
-					'list_id' => array(
+					'lname' => array(
 						'validate_callback' => function ( $param ) {
 							return is_string( $param );
 						},
@@ -393,10 +397,10 @@ class Rather_Simple_Mailchimp {
 	 * @param WP_REST_Request $request    The REST request.
 	 */
 	public function subscribe_mailchimp_list_rest( $request ) {
+		$list_id = $request->get_param( 'id' );
 		$email   = $request->get_param( 'email' );
 		$fname   = $request->get_param( 'fname' );
 		$lname   = $request->get_param( 'lname' );
-		$list_id = $request->get_param( 'list_id' );
 
 		$settings = (array) get_option( 'rsm_settings' );
 		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
