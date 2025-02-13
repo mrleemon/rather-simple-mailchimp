@@ -6,7 +6,8 @@
 	<?php
 	echo wp_interactivity_data_wp_context(
 		array(
-			'offset'   => 0,
+			'displayError'   => 'none',
+			'displaySuccess' => 'none',
 		)
 	);
 	?>
@@ -62,8 +63,8 @@
 					<button data-wp-on--click="actions.subscribe"><?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?></button>
 				</div>
 				<div class="mce-responses clear">
-					<div class="response mce-error-response" data-wp-style--display="context.displayError" style="display:none"></div>
-					<div class="response mce-success-response" data-wp-style--display="context.displaySuccess" style="display:none">
+					<div class="response mce-error-response" data-wp-style--display="context.displayError"></div>
+					<div class="response mce-success-response" data-wp-style--display="context.displaySuccess">
 						<p><?php _e( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ); ?></p>
 					</div>
 				</div>
