@@ -1,4 +1,4 @@
-import { store, getContext, getElement } from '@wordpress/interactivity';
+import { store, getContext } from '@wordpress/interactivity';
 
 store('rsm-store', {
 	actions: {
@@ -20,9 +20,7 @@ store('rsm-store', {
 						method: 'POST',
 						body: formData,
 					});
-
 				const data = yield response.json();
-					console.log(data);
 				if (data.result === 'success') {
 					context.displaySuccess = 'block';
 				} else {
@@ -32,7 +30,6 @@ store('rsm-store', {
 			} catch (error) {
 				context.displayError = 'block';
 				context.errorMessage = error;
-				console.error(error);
 			}
 		},
 	}
