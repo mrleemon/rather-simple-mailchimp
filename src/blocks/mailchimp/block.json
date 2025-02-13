@@ -33,10 +33,7 @@
 		"interactivity": true
 	},
 	"editorScript": "file:./index.js",
-	"viewScript": [
-		"file:./subscribe.js",
-		"file:./view.js"
-	],
+	"viewScriptModule": "file:./view.js",
 	"style": "file:./style-index.css",
 	"editorStyle": "file:./index.css",
 	"render": "file:./render.php"
