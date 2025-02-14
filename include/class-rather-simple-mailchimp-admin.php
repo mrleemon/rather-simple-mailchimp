@@ -104,7 +104,7 @@ final class Rather_Simple_Mailchimp_Admin {
 		<p class="description" id="api-key-description">
 		<?php
 		printf(
-			__( 'To use this plugin, please generate a Mailchimp API key by following the instructions <a href="%s" target="_blank">here</a> and copy it into this field.', 'rather-simple-mailchimp' ),
+			__( 'To use this plugin, please generate a Mailchimp API key by following the instructions <a href="%s" target="_blank">here</a> and paste it into this field.', 'rather-simple-mailchimp' ),
 			'https://mailchimp.com/help/about-api-keys/'
 		);
 		?>

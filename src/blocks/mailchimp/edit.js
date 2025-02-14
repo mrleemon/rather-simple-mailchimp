@@ -56,7 +56,7 @@ const Edit = (props) => {
 					{id && (
 						<ToggleControl
 							label={__(
-								'Show First Name',
+								'Show "First Name" field',
 								'rather-simple-mailchimp'
 							)}
 							checked={!!firstName}
@@ -66,7 +66,7 @@ const Edit = (props) => {
 					{id && (
 						<ToggleControl
 							label={__(
-								'Show Last Name',
+								'Show "Last Name" field',
 								'rather-simple-mailchimp'
 							)}
 							checked={!!lastName}
@@ -76,7 +76,7 @@ const Edit = (props) => {
 					{id && (
 						<ToggleControl
 							label={__(
-								'Show Placeholder',
+								'Show placeholder',
 								'rather-simple-mailchimp'
 							)}
 							checked={!!placeholder}
