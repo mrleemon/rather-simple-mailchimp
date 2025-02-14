@@ -61,7 +61,7 @@
 				</div>
 				
 				<div class="mc-submit-button">
-					<button type="submit"><?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?></button>
+					<button class="wp-element-button" type="submit"><?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?></button>
 				</div>
 				<div class="mce-responses clear">
 					<div class="response mce-error-response" data-wp-style--display="context.displayError" data-wp-text="context.errorMessage"></div>
