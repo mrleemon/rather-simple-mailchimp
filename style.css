@@ -23,15 +23,6 @@
 	margin-bottom: 10px;
 }
 
-.mc-embed-signup input.mce_inline_error {
-	background: #f4e7e6;
-	border-color: #b85f56;
-}
-
-.mc-embed-signup div.mce_inline_error {
-	display: none !important;
-}
-
 /* Popup */
 #mailchimp-popup {
 	display: none;
