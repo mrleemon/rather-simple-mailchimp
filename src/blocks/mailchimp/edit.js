@@ -48,7 +48,7 @@ const Edit = (props) => {
 					)}
 				>
 					<TextControl
-						label={__('ID', 'rather-simple-mailchimp')}
+						label={__('List ID', 'rather-simple-mailchimp')}
 						type="text"
 						value={id}
 						onChange={setID}
