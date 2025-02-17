@@ -2,7 +2,7 @@
 	$block_attributes = get_block_wrapper_attributes()
 ?>
 <div
-	<?php echo $block_attributes; ?>
+	<?php echo wp_kses_data( $block_attributes ); ?>
 	<?php
 	echo wp_interactivity_data_wp_context(
 		array(
