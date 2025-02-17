@@ -64,7 +64,6 @@ class Rather_Simple_Mailchimp {
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
-		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 		add_action( 'wp_ajax_nopriv_subscribe', array( $this, 'form_handler_ajax' ) );
 		add_action( 'wp_ajax_subscribe', array( $this, 'form_handler_ajax' ) );
 
@@ -153,22 +152,6 @@ class Rather_Simple_Mailchimp {
 				)
 			);
 		}
-	}
-
-	/**
-	 * Enqueue block assets
-	 */
-	public function enqueue_block_assets() {
-		$script_handle = generate_block_asset_handle( 'occ/rather-simple-mailchimp', 'viewScript' );
-		wp_localize_script(
-			$script_handle,
-			'ajax_var',
-			array(
-				'url'    => admin_url( 'admin-ajax.php' ),
-				'nonce'  => wp_create_nonce( 'rsm-nonce' ),
-				'action' => 'subscribe',
-			)
-		);
 	}
 
 	/**
@@ -392,7 +375,7 @@ class Rather_Simple_Mailchimp {
 	}
 
 	/**
-	 * Subscribe user to list
+	 * Subscribe user to list via REST API
 	 *
 	 * @param WP_REST_Request $request    The REST request.
 	 */
