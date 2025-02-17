@@ -270,6 +270,12 @@ class Rather_Simple_Mailchimp {
 				'callback'            => array( $this, 'subscribe_mailchimp_list_rest' ),
 				'permission_callback' => '__return_true',
 				'args'                => array(
+					'nonce' => array(
+						'required'          => true,
+						'validate_callback' => function ( $param ) {
+							return wp_verify_nonce( $param, 'rsm_nonce' );
+						},
+					),
 					'id'    => array(
 						'required'          => true,
 						'validate_callback' => function ( $param ) {
@@ -380,10 +386,18 @@ class Rather_Simple_Mailchimp {
 	 * @param WP_REST_Request $request    The REST request.
 	 */
 	public function subscribe_mailchimp_list_rest( $request ) {
+		$nonce   = $request->get_param( 'nonce' );
 		$list_id = $request->get_param( 'id' );
 		$email   = $request->get_param( 'email' );
 		$fname   = $request->get_param( 'fname' );
 		$lname   = $request->get_param( 'lname' );
+
+		error_log( 'lala' . $nonce );
+
+/*		if ( ! wp_verify_nonce( $nonce, 'rsm_nonce' ) ) {
+			error_log( 'nonce error' );
+			return;
+		}*/
 
 		$settings = (array) get_option( 'rsm_settings' );
 		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
