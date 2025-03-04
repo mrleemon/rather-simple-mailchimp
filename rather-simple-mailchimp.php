@@ -247,8 +247,8 @@ class Rather_Simple_Mailchimp {
 		}
 
 		$email   = wp_unslash( $_POST['EMAIL'] );
-		$fname   = wp_unslash( $_POST['FNAME'] ) ?? '';
-		$lname   = wp_unslash( $_POST['LNAME'] ) ?? '';
+		$fname   = wp_unslash( $_POST['FNAME'] ?? '' );
+		$lname   = wp_unslash( $_POST['LNAME'] ?? '' );
 		$list_id = wp_unslash( $_POST['ID'] );
 
 		if ( ! empty( $list_id ) &&
