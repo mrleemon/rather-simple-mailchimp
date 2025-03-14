@@ -9,6 +9,7 @@
  * Author: Oscar Ciutat
  * Author URI: http://oscarciutat.com/code/
  * Text Domain: rather-simple-mailchimp
+ * Domain Path: /languages
  * Description: A simple Mailchimp plugin with a block, a shortcode and a widget
  * License: GPLv2 or later
  *
