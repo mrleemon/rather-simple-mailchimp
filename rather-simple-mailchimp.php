@@ -4,7 +4,7 @@
  * Plugin URI:
  * Update URI: false
  * Version: 2.0
- * Requires at least: 6.6
+ * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Oscar Ciutat
  * Author URI: http://oscarciutat.com/code/
@@ -60,7 +60,6 @@ class Rather_Simple_Mailchimp {
 
 		$this->includes();
 
-		add_action( 'init', array( $this, 'load_language' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 
@@ -83,13 +82,6 @@ class Rather_Simple_Mailchimp {
 		require_once 'include/class-rather-simple-mailchimp-admin.php';
 		require_once 'include/class-rather-simple-mailchimp-widget.php';
 		require_once 'include/class-rather-simple-mailchimp-popup-widget.php';
-	}
-
-	/**
-	 * Loads language
-	 */
-	public function load_language() {
-		load_plugin_textdomain( 'rather-simple-mailchimp', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
