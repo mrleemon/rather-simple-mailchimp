@@ -1,13 +1,13 @@
-import { store, getContext } from '@wordpress/interactivity';
+import { store, withSyncEvent, getContext } from '@wordpress/interactivity';
 
 store('rsm-store', {
 	actions: {
-		reset() {
+		reset: function() {
 			const context = getContext();
 			context.displayError = 'none';
 			context.displaySuccess = 'none';
 		},
-		*subscribe(event) {
+		subscribe: withSyncEvent(function* (event) {
 			const context = getContext();
 			const formData = new FormData(event.target);
 			event.preventDefault();
@@ -31,6 +31,6 @@ store('rsm-store', {
 				context.displayError = 'block';
 				context.errorMessage = error;
 			}
-		},
+		}),
 	}
 });
