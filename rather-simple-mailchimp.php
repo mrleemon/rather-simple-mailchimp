@@ -420,8 +420,8 @@ class Rather_Simple_Mailchimp {
 							array(
 								'email_address' => $email,
 								'merge_fields'  => array(
-									'FNAME' => $fname,
-									'LNAME' => $lname,
+									'FNAME' => empty( $fname ) ? '' : $fname,
+									'LNAME' => empty( $lname ) ? '' : $lname,
 								),
 								'status'        => 'pending', // Unsubscribed, subscribed or pending.
 							)
@@ -429,7 +429,6 @@ class Rather_Simple_Mailchimp {
 					)
 				);
 				$body     = json_decode( $response['body'] );
-
 				if ( 200 === $response['response']['code'] ) {
 					$out['result'] = 'success';
 				} else {
