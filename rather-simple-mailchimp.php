@@ -266,7 +266,7 @@ class Rather_Simple_Mailchimp {
 					'nonce' => array(
 						'required'          => true,
 						'validate_callback' => function ( $param ) {
-							return wp_verify_nonce( $param, 'rsm_nonce' );
+							return wp_verify_nonce( $param, 'rsm-nonce' );
 						},
 					),
 					'id'    => array(

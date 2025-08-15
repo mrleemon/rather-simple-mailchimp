@@ -29,7 +29,7 @@
 		<div class="mc-embed-signup">
 			<form data-wp-on--submit="actions.subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 				<?php wp_nonce_field( 'wp_rest', '_wpnonce' ); ?>
-				<?php wp_nonce_field( 'rsm_nonce', 'nonce' ); ?>
+				<?php wp_nonce_field( 'rsm-nonce', 'nonce' ); ?>
 				<input type="hidden" value="<?php echo esc_attr( $attributes['id'] ); ?>" name="id">
 				
 				<?php if ( $attributes['firstName'] ) : ?>
