@@ -272,7 +272,7 @@ class Rather_Simple_Mailchimp {
 					'id'    => array(
 						'required'          => true,
 						'validate_callback' => function ( $param ) {
-							return is_string( $param );
+							return is_string( $param ) && preg_match( '/^[a-zA-Z0-9]+$/', $param );
 						},
 					),
 					'email' => array(
@@ -325,7 +325,17 @@ class Rather_Simple_Mailchimp {
 					),
 				)
 			);
-			$body     = json_decode( $response['body'] );
+
+			if ( is_wp_error( $response ) || empty( $response['body'] ) ) {
+				wp_send_json(
+					array(
+						'result' => 'error',
+						'msg'    => __( 'Connection to Mailchimp failed.', 'rather-simple-mailchimp' ),
+					)
+				);
+			}
+
+			$body = json_decode( $response['body'] );
 
 			if ( 'subscribed' !== $body->status ) {
 
@@ -428,7 +438,18 @@ class Rather_Simple_Mailchimp {
 						),
 					)
 				);
-				$body     = json_decode( $response['body'] );
+
+				if ( is_wp_error( $response ) || empty( $response['body'] ) ) {
+					wp_send_json(
+						array(
+							'result' => 'error',
+							'msg'    => __( 'Connection to Mailchimp failed.', 'rather-simple-mailchimp' ),
+						)
+					);
+				}
+
+				$body = json_decode( $response['body'] );
+
 				if ( 200 === $response['response']['code'] ) {
 					$out['result'] = 'success';
 				} else {
