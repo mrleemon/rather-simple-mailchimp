@@ -84,7 +84,7 @@
 		</div>
 		<!-- End mc-embed-signup -->
 	<?php else : ?>
-		<?php _e( 'The Mailchimp form is not set up correctly.', 'rather-simple-mailchimp' ); ?>
+		<?php _e( 'The Mailchimp form is not set up correctly. The Mailchimp list ID is missing.', 'rather-simple-mailchimp' ); ?>
 	<?php endif; ?>
 
 </div>
