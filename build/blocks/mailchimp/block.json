@@ -8,7 +8,8 @@
   "category": "embed",
   "attributes": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "firstName": {
       "type": "boolean",
