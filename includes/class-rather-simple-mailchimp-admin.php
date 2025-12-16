@@ -71,6 +71,8 @@ final class Rather_Simple_Mailchimp_Admin {
 			'rsm_settings',
 			array(
 				'sanitization_callback' => 'sanitize_text_field',
+				'show_in_rest'          => true,
+				'type'                  => 'object',
 			)
 		);
 		add_settings_section( 'api-key-section', __( 'Mailchimp API Key', 'rather-simple-mailchimp' ), null, 'rather-simple-mailchimp' );
