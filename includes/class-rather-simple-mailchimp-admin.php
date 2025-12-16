@@ -100,7 +100,7 @@ final class Rather_Simple_Mailchimp_Admin {
 		$settings = (array) get_option( 'rsm_settings' );
 		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
 		?>
-		<input name="rsm_settings[api_key]" type="text" id="rsm_settings[api_key]" value="<?php echo esc_attr( $api_key ); ?>" class="regular-text" />
+		<input name="rsm_settings[api_key]" type="password" id="rsm_settings[api_key]" value="<?php echo esc_attr( $api_key ); ?>" class="regular-text" />
 		<p class="description" id="api-key-description">
 		<?php
 		printf(
