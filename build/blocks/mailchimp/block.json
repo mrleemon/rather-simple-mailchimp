@@ -25,6 +25,7 @@
     }
   },
   "supports": {
+    "anchor": true,
     "html": false,
     "multiple": false,
     "spacing": {
