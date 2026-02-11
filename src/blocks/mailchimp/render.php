@@ -11,7 +11,15 @@
 
 ?>
 <div
-	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
+	<?php
+	echo wp_kses_data(
+		get_block_wrapper_attributes(
+			array(
+				'style' => 'max-width: ' . esc_attr( $attributes['width'] ) . ';',
+			)
+		)
+	);
+	?>
 	<?php
 	echo wp_interactivity_data_wp_context(
 		array(

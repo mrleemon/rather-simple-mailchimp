@@ -22,6 +22,10 @@
     "placeholder": {
       "type": "boolean",
       "default": false
+    },
+    "width": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

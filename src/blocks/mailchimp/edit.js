@@ -3,24 +3,35 @@
  */
 import { __ } from '@wordpress/i18n';
 import {
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 	Disabled,
 	PanelBody,
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 import {
+	DimensionControl,
 	InspectorControls,
 	useBlockProps
 } from '@wordpress/block-editor';
 import ServerSideRender from '@wordpress/server-side-render';
+import { useState } from 'react';
 
 const Edit = (props) => {
 
-	const blockProps = useBlockProps();
 	const {
-		attributes: { id, firstName, lastName, placeholder },
+		attributes: { id, firstName, lastName, placeholder, width },
 		setAttributes,
+		clientId
 	} = props;
+
+	const blockProps = useBlockProps({
+		style: {
+			width: undefined,
+			maxWidth: width,
+		},
+	});
 
 	const setID = (value) => {
 		setAttributes({ id: value });
@@ -36,6 +47,10 @@ const Edit = (props) => {
 
 	const togglePlaceholder = () => {
 		setAttributes({ placeholder: !props.attributes.placeholder });
+	};
+
+	const setWidth = (value) => {
+		setAttributes({ width: value });
 	};
 
 	return (
@@ -84,6 +99,22 @@ const Edit = (props) => {
 						/>
 					)}
 				</PanelBody>
+			</InspectorControls>
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={() => !!width}
+					label={__('Max. Width', 'rather-simple-mailchimp')}
+					onDeselect={() => setWidth(undefined)}
+					resetAllFilter={() => setWidth(undefined)}
+					isShownByDefault
+					panelId={clientId}
+				>
+					<DimensionControl
+						label={__('Max. Width', 'rather-simple-mailchimp')}
+						onChange={setWidth}
+						value={width}
+					/>
+				</ToolsPanelItem>
 			</InspectorControls>
 			<div {...blockProps}>
 				<Disabled>
