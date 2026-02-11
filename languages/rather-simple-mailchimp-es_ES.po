@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Rather Simple Mailchimp\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rather-simple-"
 "mailchimp\n"
-"POT-Creation-Date: 2025-10-12T17:59:38+00:00\n"
-"PO-Revision-Date: 2025-10-12 19:59+0200\n"
+"POT-Creation-Date: 2026-02-11T23:31:00+00:00\n"
+"PO-Revision-Date: 2026-02-12 00:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -23,35 +23,39 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 #. Plugin Name of the plugin
+#: rather-simple-mailchimp.php
 #: includes/class-rather-simple-mailchimp-admin.php:62
-#: includes/class-rather-simple-mailchimp-admin.php:86
+#: includes/class-rather-simple-mailchimp-admin.php:88
 msgid "Rather Simple Mailchimp"
 msgstr ""
 
 #. Description of the plugin
+#: rather-simple-mailchimp.php
 msgid "A simple Mailchimp plugin with a block, a shortcode and a widget"
 msgstr ""
 
 #. Author of the plugin
+#: rather-simple-mailchimp.php
 msgid "Oscar Ciutat"
 msgstr ""
 
 #. Author URI of the plugin
+#: rather-simple-mailchimp.php
 msgid "http://oscarciutat.com/code/"
 msgstr ""
 
-#: build/blocks/mailchimp/render.php:36 build/blocks/mailchimp/render.php:39
+#: build/blocks/mailchimp/render.php:44 build/blocks/mailchimp/render.php:47
 #: includes/class-rather-simple-mailchimp-popup-widget.php:65
 #: includes/class-rather-simple-mailchimp-popup-widget.php:67
 #: includes/class-rather-simple-mailchimp-widget.php:59
 #: includes/class-rather-simple-mailchimp-widget.php:61
 #: rather-simple-mailchimp.php:188 rather-simple-mailchimp.php:190
-#: src/blocks/mailchimp/render.php:36 src/blocks/mailchimp/render.php:39
+#: src/blocks/mailchimp/render.php:44 src/blocks/mailchimp/render.php:47
 msgid "First Name"
 msgstr "Nombre"
 
-#: build/blocks/mailchimp/render.php:40 build/blocks/mailchimp/render.php:51
-#: build/blocks/mailchimp/render.php:61 build/blocks/mailchimp/render.php:70
+#: build/blocks/mailchimp/render.php:48 build/blocks/mailchimp/render.php:59
+#: build/blocks/mailchimp/render.php:69 build/blocks/mailchimp/render.php:78
 #: includes/class-rather-simple-mailchimp-popup-widget.php:67
 #: includes/class-rather-simple-mailchimp-popup-widget.php:75
 #: includes/class-rather-simple-mailchimp-popup-widget.php:82
@@ -62,70 +66,72 @@ msgstr "Nombre"
 #: includes/class-rather-simple-mailchimp-widget.php:81
 #: rather-simple-mailchimp.php:190 rather-simple-mailchimp.php:198
 #: rather-simple-mailchimp.php:205 rather-simple-mailchimp.php:210
-#: src/blocks/mailchimp/render.php:40 src/blocks/mailchimp/render.php:51
-#: src/blocks/mailchimp/render.php:61 src/blocks/mailchimp/render.php:70
+#: src/blocks/mailchimp/render.php:48 src/blocks/mailchimp/render.php:59
+#: src/blocks/mailchimp/render.php:69 src/blocks/mailchimp/render.php:78
 msgid "required"
 msgstr "obligatorio"
 
-#: build/blocks/mailchimp/render.php:47 build/blocks/mailchimp/render.php:50
+#: build/blocks/mailchimp/render.php:55 build/blocks/mailchimp/render.php:58
 #: includes/class-rather-simple-mailchimp-popup-widget.php:73
 #: includes/class-rather-simple-mailchimp-popup-widget.php:75
 #: includes/class-rather-simple-mailchimp-widget.php:67
 #: includes/class-rather-simple-mailchimp-widget.php:69
 #: rather-simple-mailchimp.php:196 rather-simple-mailchimp.php:198
-#: src/blocks/mailchimp/render.php:47 src/blocks/mailchimp/render.php:50
+#: src/blocks/mailchimp/render.php:55 src/blocks/mailchimp/render.php:58
 msgid "Last Name"
 msgstr "Apellidos"
 
-#: build/blocks/mailchimp/render.php:57 build/blocks/mailchimp/render.php:60
+#: build/blocks/mailchimp/render.php:65 build/blocks/mailchimp/render.php:68
 #: includes/class-rather-simple-mailchimp-popup-widget.php:80
 #: includes/class-rather-simple-mailchimp-popup-widget.php:82
 #: includes/class-rather-simple-mailchimp-widget.php:74
 #: includes/class-rather-simple-mailchimp-widget.php:76
 #: rather-simple-mailchimp.php:203 rather-simple-mailchimp.php:205
-#: src/blocks/mailchimp/render.php:57 src/blocks/mailchimp/render.php:60
+#: src/blocks/mailchimp/render.php:65 src/blocks/mailchimp/render.php:68
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: build/blocks/mailchimp/render.php:69
+#: build/blocks/mailchimp/render.php:77
 #: includes/class-rather-simple-mailchimp-popup-widget.php:87
 #: includes/class-rather-simple-mailchimp-widget.php:81
-#: rather-simple-mailchimp.php:210 src/blocks/mailchimp/render.php:69
+#: rather-simple-mailchimp.php:210 src/blocks/mailchimp/render.php:77
+#, php-format
 msgid "I have read and agree to the %s."
 msgstr "He leído y acepto la %s."
 
-#: build/blocks/mailchimp/render.php:75
+#: build/blocks/mailchimp/render.php:83
 #: includes/class-rather-simple-mailchimp-popup-widget.php:91
 #: includes/class-rather-simple-mailchimp-widget.php:85
-#: rather-simple-mailchimp.php:214 src/blocks/mailchimp/render.php:75
+#: rather-simple-mailchimp.php:214 src/blocks/mailchimp/render.php:83
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: build/blocks/mailchimp/render.php:80
+#: build/blocks/mailchimp/render.php:88
 #: includes/class-rather-simple-mailchimp-popup-widget.php:96
 #: includes/class-rather-simple-mailchimp-widget.php:90
-#: rather-simple-mailchimp.php:219 src/blocks/mailchimp/render.php:80
+#: rather-simple-mailchimp.php:219 src/blocks/mailchimp/render.php:88
 msgid "Thank you for subscribing. We have sent you a confirmation email."
 msgstr ""
 "Gracias por suscribirte. Te hemos enviado un correo electrónico de "
 "confirmación."
 
-#: build/blocks/mailchimp/render.php:87 src/blocks/mailchimp/render.php:87
+#: build/blocks/mailchimp/render.php:95 src/blocks/mailchimp/render.php:95
 msgid ""
 "The Mailchimp form is not set up correctly. The Mailchimp list ID is missing."
 msgstr ""
 "El formulario de Mailchimp no está configurado correctamente. Falta el ID de "
 "la lista de Mailchimp."
 
-#: includes/class-rather-simple-mailchimp-admin.php:76
+#: includes/class-rather-simple-mailchimp-admin.php:78
 msgid "Mailchimp API Key"
 msgstr "Clave de la API de Mailchimp"
 
-#: includes/class-rather-simple-mailchimp-admin.php:77
+#: includes/class-rather-simple-mailchimp-admin.php:79
 msgid "API Key"
 msgstr "Clave de la API"
 
-#: includes/class-rather-simple-mailchimp-admin.php:107
+#: includes/class-rather-simple-mailchimp-admin.php:109
+#, php-format
 msgid ""
 "To use this plugin, please generate a Mailchimp API key by following the "
 "instructions <a href=\"%s\" target=\"_blank\">here</a> and paste it into "
@@ -181,9 +187,10 @@ msgstr "Widget Rather Simple Mailchimp"
 
 #: rather-simple-mailchimp.php:333 rather-simple-mailchimp.php:446
 msgid "Connection to Mailchimp failed."
-msgstr ""
+msgstr "La conexión a Mailchimp ha fallado."
 
 #: rather-simple-mailchimp.php:375 rather-simple-mailchimp.php:464
+#, php-format
 msgid "%s is already subscribed."
 msgstr "%s ya está suscrito."
 
@@ -191,25 +198,30 @@ msgstr "%s ya está suscrito."
 msgid "Mailchimp API key is missing."
 msgstr "Falta la clave de la API de Mailchimp."
 
-#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:45
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:60
 msgid "Mailchimp Settings"
 msgstr "Ajustes de Mailchimp"
 
-#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:51
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:66
 msgid "List ID"
 msgstr "ID de la lista"
 
-#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:58
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:73
 msgid "Show \"First Name\" field"
 msgstr "Mostrar el campo «Nombre»"
 
-#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:68
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:83
 msgid "Show \"Last Name\" field"
 msgstr "Mostrar el campo «Apellido»"
 
-#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:78
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:93
 msgid "Show placeholder"
 msgstr "Mostrar mensaje de muestra"
+
+#: build/blocks/mailchimp/index.js:1 src/blocks/mailchimp/edit.js:106
+#: src/blocks/mailchimp/edit.js:113
+msgid "Max. Width"
+msgstr "Ancho máximo"
 
 #: build/blocks/mailchimp/block.json src/blocks/mailchimp/block.json
 msgctxt "block title"
