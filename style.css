@@ -1,25 +1,25 @@
 /* General */
-.mc-embed-signup .mc-field-group {
+.wp-classic-occ-rather-simple-mailchimp .mc-field-group {
 	position: relative;
 	margin: 0 0 1em;
 }
 
-.mc-embed-signup .mc-submit-button {
+.wp-classic-occ-rather-simple-mailchimp .mc-submit-button {
 	overflow: hidden;
 }
 
-.mc-embed-signup .button {
+.wp-classic-occ-rather-simple-mailchimp .wp-element-button {
 	margin: 0;
 }
 
-.mc-embed-signup .mc-responses {
+.wp-classic-occ-rather-simple-mailchimp .mc-responses {
 	margin-top: 10px;
 	font-size: 85%;
 	text-align: center;
 	clear: both;
 }
 
-.mc-embed-signup .mc-responses .response {
+.wp-classic-occ-rather-simple-mailchimp .mc-responses .response {
 	margin-bottom: 10px;
 }
 

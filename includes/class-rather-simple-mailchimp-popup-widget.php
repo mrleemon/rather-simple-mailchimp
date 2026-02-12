@@ -56,8 +56,6 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 			<div class="mailchimp-popup-content">
 			<a class="mailchimp-popup-close" title="' . __( 'Close', 'rather-simple-mailchimp' ) . '" rel="nofollow" href="#0">&times;</a>
 			<div class="wp-classic-occ-rather-simple-mailchimp">
-			<!-- Begin Mailchimp Signup Form -->
-			<div class="mc-embed-signup">
 			<form method="post" class="mc-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">';
 
@@ -97,8 +95,6 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 					</p></div>
 				</div>
 			</form>
-		</div>
-		<!--End mc-embed-signup-->
 		</div>
 		</div>
 		</div>';

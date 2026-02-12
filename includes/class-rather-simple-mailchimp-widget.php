@@ -50,8 +50,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		}
 
 		$html = '<div class="wp-classic-occ-rather-simple-mailchimp">
-			<!-- Begin Mailchimp Signup Form -->
-			<div class="mc-embed-signup">
 			<form method="post" class="mc-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">';
 
@@ -91,8 +89,6 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 					</p></div>
 				</div>
 			</form>
-		</div>
-		<!--End mc-embed-signup-->
 		</div>';
 
 		echo $html;

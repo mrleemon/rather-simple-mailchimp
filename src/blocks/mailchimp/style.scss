@@ -1,19 +1,20 @@
 .wp-block-occ-rather-simple-mailchimp {
-	.mc-embed-signup {
-		.mc-field-group {
-			position: relative;
-			margin: 0 0 1em;
-		}
-		.button {
-			margin: 0;
-		}
-		.mc-responses {
-			margin-top: 10px;
-			font-size: 85%;
-			text-align: center;
-			.response {
-				margin-bottom: 10px;
-			}
+	.mc-field-group {
+		position: relative;
+		margin: 0 0 1em;
+	}
+
+	.wp-element-button {
+		margin: 0;
+	}
+
+	.mc-responses {
+		margin-top: 10px;
+		font-size: 85%;
+		text-align: center;
+
+		.response {
+			margin-bottom: 10px;
 		}
 	}
 }
