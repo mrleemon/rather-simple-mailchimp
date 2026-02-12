@@ -211,7 +211,7 @@ class Rather_Simple_Mailchimp {
 			</div>';
 
 		$html .= '<div class="mc-submit-button">
-					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button wp-element-button">
+					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="wp-element-button">
 				</div>
 				<div class="mce-responses clear">
 					<div class="response mce-error-response" style="display:none"></div>
