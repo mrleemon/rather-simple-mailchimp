@@ -82,7 +82,7 @@
 				<div class="mc-submit-button">
 					<button class="wp-element-button" type="submit"><?php _e( 'Subscribe', 'rather-simple-mailchimp' ); ?></button>
 				</div>
-				<div class="mce-responses">
+				<div class="mc-responses">
 					<div class="response mce-error-response" data-wp-style--display="context.displayError" data-wp-text="context.errorMessage"></div>
 					<div class="response mce-success-response" data-wp-style--display="context.displaySuccess">
 						<p><?php _e( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ); ?></p>
