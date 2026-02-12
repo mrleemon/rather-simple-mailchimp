@@ -90,7 +90,7 @@ class Rather_Simple_Mailchimp_Popup_Widget extends WP_Widget {
 		$html .= '<div class="mc-submit-button">
 					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="wp-element-button">
 				</div>
-				<div class="mce-responses clear">
+				<div class="mce-responses">
 					<div class="response mce-error-response" style="display:none"></div>
 					<div class="response mce-success-response" style="display:none"><p>
 					' . __( 'Thank you for subscribing. We have sent you a confirmation email.', 'rather-simple-mailchimp' ) . '
