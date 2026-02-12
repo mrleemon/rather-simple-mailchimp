@@ -181,7 +181,7 @@ class Rather_Simple_Mailchimp {
 		$html = '<div class="wp-classic-occ-rather-simple-mailchimp">
 		  <!-- Begin Mailchimp Signup Form -->
 		  <div class="mc-embed-signup">
-			<form method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
+			<form method="post" name="mc-embedded-subscribe-form" class="mc-embedded-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $atts['id'] ) . '" name="ID">';
 
 		if ( $atts['first_name'] ) {
