@@ -15,13 +15,13 @@
 				if (xhr.status === 200) {
 					var data = JSON.parse(xhr.responseText);
 					if (data.result !== 'success') {
-						var errorResponse = form.querySelector('.mce-error-response');
+						var errorResponse = form.querySelector('.mc-error-response');
 						if (errorResponse) {
 							errorResponse.style.display = 'block';
 							errorResponse.innerHTML = '<p>' + data.msg + '</p>';
 						}
 					} else {
-						var successResponse = form.querySelector('.mce-success-response');
+						var successResponse = form.querySelector('.mc-success-response');
 						if (successResponse) {
 							successResponse.style.display = 'block';
 						}
