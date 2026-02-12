@@ -52,7 +52,7 @@ class Rather_Simple_Mailchimp_Widget extends WP_Widget {
 		$html = '<div class="wp-classic-occ-rather-simple-mailchimp">
 			<!-- Begin Mailchimp Signup Form -->
 			<div class="mc-embed-signup">
-			<form method="post" class="mc-embedded-subscribe-form">
+			<form method="post" class="mc-subscribe-form">
 			<input type="hidden" value="' . esc_attr( $id ) . '" name="ID">';
 
 		if ( $first_name ) {

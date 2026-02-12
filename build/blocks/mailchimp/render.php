@@ -35,7 +35,7 @@
 	<?php if ( $attributes['id'] ) : ?>
 		<!-- Begin Mailchimp Signup Form -->
 		<div class="mc-embed-signup">
-			<form data-wp-on--submit="actions.subscribe" method="post" class="mc-embedded-subscribe-form">
+			<form data-wp-on--submit="actions.subscribe" method="post" class="mc-subscribe-form">
 				<?php wp_nonce_field( 'wp_rest', '_wpnonce' ); ?>
 				<?php wp_nonce_field( 'rsm-nonce', 'nonce' ); ?>
 				<input type="hidden" value="<?php echo esc_attr( $attributes['id'] ); ?>" name="id">
