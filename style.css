@@ -5,7 +5,8 @@
 }
 
 .wp-classic-occ-rather-simple-mailchimp .mc-submit-button {
-	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
 
 .wp-classic-occ-rather-simple-mailchimp .wp-element-button {
