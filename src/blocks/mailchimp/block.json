@@ -32,6 +32,7 @@
 		"anchor": true,
 		"html": false,
 		"multiple": false,
+		"align": [ "center" ],
 		"spacing": {
 			"margin": true,
 			"padding": true
