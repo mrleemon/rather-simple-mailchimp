@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "devDependencies": {
     "@wordpress/interactivity": "^6.39.0",
-    "@wordpress/scripts": "^31.4.0"
+    "@wordpress/scripts": "^31.4.0",
+    "dir-archiver": "^2.2.0"
   },
   "scripts": {
     "build": "wp-scripts build --experimental-modules",
@@ -17,14 +18,11 @@
     "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip",
     "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js",
     "make-pot": "wp i18n make-pot . languages/rather-simple-mailchimp.pot",
-    "make-json": "wp i18n make-json languages --no-purge"
-  },
-  "dependencies": {
-    "npm-check-updates": "^19.3.2"
+    "make-json": "wp i18n make-json languages --no-purge",
+    "bundle": "dir-archiver --includebasedir --src . --dest ../rather-simple-mailchimp.zip --exclude .git .gitattributes .gitignore node_modules package-lock.json package.json"
   }
 }
