@@ -185,31 +185,34 @@ class Rather_Simple_Mailchimp {
 		if ( $atts['first_name'] ) {
 			$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : '';
 			$html       .= '<div class="mc-field-group">
-					<label for="mce-FNAME">' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-					<input type="text" value="" name="FNAME" class="required fname" id="mce-FNAME" required ' . $placeholder . '>
+					<label>' . __( 'First Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr>
+					<input type="text" value="" name="FNAME" class="required fname" required ' . $placeholder . '>
+					</label>
 				</div>';
 		}
 
 		if ( $atts['last_name'] ) {
 			$placeholder = $atts['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : '';
 			$html       .= '<div class="mc-field-group">
-					<label for="mce-LNAME">' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-					<input type="text" value="" name="LNAME" class="required lname" id="mce-LNAME" required ' . $placeholder . '>
+					<label>' . __( 'Last Name', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr>
+					<input type="text" value="" name="LNAME" class="required lname" required ' . $placeholder . '>
+					</label>
 				</div>';
 		}
 
 		$placeholder = $atts['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : '';
 		$html       .= '<div class="mc-field-group">
-					<label for="mce-EMAIL">' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
-					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ' . $placeholder . '>
+					<label>' . __( 'Email', 'rather-simple-mailchimp' ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr>
+					<input type="email" value="" name="EMAIL" class="required email"  required ' . $placeholder . '>
+					</label>
 				</div>';
 
 		$html .= '<div class="mc-field-group">
-				<input type="checkbox" value="1" name="PRIVACY" id="mc-privacy-policy" required> <label>' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
+				<label><input type="checkbox" value="1" name="PRIVACY" required> ' . sprintf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ) . ' <abbr class="required" title="' . __( 'required', 'rather-simple-mailchimp' ) . '">*</abbr></label>
 			</div>';
 
 		$html .= '<div class="mc-submit-button">
-					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" id="mc-embedded-subscribe" class="wp-element-button">
+					<input type="submit" value="' . __( 'Subscribe', 'rather-simple-mailchimp' ) . '" name="subscribe" class="wp-element-button">
 				</div>
 				<div class="mc-responses">
 					<div class="response mc-error-response" style="display:none"></div>

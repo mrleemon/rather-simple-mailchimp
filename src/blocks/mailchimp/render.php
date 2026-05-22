@@ -41,37 +41,37 @@
 			<?php if ( $attributes['firstName'] ) : ?>
 				<?php $placeholder = $attributes['placeholder'] ? ' placeholder="' . __( 'First Name', 'rather-simple-mailchimp' ) . '"' : ''; ?>
 				<div class="mc-field-group">
-					<label for="mce-FNAME">
+					<label>
 						<?php _e( 'First Name', 'rather-simple-mailchimp' ); ?> 
 						<abbr class="required" title="<?php _e( 'required', 'rather-simple-mailchimp' ); ?>">*</abbr>
+						<input data-wp-on--focus="actions.reset" type="text" value="" name="fname" class="required fname" required <?php echo $placeholder; ?>>
 					</label>
-					<input data-wp-on--focus="actions.reset" type="text" value="" name="fname" class="required fname" id="mce-FNAME" required <?php echo $placeholder; ?>>
 				</div>
 			<?php endif; ?>
 			
 			<?php if ( $attributes['lastName'] ) : ?>
 				<?php $placeholder = $attributes['placeholder'] ? ' placeholder="' . __( 'Last Name', 'rather-simple-mailchimp' ) . '"' : ''; ?>
 				<div class="mc-field-group">
-					<label for="mce-LNAME">
+					<label>
 						<?php _e( 'Last Name', 'rather-simple-mailchimp' ); ?> 
 						<abbr class="required" title="<?php _e( 'required', 'rather-simple-mailchimp' ); ?>">*</abbr>
+						<input data-wp-on--focus="actions.reset" type="text" value="" name="lname" class="required lname" required <?php echo $placeholder; ?>>
 					</label>
-					<input data-wp-on--focus="actions.reset" type="text" value="" name="lname" class="required lname" id="mce-LNAME" required <?php echo $placeholder; ?>>
 				</div>
 			<?php endif; ?>
 			
 			<?php $placeholder = $attributes['placeholder'] ? 'placeholder="' . __( 'Email', 'rather-simple-mailchimp' ) . '"' : ''; ?>
 			<div class="mc-field-group">
-				<label for="mce-EMAIL">
+				<label>
 					<?php _e( 'Email', 'rather-simple-mailchimp' ); ?> 
 					<abbr class="required" title="<?php _e( 'required', 'rather-simple-mailchimp' ); ?>">*</abbr>
+					<input data-wp-on--focus="actions.reset" type="email" value="" name="email" class="required email" required <?php echo $placeholder; ?>>
 				</label>
-				<input data-wp-on--focus="actions.reset" type="email" value="" name="email" class="required email" id="mce-EMAIL" required <?php echo $placeholder; ?>>
 			</div>
 			
 			<div class="mc-field-group">
-				<input type="checkbox" value="1" name="privacy" id="mc-privacy-policy" required>
 				<label>
+					<input type="checkbox" value="1" name="privacy" required>
 					<?php printf( __( 'I have read and agree to the %s.', 'rather-simple-mailchimp' ), get_the_privacy_policy_link() ); ?> 
 					<abbr class="required" title="<?php _e( 'required', 'rather-simple-mailchimp' ); ?>">*</abbr>
 				</label>
