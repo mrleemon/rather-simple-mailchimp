@@ -4,8 +4,8 @@
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
   "devDependencies": {
-    "@wordpress/interactivity": "^6.46.0",
-    "@wordpress/scripts": "^32.2.0",
+    "@wordpress/interactivity": "^6.47.0",
+    "@wordpress/scripts": "^32.3.0",
     "dir-archiver": "^3.0.1"
   },
   "scripts": {
