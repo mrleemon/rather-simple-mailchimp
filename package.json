@@ -23,6 +23,6 @@
     "test:unit": "wp-scripts test-unit-js",
     "make-pot": "wp i18n make-pot . languages/rather-simple-mailchimp.pot",
     "make-json": "wp i18n make-json languages --no-purge",
-    "bundle": "dir-archiver --includebasedir --src . --dest ../rather-simple-mailchimp.zip --exclude .git .gitattributes .gitignore node_modules package-lock.json package.json"
+    "bundle": "dir-archiver write --include-base-directory --source . --output ../rather-simple-mailchimp.zip --exclude .git --exclude .gitattributes --exclude .gitignore --exclude node_modules --exclude package-lock.json --exclude package.json"
   }
 }
